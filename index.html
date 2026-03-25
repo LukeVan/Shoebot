@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DICK'S Sporting Goods — Coach AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #1a1a1a;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+}
+
+.phone {
+  width: 100%;
+  max-width: 390px;
+  height: 820px;
+  background: #f5f3ef;
+  border-radius: 44px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06);
+}
+
+/* STATUS BAR */
+.status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 28px 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: #111;
+  flex-shrink: 0;
+  background: #f5f3ef;
+}
+.status-icons { display: flex; align-items: center; gap: 6px; font-size: 12px; }
+
+/* SCREENS */
+.screen { display: none; flex-direction: column; flex: 1; overflow: hidden; }
+.screen.active { display: flex; }
+
+/* ── SPORT SELECT SCREEN ── */
+#screen-sport { padding: 24px 28px 36px; background: #f5f3ef; }
+
+.dsg-eyebrow {
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #999;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.big-title {
+  font-family: 'Anton', sans-serif;
+  font-size: 38px;
+  line-height: 1.07;
+  color: #111;
+  margin-bottom: 14px;
+}
+
+.sub-text {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.55;
+  margin-bottom: 32px;
+}
+
+.sport-grid { display: flex; flex-direction: column; gap: 12px; flex: 1; justify-content: center; }
+
+.sport-btn {
+  display: flex;
+  align-items: center;
+  background: white;
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  padding-right: 20px;
+  text-align: left;
+}
+.sport-btn:hover { transform: translateX(5px); box-shadow: 0 4px 18px rgba(0,0,0,0.12); }
+
+.sport-thumb {
+  width: 82px;
+  height: 82px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+  background: #eee;
+}
+.sport-info { flex: 1; padding: 0 16px; }
+.sport-name { font-family: 'Anton', sans-serif; font-size: 20px; color: #111; }
+.sport-tagline { font-size: 12px; color: #888; margin-top: 2px; }
+.sport-arrow { color: #1e7a4a; font-size: 20px; font-weight: 700; }
+
+/* ── INTRO SCREEN ── */
+#screen-intro { background: #f5f3ef; }
+
+.intro-top { padding: 20px 26px 18px; flex-shrink: 0; }
+.intro-eyebrow { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #999; font-weight: 600; margin-bottom: 12px; }
+.intro-title { font-family: 'Anton', sans-serif; font-size: 32px; line-height: 1.08; color: #111; margin-bottom: 12px; }
+.intro-sub { font-size: 14px; color: #666; line-height: 1.5; }
+
+.starters-list {
+  flex: 1;
+  padding: 10px 18px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.starter-card {
+  display: flex;
+  align-items: center;
+  background: white;
+  border: none;
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  text-align: left;
+  padding-right: 16px;
+}
+.starter-card:hover { transform: translateX(4px); box-shadow: 0 4px 14px rgba(0,0,0,0.11); }
+
+.starter-thumb {
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+  background: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  background-size: cover;
+  background-position: center;
+}
+.starter-text { flex: 1; padding: 0 14px; font-size: 14px; color: #111; font-weight: 500; line-height: 1.4; }
+.starter-arrow { color: #1e7a4a; font-size: 18px; font-weight: 700; flex-shrink: 0; }
+
+.intro-input-row {
+  margin: 0 18px 28px;
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 28px;
+  border: 1.5px solid #1e7a4a;
+  padding: 11px 12px 11px 16px;
+  gap: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.plus-circle {
+  width: 26px; height: 26px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: #bbb; font-size: 18px; line-height: 1;
+  flex-shrink: 0;
+}
+.intro-input-row input {
+  flex: 1; border: none; outline: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px; color: #999; background: transparent;
+}
+.send-circle {
+  width: 32px; height: 32px;
+  background: #1e7a4a; border: none; border-radius: 50%;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; transition: background 0.15s;
+}
+.send-circle:hover { background: #155c37; }
+.send-circle svg { width: 14px; height: 14px; fill: white; }
+
+/* ── CHAT SCREEN ── */
+#screen-chat { background: #f5f3ef; }
+
+.chat-header {
+  background: white;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #e8e4de;
+  flex-shrink: 0;
+}
+.back-btn { background: none; border: none; cursor: pointer; color: #1e7a4a; font-size: 22px; padding: 0; line-height: 1; }
+.avatar { width: 36px; height: 36px; background: #1e7a4a; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+.hdr-info { flex: 1; }
+.hdr-name { font-family: 'Anton', sans-serif; font-size: 16px; color: #111; letter-spacing: 0.5px; }
+.hdr-sub { font-size: 11px; color: #999; display: flex; align-items: center; gap: 4px; margin-top: 1px; }
+.online-dot { width: 6px; height: 6px; background: #2dc76d; border-radius: 50%; animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  scroll-behavior: smooth;
+}
+.messages::-webkit-scrollbar { width: 3px; }
+.messages::-webkit-scrollbar-thumb { background: rgba(30,122,74,0.2); border-radius: 4px; }
+
+.msg-row { display: flex; flex-direction: column; animation: up 0.25s ease; }
+.msg-row.user { align-items: flex-end; }
+.msg-row.bot { align-items: flex-start; }
+@keyframes up { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+
+.bub {
+  max-width: 80%;
+  padding: 11px 14px;
+  border-radius: 18px;
+  font-size: 14px;
+  line-height: 1.55;
+}
+.bub.user { background: #1e7a4a; color: white; border-bottom-right-radius: 4px; }
+.bub.bot { background: white; color: #111; border-bottom-left-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.07); }
+.bub a { color: #1e7a4a; font-weight: 600; text-decoration: none; }
+.bub a:hover { text-decoration: underline; }
+.bub ul { margin: 8px 0 4px 16px; }
+.bub ul li { margin-bottom: 5px; }
+
+.shoe-card { background: #edf7f2; border-radius: 12px; padding: 12px; margin-top: 10px; border-left: 3px solid #1e7a4a; }
+.shoe-name { font-family: 'Anton', sans-serif; font-size: 17px; color: #1e5c38; }
+.shoe-rating { font-size: 12px; color: #666; margin: 3px 0 8px; }
+.shop-btn { display: inline-block; background: #1e7a4a; color: white !important; padding: 7px 14px; border-radius: 8px; font-size: 13px; font-weight: 600; text-decoration: none !important; margin-top: 4px; }
+
+.msg-ts { font-size: 10px; color: #bbb; margin-top: 3px; padding: 0 3px; }
+
+.typing-row { display: flex; }
+.typing-bub { background: white; border-radius: 18px; border-bottom-left-radius: 4px; padding: 12px 16px; display: flex; gap: 5px; box-shadow: 0 2px 6px rgba(0,0,0,0.07); }
+.td { width: 7px; height: 7px; background: #b0c9bc; border-radius: 50%; animation: b 1.2s infinite; }
+.td:nth-child(2){animation-delay:.2s} .td:nth-child(3){animation-delay:.4s}
+@keyframes b { 0%,80%,100%{transform:translateY(0);opacity:.5} 40%{transform:translateY(-6px);opacity:1} }
+
+.suggs { display: flex; flex-direction: column; gap: 7px; animation: up 0.3s ease 0.1s both; }
+.sugg-btn {
+  display: flex; align-items: center; gap: 10px;
+  background: white; border: 1.5px solid #d4e8dc; border-radius: 12px;
+  padding: 10px 14px; font-size: 13px; color: #1a5c38;
+  cursor: pointer; text-align: left; font-family: 'DM Sans', sans-serif;
+  font-weight: 500; transition: all 0.15s ease;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+.sugg-btn:hover { background: #edf7f2; border-color: #1e7a4a; transform: translateX(3px); }
+.sarr { color: #1e7a4a; font-size: 14px; flex-shrink: 0; }
+
+.chat-input-area {
+  padding: 10px 14px 22px;
+  background: #f5f3ef;
+  border-top: 1px solid #e4e0da;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.input-pill {
+  flex: 1; background: white; border-radius: 22px;
+  border: 1.5px solid #d4e8dc; display: flex; align-items: center;
+  padding: 9px 14px; gap: 8px; transition: border-color 0.2s;
+}
+.input-pill:focus-within { border-color: #1e7a4a; }
+.input-pill textarea {
+  flex: 1; border: none; outline: none;
+  font-family: 'DM Sans', sans-serif; font-size: 14px; color: #111;
+  background: transparent; resize: none; max-height: 68px; line-height: 1.4;
+}
+.input-pill textarea::placeholder { color: #bbb; }
+.send-btn-round {
+  width: 38px; height: 38px;
+  background: #1e7a4a; border: none; border-radius: 50%;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; transition: all 0.15s;
+  box-shadow: 0 2px 8px rgba(30,122,74,0.3);
+}
+.send-btn-round:hover { background: #155c37; }
+.send-btn-round svg { width: 15px; height: 15px; fill: white; }
+
+.home-bar-wrap { height: 26px; display: flex; align-items: center; justify-content: center; background: #f5f3ef; flex-shrink: 0; }
+.home-bar { width: 120px; height: 5px; background: #111; border-radius: 3px; opacity: 0.15; }
+</style>
+</head>
+<body>
+<div class="phone">
+
+  <div class="status-bar">
+    <span>9:41</span>
+    <div class="status-icons">
+      <span>▲▲▲</span>
+      <span>WiFi</span>
+      <span>🔋</span>
+    </div>
+  </div>
+
+  <!-- SCREEN 1: SPORT SELECT -->
+  <div id="screen-sport" class="screen active">
+    <div style="padding:24px 28px 0">
+      <div class="dsg-eyebrow">DSG · Brand Concierge</div>
+      <div class="big-title">Explore what you can do with Dick's Sporting Goods.</div>
+      <div class="sub-text">Pick your sport and I'll give you personalized coaching tips and a gear recommendation.</div>
+    </div>
+    <div class="sport-grid" style="padding:0 28px 36px;margin-top:auto">
+      <button class="sport-btn" onclick="selectSport('soccer')">
+        <div class="sport-thumb" id="st-soccer">⚽</div>
+        <div class="sport-info"><div class="sport-name">Soccer</div><div class="sport-tagline">Level up your game on the pitch</div></div>
+        <span class="sport-arrow">↳</span>
+      </button>
+      <button class="sport-btn" onclick="selectSport('basketball')">
+        <div class="sport-thumb" id="st-basketball">🏀</div>
+        <div class="sport-info"><div class="sport-name">Basketball</div><div class="sport-tagline">Dominate the hardwood</div></div>
+        <span class="sport-arrow">↳</span>
+      </button>
+      <button class="sport-btn" onclick="selectSport('running')">
+        <div class="sport-thumb" id="st-running">🏃</div>
+        <div class="sport-info"><div class="sport-name">Running</div><div class="sport-tagline">Every mile starts here</div></div>
+        <span class="sport-arrow">↳</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- SCREEN 2: INTRO / STARTERS -->
+  <div id="screen-intro" class="screen">
+    <div class="intro-top">
+      <div class="intro-eyebrow">DSG · Brand Concierge</div>
+      <div class="intro-title">Explore what you can do with Dick's Sporting Goods.</div>
+      <div class="intro-sub" id="intro-sub">Choose an option below or tell us what interests you.</div>
+    </div>
+    <div class="starters-list" id="starters-list"></div>
+    <div class="intro-input-row">
+      <div class="plus-circle">+</div>
+      <input type="text" placeholder="What can I help you answer?" id="intro-input" onkeydown="if(event.key==='Enter')introSend()">
+      <button class="send-circle" onclick="introSend()">
+        <svg viewBox="0 0 24 24"><path d="M2 21L23 12 2 3v7l15 2-15 2z"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- SCREEN 3: CHAT -->
+  <div id="screen-chat" class="screen">
+    <div class="chat-header">
+      <button class="back-btn" onclick="goBack()">‹</button>
+      <div class="avatar">🏅</div>
+      <div class="hdr-info">
+        <div class="hdr-name">COACH AI</div>
+        <div class="hdr-sub"><div class="online-dot"></div> Dick's Sporting Goods</div>
+      </div>
+    </div>
+    <div class="messages" id="messages"></div>
+    <div class="chat-input-area">
+      <div class="input-pill">
+        <textarea id="chat-input" rows="1" placeholder="Ask anything…"
+          onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();chatSend();}"
+          oninput="this.style.height='auto';this.style.height=Math.min(this.scrollHeight,68)+'px'"></textarea>
+      </div>
+      <button class="send-btn-round" onclick="chatSend()">
+        <svg viewBox="0 0 24 24"><path d="M2 21L23 12 2 3v7l15 2-15 2z"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="home-bar-wrap"><div class="home-bar"></div></div>
+</div>
+
+<script>
+// ── DATA ──────────────────────────────────────────────────────────
+
+const STARTERS = {
+  soccer: {
+    sub: "Level up your soccer game. Choose an option below or tell us what interests you.",
+    items: [
+      { emoji:"⚽", img:"https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=200&q=70", text:"I'm new to soccer and want to start playing." },
+      { emoji:"🦶", img:"https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=200&q=70", text:"What drills can help improve my footwork?" },
+      { emoji:"🎯", img:"https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=200&q=70", text:"How can I get better at passing and control?" }
+    ]
+  },
+  basketball: {
+    sub: "Elevate your play. Choose an option below or tell us what interests you.",
+    items: [
+      { emoji:"🏀", img:"https://images.unsplash.com/photo-1546519638-68e109498ffc?w=200&q=70", text:"I just joined a basketball rec league." },
+      { emoji:"💪", img:"https://images.unsplash.com/photo-1574623452334-1e0ac2b3ccb4?w=200&q=70", text:"What's the best strength training for basketball?" },
+      { emoji:"🎯", img:"https://images.unsplash.com/photo-1504450758481-7338eba7524a?w=200&q=70", text:"How can I improve my shooting?" }
+    ]
+  },
+  running: {
+    sub: "Every mile starts here. Choose an option below or tell us what interests you.",
+    items: [
+      { emoji:"🏃", img:"https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=200&q=70", text:"I'm brand new to running. How do I get started?" },
+      { emoji:"🏅", img:"https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=200&q=70", text:"I'm training for my first marathon." },
+      { emoji:"🦴", img:"https://images.unsplash.com/photo-1594882645126-14020914d58d?w=200&q=70", text:"I'm looking to prioritize injury prevention." }
+    ]
+  }
+};
+
+const SHOES = {
+  basketball:{
+    mens:[
+      {name:"Nike G.T. Cut 4",rating:"4.6",desc:"Built for explosive guards on hardwood. Lightweight with elite court grip.",url:"https://www.dickssportinggoods.com/p/nike-g-tcut-4-launch-basketball-shoes-25nikabaskgtct4lncpeg/25nikabaskgtct4lncpeg"},
+      {name:"Nike Ja 3",rating:"4.5",desc:"High-energy, responsive ride for fast players who love to attack the rim.",url:"https://www.dickssportinggoods.com/p/nike-ja-3-basketball-shoes-25nikabaskj312tmxxamk/25nikabaskj312tmxxamk"},
+      {name:"Adidas D.O.N. Issue #7",rating:"4.4",desc:"Versatile all-around shoe with excellent cushioning and lateral support.",url:"https://www.dickssportinggoods.com/p/adidas-d-o-nissue-7-basketball-shoes-25adiadnss7clpsxxmns/25adiadnss7clpsxxmns"}
+    ],
+    womens:[
+      {name:"Nike Sabrina 3 'Warning Label'",rating:"4.5",desc:"Lightweight with responsive cushioning, built for quick and skilled guards.",url:"https://www.dickssportinggoods.com/p/nike-sabrina-3-equity-basketball-shoes-25nikabasksbrn3swxqao/25nikabasksbrn3swxqao"},
+      {name:"Nike Sabrina 3 'Equity'",rating:"4.5",desc:"Court-ready for explosive movement, speed, and all-day comfort.",url:"https://www.dickssportinggoods.com/p/nike-sabrina-3-equity-basketball-shoes-25nikabasksbrn3phnlgk/25nikabasksbrn3phnlgk"}
+    ]
+  },
+  soccer:{
+    mens:[
+      {name:"Adidas Predator Pro FT FG",rating:"4.7",desc:"Top-tier control cleat with textured upper for precision passing and shooting.",url:"https://www.dickssportinggoods.com/p/adidas-predator-pro-ft-fg-soccer-cleats-25adiasoccprdtrprfzye/25adiasoccprdtrprfzye"},
+      {name:"Nike Phantom 6 Pro AG",rating:"4.6",desc:"Precision-engineered for technical players demanding control on any surface.",url:"https://www.dickssportinggoods.com/p/nike-phantom-6-pro-ag-soccer-cleats-25nikaphntm360prgntha/25nikaphntm360prgntha"},
+      {name:"Adidas F50 Pro FG",rating:"4.5",desc:"Speed-focused cleat with Sprintweb texturing for explosive traction on firm ground.",url:"https://www.dickssportinggoods.com/p/adidas-f50-pro-fg-soccer-cleats-25adiasoccf50prfgwroa/25adiasoccf50prfgwroa"}
+    ],
+    womens:[
+      {name:"Nike Mercurial Vapor 16 Academy FG/MG",rating:"4.4",desc:"Ultra-lightweight speed cleat for fast attacking players on grass or turf.",url:"https://www.dickssportinggoods.com/p/nike-mercurial-vapor-16-academy-fg-mg-soccer-cleats-25nikasocczmvpr16cago/25nikasocczmvpr16cago"},
+      {name:"Adidas F50 Club FG",rating:"4.3",desc:"Versatile entry-level speed cleat that handles natural grass and turf.",url:"https://www.dickssportinggoods.com/p/adidas-f50-club-fg-soccer-cleats-25adiasoccf50clbfgbaf/25adiasoccf50clbfgbaf"}
+    ]
+  },
+  running:{
+    mens:[
+      {name:"Hoka Bondi 9",rating:"4.7",desc:"Maximum cushioning for long runs. The gold standard in plush, protective comfort.",url:"https://www.dickssportinggoods.com/p/hoka-mens-bondi-9-running-shoes-24fhqmbnd9drzzldwmns/24fhqmbnd9drzzldwmns"},
+      {name:"Nike Pegasus Premium",rating:"4.6",desc:"The legendary daily trainer — versatile, responsive, trusted by all levels.",url:"https://www.dickssportinggoods.com/p/nike-mens-pegasus-premium-running-shoes-24nikmpgssprmmblkrnn/24nikmpgssprmmblkrnn"},
+      {name:"ON Cloud Monster 3",rating:"4.5",desc:"Bouncy CloudTec cushioning delivers an energy-returning ride for speed runners.",url:"https://www.dickssportinggoods.com/p/on-mens-cloudmonster-3-running-shoes-26onxmrunncldmnstrktz/26onxmrunncldmnstrktz"}
+    ],
+    womens:[
+      {name:"Hoka Bondi 9",rating:"4.7",desc:"Maximum cushioning for long runs. The gold standard in plush, protective comfort.",url:"https://www.dickssportinggoods.com/p/hoka-womens-bondi-9-running-shoes-24fhqwbnd9strflwrftw/24fhqwbnd9strflwrftw"},
+      {name:"Nike Pegasus Premium",rating:"4.6",desc:"Trusted by runners everywhere — versatile cushioning for any distance.",url:"https://www.dickssportinggoods.com/p/nike-womens-pegasus-premium-running-shoes-24nikwpgss41prmgrrnn/24nikwpgss41prmgrrnn"},
+      {name:"ON Cloud Monster 3",rating:"4.5",desc:"Springy CloudTec with a fun, energetic ride perfect for training runs.",url:"https://www.dickssportinggoods.com/p/on-womens-cloudmonster-3-running-shoes-26onxwrunncldmnstrspy/26onxwrunncldmnstrspy"}
+    ]
+  }
+};
+
+const TIPS = {
+  basketball:[
+    {label:"Basketball Positions Explained",url:"https://www.dickssportinggoods.com/protips/sports-and-activities/basketball/court-essentials-basketball-positions-explained"},
+    {label:"How to Dribble",url:"https://www.dickssportinggoods.com/protips/sports-and-activities/basketball/basketball-101-how-to-dribble"},
+    {label:"Common Defensive Strategies",url:"https://www.dickssportinggoods.com/protips/sports-and-activities/basketball/basketball-101-common-defensive-strategies"},
+    {label:"The Triple Threat Position",url:"https://www.dickssportinggoods.com/protips/sports-and-activities/basketball/basketball-101-the-triple-threat-position"},
+    {label:"How to Buy Basketball Shoes",url:"https://www.dickssportinggoods.com/protips/sports-and-activities/basketball/buying-basketball-shoes"},
+    {label:"Power Forward Drill",url:"https://www.dickssportinggoods.com/protips/sports-and-activities/basketball/basketball-drills-power-forward-drill"},
+    {label:"Improving Your Shooting",url:"https://www.dickssportinggoods.com/protips/sports-and-activities/basketball/basketball-101-free-throws"}
+  ],
+  soccer:[
+    {label:"Soccer Workouts",url:"https://www.dickssportinggoods.com/protips/sports-and-activities/soccer/soccer-workouts"},
+    {label:"Passing & Striking Drills",url:"https://www.dickssportinggoods.com/protips/sports-and-activities/soccer/passing-striking-soccer-drills"},
+    {label:"Soccer Cleat Buying Guide",url:"https://www.dickssportinggoods.com/protips/sports-and-activities/soccer/soccer-cleat-buying-guide"},
+    {label:"Player Positions & Responsibilities",url:"https://www.dickssportinggoods.com/protips/sports-and-activities/soccer/soccer-101-player-positions-their-responsibilities"},
+    {label:"Defensive Skills One-on-One",url:"https://www.dickssportinggoods.com/protips/sports-and-activities/soccer/defensive-soccer-skills-how-to-defend-an-attacker-one-on-one"},
+    {label:"Dynamic Soccer Stretches",url:"https://www.dickssportinggoods.com/protips/sports-and-activities/soccer/dynamic-soccer-stretches"},
+    {label:"Receiving Under Pressure",url:"https://www.dickssportinggoods.com/protips/sports-and-activities/soccer/soccer-tips-receiving-the-ball-under-pressure"}
+  ],
+  running:[
+    {label:"How to Choose Running Shoes",url:"https://www.dickssportinggoods.com/protips/sports-and-activities/running/how-to-choose-running-shoes"},
+    {label:"Guide to Proper Running Form",url:"https://www.dickssportinggoods.com/protips/sports-and-activities/running/guide-to-proper-running-form"},
+    {label:"5K Training Plans",url:"https://www.dickssportinggoods.com/protips/sports-and-activities/running/5k-training-plans"},
+    {label:"When to Replace Running Shoes",url:"https://www.dickssportinggoods.com/protips/sports-and-activities/running/how-to-know-when-to-replace-running-shoes"},
+    {label:"Pre & Post Run Stretches",url:"https://www.dickssportinggoods.com/protips/sports-and-activities/running/five-pre-run-stretches"},
+    {label:"Marathon Training Plans",url:"https://www.dickssportinggoods.com/protips/sports-and-activities/running/marathon-training-plans-for-beginners-experienced-runners"},
+    {label:"Foam Rolling Tips",url:"https://www.dickssportinggoods.com/protips/sports-and-activities/running/pre-and-post-run-foam-rolling-tips"}
+  ]
+};
+
+// ── OPENERS (turn 1) per sport × starter ─────────────────────────
+
+const OPENERS = {
+  soccer:{
+    0:{bot:`Welcome to the beautiful game! ⚽ Starting from scratch is actually a huge advantage — you'll build great habits right from day one.<br><br>Let's get you set up. Are you joining a league, playing with friends, or training solo?`,sugg:["Joining a local league","Playing with friends casually","Training solo to improve","Not sure — just getting started"]},
+    1:{bot:`Smart focus — footwork is the foundation of everything in soccer. Quick feet give you more options with the ball and sharper defensive reactions.<br><br>Tell me a bit more: what's your current level?`,sugg:["Complete beginner","Played a bit before","Recreational level","Fairly experienced"]},
+    2:{bot:`Love that ambition — first touch and passing are what separate good players from great ones. These skills improve fast with the right drills.<br><br>What's your experience level and where do you play?`,sugg:["Beginner player","Played recreationally","Play on natural grass","Play on artificial turf"]}
+  },
+  basketball:{
+    0:{bot:`That's awesome — welcome to the court! 🏀 Rec leagues are the perfect mix of competition and fun. Whether you're shaking off rust or building new skills, you're going to love it.<br><br>Tell me about yourself:`,sugg:["Total beginner","Played casually before","Pretty experienced","Played competitively"]},
+    1:{bot:`Smart thinking — basketball is one of the most physically demanding sports, and strength training is a real game-changer for jumping, contact, and injury prevention.<br><br>What's your current training background?`,sugg:["New to the gym","I lift occasionally","I train regularly","I play multiple sports"]},
+    2:{bot:`Shooting is one of the most rewarding skills to build — very coachable with consistent reps. Let's find where to focus your practice.<br><br>What's the biggest issue with your shot right now?`,sugg:["My form feels inconsistent","I miss under pressure","My range is limited","I want to shoot off the dribble"]}
+  },
+  running:{
+    0:{bot:`Welcome to the running community! 🏃 The progress you'll feel in the first few weeks is truly incredible. Let's set you up the right way.<br><br>What's motivating you to start?`,sugg:["General fitness & health","Weight loss goal","I want to run a 5K","A friend or family inspired me"]},
+    1:{bot:`Training for a marathon is one of the most rewarding challenges out there. Smart, structured prep is everything. Let's see where you're starting from.<br><br>What's your current running base?`,sugg:["I barely run right now","I run a few miles a week","I've done 5K or 10K races","I've run a half marathon"]},
+    2:{bot:`Injury prevention is the smartest mindset in running — nothing derails progress like time off. Let's build a durable routine from the start.<br><br>Have you had running-related injuries before?`,sugg:["No injuries yet — want to keep it that way","Knee pain / IT band issues","Shin splints or stress fractures","General soreness and fatigue"]}
+  }
+};
+
+// ── STEP 2 advice (shared) ────────────────────────────────────────
+function step2Bot(sport, starterIdx) {
+  const t = TIPS[sport];
+  // pick 3 contextual tips based on starter
+  const tipSets = {
+    basketball: [[0,1,2],[5,0,3],[6,1,3]],
+    soccer: [[0,3,4],[0,1,5],[1,6,4]],
+    running: [[1,4,0],[2,5,0],[6,4,0]]
+  };
+  const idxs = (tipSets[sport]||tipSets.basketball)[starterIdx]||[0,1,2];
+  const advices = {
+    basketball:[
+      `Here's what I'd focus on right now:<br><br><strong>📌 Play within yourself first.</strong> In rec leagues, fundamentals beat flash every time — smart passes, solid defense, and limiting turnovers win games.<br><br><strong>📌 Work on one skill per week.</strong> Pick dribbling, shooting, or defense and drill it intentionally before each game.`,
+      `Here's your strength blueprint:<br><br><strong>📌 Prioritize legs and core.</strong> Squats, lunges, and planks build the explosive power basketball demands. Add lateral band walks for injury-proofing your ankles and knees.<br><br><strong>📌 Don't skip your recovery.</strong> Foam rolling and sleep are where gains actually happen.`,
+      `Here's how to build a reliable shot:<br><br><strong>📌 Form before range.</strong> Lock in your base, elbow alignment, and follow-through at close range before backing up. Muscle memory built close carries over far.<br><br><strong>📌 Reps with a purpose.</strong> 50 focused makes beats 200 casual shots every time.`
+    ],
+    soccer:[
+      `Here's your starter plan:<br><br><strong>📌 Touch before tactics.</strong> The fastest way to improve is repetitive ball work — juggling, passing against a wall, dribbling through cones. Muscle memory is everything.<br><br><strong>📌 Watch your position.</strong> Pick a pro in your position and study their movement off the ball.`,
+      `Here's how to sharpen your footwork:<br><br><strong>📌 Cone drills are your best friend.</strong> Set up 6 cones and work inside/outside cuts at speed. Do it daily for 10 minutes and you'll feel the difference in weeks.<br><br><strong>📌 Touch every surface of the ball.</strong> Inside, outside, sole, laces — variety builds complete control.`,
+      `Here's how to improve your touch and passing:<br><br><strong>📌 Wall passing is underrated.</strong> 15 minutes against a wall — one touch, two touch — builds precision faster than almost anything else.<br><br><strong>📌 Receive across your body.</strong> Cushion the ball to your stronger foot and you'll always have an angle.`
+    ],
+    running:[
+      `Here's your beginner blueprint:<br><br><strong>📌 Run-walk to start.</strong> Alternate 2 minutes running with 1 minute walking. Build the running intervals over time. This protects your joints and prevents early burnout.<br><br><strong>📌 Slow down.</strong> Most beginners run too fast. You should be able to hold a conversation — that's the right effort level.`,
+      `Here's your marathon framework:<br><br><strong>📌 Build mileage slowly.</strong> The golden rule — don't increase weekly mileage more than 10%. Most injuries come from ramping up too fast.<br><br><strong>📌 Long runs are sacred.</strong> One easy, long run per week is the backbone of marathon training. Don't skip it, don't rush it.`,
+      `Here's how to run durably:<br><br><strong>📌 Strengthen what you run on.</strong> Single-leg squats, calf raises, and glute bridges build the stabilizers that take pressure off your joints.<br><br><strong>📌 Don't skip the warm-up.</strong> 5 minutes of dynamic stretching before every run dramatically reduces injury risk.`
+    ]
+  };
+  const advice = (advices[sport]||advices.basketball)[starterIdx]||advices.basketball[0];
+  return `${advice}<br><br>📚 <strong>Pro Tips for you:</strong><br><ul>${idxs.map(i=>`<li><a href="${t[i].url}" target="_blank">${t[i].label}</a></li>`).join('')}</ul><br>The right ${sport==='soccer'?'cleats':sport==='basketball'?'shoes':'running shoes'} make a real difference too. Ready to find your perfect pair?`;
+}
+
+const STEP3 = {
+  basketball:{bot:`The right basketball shoe can seriously elevate your performance and protect your ankles on hardwood. What matters most to you?`,sugg:["Lightweight & fast — I love to drive","Ankle support & stability","Cushioning & all-day comfort","A balanced do-it-all shoe"]},
+  soccer:{bot:`Cleats can make or break your game on the pitch. Let's dial yours in — what's your top priority?`,sugg:["Speed — I want to be the fastest out there","Control & precision touch","Works on multiple surfaces","Best value for money"]},
+  running:{bot:`Running shoes are deeply personal — the right pair changes everything. What's most important to you?`,sugg:["Maximum cushioning & comfort","Lightweight & fast","Stability & arch support","Versatile everyday trainer"]}
+};
+
+const STEP4_BOT = `Almost there — two quick details and I'll have your recommendation ready. Are you shopping men's or women's, and what size?`;
+const STEP4_SUGG = ["Men's — size 8","Men's — size 9","Men's — size 10","Men's — size 11","Men's — size 12","Men's — size 13","Women's — size 7","Women's — size 8","Women's — size 9","Women's — size 10"];
+
+function step5Bot(state) {
+  const pool = SHOES[state.sport][state.gender==='mens'?'mens':'womens'];
+  let shoe;
+  if (state.sport==='basketball') shoe = state.priority==='cushion'?pool[2]:pool[0];
+  else if (state.sport==='soccer') shoe = state.priority==='speed'?pool[2]||pool[0]:pool[0];
+  else shoe = state.priority==='cushion'?pool[0]:state.priority==='lightweight'?pool[2]||pool[1]:pool[1];
+  const tlink = state.sport==='basketball'?TIPS.basketball[4]:state.sport==='soccer'?TIPS.soccer[2]:TIPS.running[0];
+  return `Based on everything you've shared, here's my top pick 👟<br>
+<div class="shoe-card">
+  <div class="shoe-name">${shoe.name}</div>
+  <div class="shoe-rating">⭐ ${shoe.rating}/5 customer rating</div>
+  <div>${shoe.desc}</div>
+  <a href="${shoe.url}" target="_blank" class="shop-btn">Shop Now →</a>
+</div><br>
+Also worth reading: <a href="${tlink.url}" target="_blank">${tlink.label}</a>. Now go get out there and show 'em what you've got! 🔥`;
+}
+
+// ── STATE ─────────────────────────────────────────────────────────
+let S = {sport:null,starterIdx:0,turn:0,priority:'balanced',gender:'mens',size:null};
+
+// ── NAV ───────────────────────────────────────────────────────────
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');}
+
+function selectSport(sport) {
+  S.sport=sport; S.turn=0;
+  const d=STARTERS[sport];
+  document.getElementById('intro-sub').textContent=d.sub;
+  const list=document.getElementById('starters-list');
+  list.innerHTML='';
+  d.items.forEach((item,i)=>{
+    const btn=document.createElement('button');
+    btn.className='starter-card';
+    const thumb=document.createElement('div');
+    thumb.className='starter-thumb';
+    thumb.textContent=item.emoji;
+    // try image
+    const img=new Image();
+    img.onload=()=>{thumb.style.backgroundImage=`url(${item.img})`;thumb.style.backgroundSize='cover';thumb.style.backgroundPosition='center';thumb.textContent='';};
+    img.src=item.img;
+    btn.appendChild(thumb);
+    const txt=document.createElement('div');txt.className='starter-text';txt.textContent=item.text;btn.appendChild(txt);
+    const arr=document.createElement('span');arr.className='starter-arrow';arr.textContent='↳';btn.appendChild(arr);
+    btn.onclick=()=>launchChat(i,item.text);
+    list.appendChild(btn);
+  });
+  show('screen-intro');
+}
+
+function goBack(){
+  if(S.turn>0){show('screen-intro');S.turn=0;}
+  else{show('screen-sport');}
+}
+
+function introSend(){
+  const inp=document.getElementById('intro-input');
+  const txt=inp.value.trim();if(!txt)return;
+  inp.value='';S.starterIdx=0;S.turn=1;
+  document.getElementById('messages').innerHTML='';
+  show('screen-chat');
+  addMsg(txt,'user');parseInput(txt);
+  setTimeout(()=>botTurn(1),800);
+}
+
+function launchChat(idx,text){
+  S.starterIdx=idx;S.turn=1;
+  document.getElementById('messages').innerHTML='';
+  show('screen-chat');
+  addMsg(text,'user');
+  setTimeout(()=>botTurn(1),800);
+}
+
+// ── CHAT ──────────────────────────────────────────────────────────
+function chatSend(){
+  const inp=document.getElementById('chat-input');
+  const txt=inp.value.trim();if(!txt)return;
+  inp.value='';inp.style.height='auto';
+  clearSuggs();addMsg(txt,'user');parseInput(txt);
+  setTimeout(()=>botTurn(S.turn),700);
+}
+
+function addMsg(html,role){
+  const w=document.getElementById('messages');
+  const row=document.createElement('div');row.className=`msg-row ${role}`;
+  const bub=document.createElement('div');bub.className=`bub ${role}`;bub.innerHTML=html;
+  const ts=document.createElement('div');ts.className='msg-ts';ts.textContent=new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
+  row.appendChild(bub);row.appendChild(ts);w.appendChild(row);w.scrollTop=w.scrollHeight;
+}
+
+function showTyping(){
+  const w=document.getElementById('messages');
+  const row=document.createElement('div');row.className='typing-row';row.id='typ';
+  row.innerHTML=`<div class="typing-bub"><div class="td"></div><div class="td"></div><div class="td"></div></div>`;
+  w.appendChild(row);w.scrollTop=w.scrollHeight;
+}
+function removeTyping(){const e=document.getElementById('typ');if(e)e.remove();}
+
+function addSuggs(items){
+  const w=document.getElementById('messages');
+  const d=document.createElement('div');d.className='suggs';
+  items.forEach(label=>{
+    const btn=document.createElement('button');btn.className='sugg-btn';
+    btn.innerHTML=`<span class="sarr">↳</span> ${label}`;
+    btn.onclick=()=>handleSugg(label);
+    d.appendChild(btn);
+  });
+  w.appendChild(d);w.scrollTop=w.scrollHeight;
+}
+function clearSuggs(){document.querySelectorAll('.suggs').forEach(e=>e.remove());}
+
+function handleSugg(text){
+  if(text==='Start over'){show('screen-sport');S.turn=0;return;}
+  if(text==='Switch sports'){show('screen-sport');S.turn=0;return;}
+  if(text==='Show me another option'){clearSuggs();addMsg(text,'user');showAlt();return;}
+  clearSuggs();addMsg(text,'user');parseInput(text);
+  setTimeout(()=>botTurn(S.turn),700);
+}
+
+function parseInput(t){
+  t=t.toLowerCase();
+  if(t.includes('lightweight')||t.includes('fast')||t.includes('speed')||t.includes('quick'))S.priority='lightweight';
+  else if(t.includes('cushion')||t.includes('comfort')||t.includes('maximum'))S.priority='cushion';
+  else if(t.includes('support')||t.includes('stability')||t.includes('ankle'))S.priority='support';
+  if(t.includes("men's")||t.includes("mens")||t.match(/\bmen\b/))S.gender='mens';
+  else if(t.includes("women's")||t.includes("womens")||t.match(/\bwomen\b/))S.gender='womens';
+  const m=t.match(/size\s*(\d+\.?\d*)|(\b\d+\.?\d*)\s*$/);if(m)S.size=m[1]||m[2];
+}
+
+function botTurn(turn){
+  showTyping();
+  setTimeout(()=>{
+    removeTyping();clearSuggs();
+    if(turn===1){
+      const op=(OPENERS[S.sport]||OPENERS.basketball)[S.starterIdx]||(OPENERS[S.sport]||OPENERS.basketball)[0];
+      addMsg(op.bot,'bot');addSuggs(op.sugg);S.turn=2;
+    } else if(turn===2){
+      addMsg(step2Bot(S.sport,S.starterIdx),'bot');
+      addSuggs(["Yes, let's find my perfect shoes!","Give me more training tips first","What other gear do I need?"]);
+      S.turn=3;
+    } else if(turn===3){
+      const s3=STEP3[S.sport]||STEP3.basketball;
+      addMsg(s3.bot,'bot');addSuggs(s3.sugg);S.turn=4;
+    } else if(turn===4){
+      addMsg(STEP4_BOT,'bot');addSuggs(STEP4_SUGG);S.turn=5;
+    } else if(turn===5){
+      addMsg(step5Bot(S),'bot');
+      addSuggs(["Show me another option","What else do I need for the season?","Start over","Switch sports"]);
+      S.turn=6;
+    } else {
+      addMsg(`Happy to help with anything else! Or hit <strong>Start over</strong> to explore a new sport or topic.`,'bot');
+      addSuggs(["Start over","Switch sports"]);
+    }
+  }, 750+Math.random()*350);
+}
+
+function showAlt(){
+  showTyping();
+  setTimeout(()=>{
+    removeTyping();
+    const pool=SHOES[S.sport][S.gender==='mens'?'mens':'womens'];
+    const shoe=pool[1]||pool[0];
+    addMsg(`Here's another great option for you:<br>
+<div class="shoe-card">
+  <div class="shoe-name">${shoe.name}</div>
+  <div class="shoe-rating">⭐ ${shoe.rating}/5 customer rating</div>
+  <div>${shoe.desc}</div>
+  <a href="${shoe.url}" target="_blank" class="shop-btn">Shop Now →</a>
+</div>`,'bot');
+    addSuggs(["That's the one!","Show me one more","Start over"]);
+  },800);
+}
+</script>
+</body>
+</html>
