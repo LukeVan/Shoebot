@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#f5f3ef">
 <title>DICK'S Sporting Goods — Coach AI</title>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -10,24 +13,26 @@
 
 body {
   font-family: 'adobe-clean', 'Adobe Clean', -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #1a1a1a;
+  background: #f5f3ef;
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px 16px;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 .phone {
   width: 100%;
-  max-width: 390px;
-  height: 820px;
+  height: 100vh;
+  height: 100dvh;
   background: #f5f3ef;
-  border-radius: 44px;
+  border-radius: 0;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 40px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06);
+  box-shadow: none;
 }
 
 /* STATUS BAR */
@@ -49,7 +54,7 @@ body {
 .screen.active { display: flex; }
 
 /* ── SPORT SELECT SCREEN ── */
-#screen-sport { padding: 24px 28px 36px; background: #f5f3ef; }
+#screen-sport { padding: env(safe-area-inset-top, 24px) 28px 36px; padding-top: max(env(safe-area-inset-top), 24px); background: #f5f3ef; }
 
 .dsg-eyebrow {
   font-size: 11px;
@@ -197,6 +202,7 @@ body {
 .chat-header {
   background: white;
   padding: 12px 18px;
+  padding-top: max(env(safe-area-inset-top), 12px);
   display: flex;
   align-items: center;
   gap: 10px;
@@ -274,7 +280,7 @@ body {
 .sarr { color: #1e7a4a; font-size: 14px; flex-shrink: 0; }
 
 .chat-input-area {
-  padding: 10px 14px 22px;
+  padding: 10px 14px max(env(safe-area-inset-bottom, 22px), 22px);
   background: white;
   border-top: 1px solid #ececec;
   display: flex;
@@ -311,14 +317,7 @@ body {
 <body>
 <div class="phone">
 
-  <div class="status-bar">
-    <span>9:41</span>
-    <div class="status-icons">
-      <span>▲▲▲</span>
-      <span>WiFi</span>
-      <span>🔋</span>
-    </div>
-  </div>
+
 
   <!-- SCREEN 1: SPORT SELECT -->
   <div id="screen-sport" class="screen active">
@@ -385,7 +384,7 @@ body {
     </div>
   </div>
 
-  <div class="home-bar-wrap"><div class="home-bar"></div></div>
+
 </div>
 
 <script>
