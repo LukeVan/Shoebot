@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- v2 -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -14,58 +13,26 @@
 
 body {
   font-family: 'adobe-clean', 'Adobe Clean', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f5f3ef;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
   margin: 0;
   padding: 0;
-}
-
-/* ── DESKTOP mode ── */
-body.desktop {
-  background: #1a1a1a;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px 16px;
-  background-image:
-    radial-gradient(ellipse at 20% 20%, rgba(45,122,79,0.3) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 80%, rgba(26,58,42,0.8) 0%, transparent 50%);
-}
-
-body.desktop .phone {
-  max-width: 390px;
-  height: 820px;
-  border-radius: 44px;
-  box-shadow: 0 40px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06);
   overflow: hidden;
 }
-
-body.desktop .status-bar { display: flex; }
-
-body.desktop .home-bar-wrap { display: flex; }
-
-/* ── MOBILE mode ── */
-body.mobile {
-  background: #f5f3ef;
-  overflow: hidden;
-}
-
-body.mobile .phone {
-  width: 100%;
-  height: 100vh;
-  height: 100dvh;
-  border-radius: 0;
-  box-shadow: none;
-  overflow: hidden;
-}
-
-body.mobile .status-bar { display: none; }
-body.mobile .home-bar-wrap { display: none; }
 
 .phone {
   width: 100%;
+  height: 100vh;
+  height: 100dvh;
   background: #f5f3ef;
+  border-radius: 0;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
+  box-shadow: none;
 }
 
 /* STATUS BAR */
@@ -418,7 +385,6 @@ body.mobile .home-bar-wrap { display: none; }
   </div>
 
 
-  <div class="home-bar-wrap"><div class="home-bar"></div></div>
 </div>
 
 <script>
@@ -427,6 +393,15 @@ body.mobile .home-bar-wrap { display: none; }
   const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ||
     (navigator.maxTouchPoints > 1 && window.innerWidth < 768);
   document.body.classList.add(isMobile ? 'mobile' : 'desktop');
+})();
+
+// ── URL SPORT PARAM ───────────────────────────────────────────────
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  const sportParam = (params.get('sport')||'').toLowerCase().trim();
+  if(['soccer','basketball','running'].includes(sportParam)){
+    window.addEventListener('DOMContentLoaded', () => selectSport(sportParam));
+  }
 })();
 
 // ── DATA ──────────────────────────────────────────────────────────
@@ -715,22 +690,6 @@ function handleSugg(text){
   if(text==='Start over'){show('screen-sport');S.turn=0;return;}
   if(text==='Switch sports'){show('screen-sport');S.turn=0;return;}
   if(text==='Show me another option'){clearSuggs();addMsg(text,'user');showAlt();return;}
-  if(text==='Email me my shoe recommendation'){
-    clearSuggs();addMsg(text,'user');
-    const pool=SHOES[S.sport][S.gender==='mens'?'mens':'womens'];
-    let shoe;
-    if(S.sport==='basketball') shoe=S.priority==='cushion'?pool[2]:pool[0];
-    else if(S.sport==='soccer') shoe=S.priority==='speed'?pool[2]||pool[0]:pool[0];
-    else shoe=S.priority==='cushion'?pool[0]:S.priority==='lightweight'?pool[2]||pool[1]:pool[1];
-    const subject=encodeURIComponent('My Dick\'s Sporting Goods Shoe Recommendation');
-    const body=encodeURIComponent('Here is your shoe recommendation from Dick\'s Sporting Goods:\n\n' + shoe.name + '\nRating: ' + shoe.rating + '/5\n' + shoe.desc + '\n\nShop here: ' + shoe.url);
-    window.location.href='mailto:?subject='+subject+'&body='+body;
-    setTimeout(()=>{
-      addMsg('Done! An email draft has been opened with your recommendation for the <strong>'+shoe.name+'</strong>. Just add your address and send!','bot');
-      addSuggs(['Start over']);
-    },500);
-    return;
-  }
   clearSuggs();addMsg(text,'user');parseInput(text);
   setTimeout(()=>botTurn(S.turn),700);
 }
@@ -763,7 +722,7 @@ function botTurn(turn){
       addMsg(STEP4_BOT,'bot');addSuggs(STEP4_SUGG);S.turn=5;
     } else if(turn===5){
       addMsg(step5Bot(S),'bot');
-      addSuggs(["Email me my shoe recommendation","Start over"]);
+      addSuggs(["Show me another option","What else do I need for the season?","Start over","Switch sports"]);
       S.turn=6;
     } else {
       addMsg(`Happy to help with anything else! Or hit <strong>Start over</strong> to explore a new sport or topic.`,'bot');
@@ -788,7 +747,7 @@ function showAlt(){
     <a href="${shoe.url}" target="_blank" class="shop-btn">Shop Now →</a>
   </div>
 </div>`,'bot');
-    addSuggs(["Email me my shoe recommendation","Start over"]);
+    addSuggs(["That's the one!","Show me one more","Start over"]);
   },800);
 }
 </script>
