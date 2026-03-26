@@ -405,14 +405,7 @@ async function sendRecommendationEmail() {
   }
 }
 
-// ── URL SPORT PARAM ───────────────────────────────────────────────
-(function(){
-  const params = new URLSearchParams(window.location.search);
-  const sportParam = (params.get('sport')||'').toLowerCase().trim();
-  if(['soccer','basketball','running'].includes(sportParam)){
-    selectSport(sportParam);
-  }
-})();
+
 
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -847,6 +840,15 @@ function showAlt(){
     addSuggs(["Email me my shoe recommendation","Start over"]);
   },800);
 }
+
+// ── URL SPORT PARAM ───────────────────────────────────────────────
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  const sportParam = (params.get('sport')||'').toLowerCase().trim();
+  if(['soccer','basketball','running'].includes(sportParam)){
+    selectSport(sportParam);
+  }
+})();
 </script>
 </body>
 </html>
