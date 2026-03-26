@@ -738,6 +738,16 @@ emailjs.init('ksYHWlxvnobpeuWhU');
   document.body.classList.add(isMobile ? 'mobile' : 'desktop');
 })();
 
+// ── URL SPORT PARAM ───────────────────────────────────────────────
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  const sportParam = (params.get('sport')||'').toLowerCase().trim();
+  if(['soccer','basketball','running'].includes(sportParam)){
+    // Skip sport selector, go straight to intro for this sport
+    window.addEventListener('DOMContentLoaded', () => selectSport(sportParam));
+  }
+})();
+
 // ── DATA ──────────────────────────────────────────────────────────
 
 const STARTERS = {
