@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Athlete Profile — Dick's Sporting Goods</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'adobe-clean', 'Adobe Clean', 'DM Sans', -apple-system, sans-serif;
+  background: #f0f0f0;
+  min-height: 100vh;
+  padding: 32px 24px;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.logo-adobe {
+  font-family: 'Anton', sans-serif;
+  font-size: 22px;
+  color: #e1251b;
+  letter-spacing: -0.5px;
+}
+
+.logo-x {
+  font-size: 18px;
+  color: #999;
+  font-weight: 300;
+}
+
+.logo-dicks {
+  background: #1e7a4a;
+  color: white;
+  font-family: 'Anton', sans-serif;
+  font-size: 16px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  letter-spacing: 1px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .layout { grid-template-columns: 1fr; }
+  body { padding: 20px 16px; }
+}
+
+/* ── PROFILE CARD ── */
+.profile-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  border-top: 4px solid #1e7a4a;
+}
+
+.profile-card-inner { padding: 28px; }
+
+.athlete-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f5f5f5;
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 16px;
+}
+
+.athlete-name {
+  font-family: 'Anton', sans-serif;
+  font-size: 48px;
+  line-height: 1;
+  color: #111;
+  margin-bottom: 16px;
+}
+
+.attr-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.pill.filled { background: #1e7a4a; color: white; }
+.pill.outline { background: white; color: #333; border: 1.5px solid #ddd; }
+
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #aaa;
+  margin-bottom: 12px;
+}
+
+.interests-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.interest-tag {
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: default;
+}
+
+.interest-tag.active { background: #1e7a4a; color: white; }
+.interest-tag.inactive { background: white; color: #555; border: 1.5px solid #ddd; }
+
+.level-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.level-tag {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.level-tag.active { background: #111; color: white; }
+.level-tag.inactive { background: white; color: #aaa; border: 1px solid #e8e8e8; }
+
+.divider { height: 1px; background: #f0f0f0; margin: 0 0 20px; }
+
+.summary-box {
+  background: #fafafa;
+  border-radius: 10px;
+  padding: 18px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #333;
+}
+
+.summary-box strong { color: #111; }
+
+/* ── SHOE CARD ── */
+.shoe-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.shoe-img-wrap {
+  background: white;
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 260px;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  margin: 16px;
+}
+
+.shoe-img-wrap img {
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+}
+
+.shoe-info { padding: 24px; flex: 1; }
+
+.shoe-name {
+  font-family: 'Anton', sans-serif;
+  font-size: 26px;
+  color: #111;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.shoe-desc {
+  font-size: 14px;
+  color: #777;
+  line-height: 1.55;
+  margin-bottom: 16px;
+}
+
+.shoe-rating {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.shop-btn {
+  display: block;
+  background: #1e7a4a;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.shop-btn:hover { background: #155c37; }
+
+/* ── LOADING / ERROR ── */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  flex-direction: column;
+  gap: 12px;
+  color: #888;
+  font-size: 15px;
+}
+
+.spinner {
+  width: 32px; height: 32px;
+  border: 3px solid #e8e8e8;
+  border-top-color: #1e7a4a;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.teammate-banner {
+  background: #1e7a4a;
+  color: white;
+  padding: 14px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.teammate-banner .icon { font-size: 22px; flex-shrink: 0; }
+.teammate-banner strong { font-size: 15px; display: block; margin-bottom: 2px; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <span class="logo-adobe">Adobe</span>
+  <span class="logo-x">×</span>
+  <span class="logo-dicks">DICK'S</span>
+</div>
+
+<div id="loading" class="loading">
+  <div class="spinner"></div>
+  <span>Loading athlete profile...</span>
+</div>
+
+<div id="content" style="display:none;">
+  <div class="teammate-banner" id="teammate-banner">
+    <span class="icon">👋</span>
+    <div>
+      <strong id="banner-greeting">Welcome, Max!</strong>
+      <span id="banner-sub">Here's everything you need to know before they walk in.</span>
+    </div>
+  </div>
+
+  <div class="layout">
+    <!-- PROFILE -->
+    <div class="profile-card">
+      <div class="profile-card-inner">
+        <div class="athlete-badge">⚡ Athlete profile</div>
+        <div class="athlete-name" id="athlete-name">—</div>
+
+        <div class="attr-pills">
+          <span class="pill filled" id="pill-gender">— Male</span>
+          <span class="pill filled" id="pill-size">— Size</span>
+          <span class="pill filled" id="pill-priority">— Fit</span>
+        </div>
+
+        <div class="section-label">Athletic Interests</div>
+        <div class="interests-row" id="interests-row"></div>
+
+        <div class="level-row" id="level-row">
+          <span class="level-tag active">Beginner</span>
+          <span class="level-tag inactive">Intermediate</span>
+          <span class="level-tag inactive">Advanced</span>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section-label">Chat Summary</div>
+        <div class="summary-box" id="summary-box">Loading...</div>
+      </div>
+    </div>
+
+    <!-- SHOE -->
+    <div class="shoe-card">
+      <div class="shoe-img-wrap">
+        <img id="shoe-img" src="" alt="Recommended shoe">
+      </div>
+      <div class="shoe-info">
+        <div class="shoe-name" id="shoe-name">—</div>
+        <div class="shoe-desc" id="shoe-desc">—</div>
+        <div class="shoe-rating" id="shoe-rating">—</div>
+        <a id="shoe-link" href="#" target="_blank" class="shop-btn">Shop Online →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function boldKeyTerms(text) {
+  const terms = ['lightweight','cushioning','stability','speed','support','half-marathon','marathon','5K','rec league','injury prevention','basketball','soccer','running','hardwood','turf','grass'];
+  terms.forEach(t => {
+    const re = new RegExp('\\\\b(' + t + ')\\\\b', 'gi');
+    text = text.replace(re, '<strong>$1</strong>');
+  });
+  return text;
+}
+
+function loadProfile() {
+  const params = new URLSearchParams(window.location.search);
+  let profile = null;
+
+  // Try URL data param first
+  const dataParam = params.get('data');
+  if (dataParam) {
+    try { profile = JSON.parse(decodeURIComponent(dataParam)); } catch(e) {}
+  }
+
+  // Fallback to sessionStorage
+  if (!profile) {
+    const id = params.get('id');
+    if (id) {
+      try { profile = JSON.parse(sessionStorage.getItem(id)); } catch(e) {}
+    }
+  }
+
+  // Demo fallback
+  if (!profile) {
+    profile = {
+      name: 'Max Mustermann',
+      gender: 'Male',
+      size: '12',
+      sport: 'Basketball',
+      priority: 'lightweight',
+      shoe: 'Nike G.T. Cut 4',
+      shoeDesc: 'Built for explosive guards on hardwood. Lightweight with elite court grip.',
+      shoeRating: '4.6',
+      shoeUrl: 'https://www.dickssportinggoods.com/p/nike-g-tcut-4-launch-basketball-shoes-25nikabaskgtct4lncpeg/25nikabaskgtct4lncpeg',
+      shoeImg: 'https://dks.scene7.com/is/image/GolfGalaxy/IQ6206500_VividPurpBlueBlue_INS?qlt=70&wid=600&hei=600&fmt=webp&op_sharpen=1&fit=constrain',
+      summary: 'Max recently joined a basketball rec league and is looking to elevate his game. He plays on indoor hardwood and is focused on developing fundamentals. He is looking for lightweight and fast shoes to support quick cuts and lateral movement on the court.'
+    };
+  }
+
+  renderProfile(profile);
+}
+
+function renderProfile(p) {
+  document.getElementById('loading').style.display = 'none';
+  document.getElementById('content').style.display = 'block';
+
+  const firstName = p.name.split(' ')[0];
+  const sportEmoji = {Basketball:'🏀', Soccer:'⚽', Running:'🏃'}[p.sport] || '🏅';
+
+  // Banner
+  document.getElementById('banner-greeting').textContent = `Nice to meet you, ${firstName}! ${sportEmoji}`;
+  document.getElementById('banner-sub').textContent =
+    `${p.gender} · Size ${p.size} US · Here for ${p.sport} shoes — let's get them sorted.`;
+
+  // Profile
+  document.getElementById('athlete-name').textContent = p.name;
+  document.getElementById('pill-gender').textContent = '👤 ' + p.gender;
+  document.getElementById('pill-size').textContent = '👟 Size ' + p.size + ' US';
+
+  const priorityLabels = {lightweight:'High Energy Fit', cushion:'Max Cushion Fit', support:'Stability Fit', balanced:'Versatile Fit'};
+  document.getElementById('pill-priority').textContent = '⚡ ' + (priorityLabels[p.priority] || 'All-Around Fit');
+
+  // Interests
+  const sports = ['Running','Basketball','Soccer'];
+  const interestsRow = document.getElementById('interests-row');
+  sports.forEach(s => {
+    const tag = document.createElement('span');
+    tag.className = 'interest-tag ' + (s === p.sport ? 'active' : 'inactive');
+    tag.textContent = s;
+    interestsRow.appendChild(tag);
+  });
+
+  // Summary
+  document.getElementById('summary-box').innerHTML = boldKeyTerms(p.summary);
+
+  // Shoe
+  document.getElementById('shoe-img').src = p.shoeImg;
+  document.getElementById('shoe-img').alt = p.shoe;
+  document.getElementById('shoe-name').textContent = p.shoe;
+  document.getElementById('shoe-desc').textContent = p.shoeDesc;
+  document.getElementById('shoe-rating').textContent = '⭐ ' + p.shoeRating + '/5 customer rating';
+  document.getElementById('shoe-link').href = p.shoeUrl;
+
+  document.title = p.name + ' — Athlete Profile';
+}
+
+loadProfile();
+</script>
+</body>
+</html>
