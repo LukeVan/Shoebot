@@ -313,6 +313,109 @@ body {
 .home-bar-wrap { height: 26px; display: flex; align-items: center; justify-content: center; background: #f5f3ef; flex-shrink: 0; }
 .home-bar { width: 120px; height: 5px; background: #111; border-radius: 3px; opacity: 0.15; }
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js">
+// ── EMAILJS INIT ─────────────────────────────────────────────────
+emailjs.init('ksYHWlxvnobpeuWhU');
+
+// ── EMAIL & PROFILE ───────────────────────────────────────────────
+
+function getRecommendedShoe() {
+  const pool = SHOES[S.sport][S.gender==='mens'?'mens':'womens'];
+  if(S.sport==='basketball') return S.priority==='cushion'?pool[2]:pool[0];
+  if(S.sport==='soccer') return S.priority==='speed'?pool[2]||pool[0]:pool[0];
+  return S.priority==='cushion'?pool[0]:S.priority==='lightweight'?pool[2]||pool[1]:pool[1];
+}
+
+function generateSummary() {
+  const shoe = getRecommendedShoe();
+  const genderLabel = S.gender==='mens'?'He':'She';
+  const priorities = {lightweight:'lightweight and fast shoes',cushion:'maximum cushioning and comfort',support:'stability and arch support',balanced:'a versatile all-around shoe'};
+  const summaries = {
+    basketball: `Max recently joined a basketball rec league and is looking to elevate his game. ${genderLabel} plays on indoor hardwood and is focused on developing fundamentals. ${genderLabel} is looking for ${priorities[S.priority]||'a great all-around basketball shoe'} to support quick cuts and lateral movement on the court.`,
+    soccer: `Max is an active soccer player looking to improve on the pitch. ${genderLabel} is focused on developing technical skills and wants gear that matches their play style. ${genderLabel} is looking for ${priorities[S.priority]||'a versatile cleat'} to perform at their best.`,
+    running: `Max is a dedicated runner working toward their fitness goals. ${genderLabel} is building a consistent training routine and wants the right footwear. ${genderLabel} is looking for ${priorities[S.priority]||'a reliable running shoe'} that will carry them through every mile.`
+  };
+  return summaries[S.sport] || summaries.basketball;
+}
+
+function buildProfileData(shoe) {
+  return {
+    name: 'Max Mustermann',
+    gender: S.gender==='mens'?'Male':'Female',
+    size: S.size||'—',
+    sport: S.sport.charAt(0).toUpperCase()+S.sport.slice(1),
+    priority: S.priority,
+    shoe: shoe.name,
+    shoeDesc: shoe.desc,
+    shoeRating: shoe.rating,
+    shoeUrl: shoe.url,
+    shoeImg: shoe.img,
+    summary: generateSummary()
+  };
+}
+
+function showEmailFlow() {
+  // DISABLED — uncomment below to re-enable email modal
+  // document.getElementById('email-modal').style.display = 'flex';
+  // setTimeout(()=>document.getElementById('email-input').focus(), 100);
+  addMsg('Email sending coming soon! Tap <strong>View my in-store profile</strong> to see your full recommendation.', 'bot');
+  addSuggs(['View my in-store profile', 'Start over']);
+}
+
+async function sendRecommendationEmail() {
+  const emailInput = document.getElementById('email-input');
+  const email = emailInput.value.trim();
+  if(!email || !email.includes('@')) {
+    emailInput.style.borderColor = '#e53e3e';
+    emailInput.placeholder = 'Please enter a valid email';
+    return;
+  }
+  const shoe = getRecommendedShoe();
+  const profile = buildProfileData(shoe);
+  const profileId = 'profile_' + Date.now();
+  sessionStorage.setItem(profileId, JSON.stringify(profile));
+  const baseUrl = window.location.href.replace(/[^/]*$/, '');
+  const profileUrl = baseUrl + 'profile.html?id=' + profileId + '&data=' + encodeURIComponent(JSON.stringify(profile));
+  const qrUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=' + encodeURIComponent(profileUrl);
+  document.getElementById('email-modal').style.display = 'none';
+  addMsg('Sending your recommendation...', 'bot');
+  const templateParams = {
+    to_email: email,
+    to_name: profile.name,
+    shoe_name: shoe.name,
+    shoe_desc: shoe.desc,
+    shoe_rating: shoe.rating + '/5',
+    shoe_url: shoe.url,
+    shoe_img: shoe.img,
+    sport: profile.sport,
+    gender: profile.gender,
+    size: profile.size,
+    summary: profile.summary,
+    profile_url: profileUrl,
+    qr_url: qrUrl
+  };
+  try {
+    await emailjs.send('service_j57spxv', 'template_8kptblc', templateParams);
+    addMsg("Your recommendation for the <strong>" + shoe.name + "</strong> has been sent. Show the QR code in-store and a Dick's teammate will have everything ready!", 'bot');
+    addSuggs(['View my in-store profile', 'Start over']);
+  } catch(err) {
+    const errMsg = err && err.text ? err.text : (err && err.status ? 'Status: ' + err.status : JSON.stringify(err));
+    addMsg('Email failed: ' + errMsg, 'bot');
+    addSuggs(['Start over']);
+  }
+}
+
+// ── URL SPORT PARAM ───────────────────────────────────────────────
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  const sportParam = (params.get('sport')||'').toLowerCase().trim();
+  if(['soccer','basketball','running'].includes(sportParam)){
+    selectSport(sportParam);
+  }
+})();
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 <div class="phone">
@@ -388,13 +491,6 @@ body {
 </div>
 
 <script>
-// ── DEVICE DETECTION ─────────────────────────────────────────────
-(function(){
-  const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ||
-    (navigator.maxTouchPoints > 1 && window.innerWidth < 768);
-  document.body.classList.add(isMobile ? 'mobile' : 'desktop');
-})();
-
 // ── DATA ──────────────────────────────────────────────────────────
 
 const STARTERS = {
@@ -678,9 +774,19 @@ function addSuggs(items){
 function clearSuggs(){document.querySelectorAll('.suggs').forEach(e=>e.remove());document.querySelectorAll('.suggs-label').forEach(e=>e.remove());}
 
 function handleSugg(text){
-  if(text==='Start over'){show('screen-sport');S.turn=0;return;}
+  if(text==='Start over'){window.location.href='https://summit.svpoc.io/2026/dsg/';return;}
   if(text==='Switch sports'){show('screen-sport');S.turn=0;return;}
   if(text==='Show me another option'){clearSuggs();addMsg(text,'user');showAlt();return;}
+  if(text==='Email me my shoe recommendation'){clearSuggs();addMsg(text,'user');showEmailFlow();return;}
+  if(text==='View my in-store profile'){
+    const shoe=getRecommendedShoe();
+    const profile=buildProfileData(shoe);
+    const profileId='profile_'+Date.now();
+    sessionStorage.setItem(profileId,JSON.stringify(profile));
+    const baseUrl=window.location.href.replace(/[^/]*$/,'');
+    window.open(baseUrl+'profile.html?id='+profileId+'&data='+encodeURIComponent(JSON.stringify(profile)));
+    return;
+  }
   clearSuggs();addMsg(text,'user');parseInput(text);
   setTimeout(()=>botTurn(S.turn),700);
 }
@@ -713,11 +819,11 @@ function botTurn(turn){
       addMsg(STEP4_BOT,'bot');addSuggs(STEP4_SUGG);S.turn=5;
     } else if(turn===5){
       addMsg(step5Bot(S),'bot');
-      addSuggs(["Show me another option","What else do I need for the season?","Start over","Switch sports"]);
+      addSuggs(["Email me my shoe recommendation","Start over"]);
       S.turn=6;
     } else {
       addMsg(`Happy to help with anything else! Or hit <strong>Start over</strong> to explore a new sport or topic.`,'bot');
-      addSuggs(["Start over","Switch sports"]);
+      addSuggs(["Start over"]);
     }
   }, 750+Math.random()*350);
 }
@@ -738,18 +844,9 @@ function showAlt(){
     <a href="${shoe.url}" target="_blank" class="shop-btn">Shop Now →</a>
   </div>
 </div>`,'bot');
-    addSuggs(["That's the one!","Show me one more","Start over"]);
+    addSuggs(["Email me my shoe recommendation","Start over"]);
   },800);
 }
-
-// ── URL SPORT PARAM ───────────────────────────────────────────────
-(function(){
-  const params = new URLSearchParams(window.location.search);
-  const sportParam = (params.get('sport')||'').toLowerCase().trim();
-  if(['soccer','basketball','running'].includes(sportParam)){
-    selectSport(sportParam);
-  }
-})();
 </script>
 </body>
 </html>
