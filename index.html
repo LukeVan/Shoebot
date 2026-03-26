@@ -808,11 +808,14 @@ function buildProfileData(shoe) {
 }
 
 function showEmailFlow() {
+  console.log('URL_PARAMS:', JSON.stringify(URL_PARAMS));
+  console.log('window.location.href:', window.location.href);
+  console.log('window.location.search:', window.location.search);
   if(URL_PARAMS.email && URL_PARAMS.sendRecommendation) {
     sendRecommendationEmail(URL_PARAMS.email);
     return;
   }
-  addMsg('Email sending coming soon!', 'bot');
+  addMsg('Email sending coming soon! (params: ' + JSON.stringify(URL_PARAMS) + ')', 'bot');
   addSuggs(['Start over']);
 }
 
