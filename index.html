@@ -395,15 +395,6 @@ body {
   document.body.classList.add(isMobile ? 'mobile' : 'desktop');
 })();
 
-// ── URL SPORT PARAM ───────────────────────────────────────────────
-(function(){
-  const params = new URLSearchParams(window.location.search);
-  const sportParam = (params.get('sport')||'').toLowerCase().trim();
-  if(['soccer','basketball','running'].includes(sportParam)){
-    window.addEventListener('DOMContentLoaded', () => selectSport(sportParam));
-  }
-})();
-
 // ── DATA ──────────────────────────────────────────────────────────
 
 const STARTERS = {
@@ -750,6 +741,15 @@ function showAlt(){
     addSuggs(["That's the one!","Show me one more","Start over"]);
   },800);
 }
+
+// ── URL SPORT PARAM ───────────────────────────────────────────────
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  const sportParam = (params.get('sport')||'').toLowerCase().trim();
+  if(['soccer','basketball','running'].includes(sportParam)){
+    selectSport(sportParam);
+  }
+})();
 </script>
 </body>
 </html>
