@@ -750,7 +750,17 @@ function showAlt(){
 
 // ── URL PARAMS ───────────────────────────────────────────────────
 const URL_PARAMS = (function(){
-  const params = new URLSearchParams(window.location.search);
+  // Try parent window URL first (when loaded in iframe), fall back to own URL
+  let search = window.location.search;
+  try {
+    if(window.parent && window.parent !== window) {
+      const parentSearch = window.parent.location.search;
+      if(parentSearch) search = parentSearch;
+    }
+  } catch(e) {
+    // Cross-origin parent — can't access, stick with own URL
+  }
+  const params = new URLSearchParams(search);
   return {
     sport:    (params.get('sport')||'').toLowerCase().trim(),
     firstName: params.get('firstName')||'',
@@ -808,14 +818,11 @@ function buildProfileData(shoe) {
 }
 
 function showEmailFlow() {
-  console.log('URL_PARAMS:', JSON.stringify(URL_PARAMS));
-  console.log('window.location.href:', window.location.href);
-  console.log('window.location.search:', window.location.search);
   if(URL_PARAMS.email && URL_PARAMS.sendRecommendation) {
     sendRecommendationEmail(URL_PARAMS.email);
     return;
   }
-  addMsg('Email sending coming soon! (params: ' + JSON.stringify(URL_PARAMS) + ')', 'bot');
+  addMsg('Email sending coming soon!', 'bot');
   addSuggs(['Start over']);
 }
 
@@ -855,7 +862,7 @@ async function sendRecommendationEmail(emailOverride) {
   try {
     await emailjs.send('service_j57spxv', 'template_8kptblc', templateParams);
     if(URL_PARAMS.email && URL_PARAMS.sendRecommendation) {
-      window.location.href = 'https://summit.svpoc.io/2026/dsg/completion.html';
+      window.top.location.href = 'https://summit.svpoc.io/2026/dsg/completion.html#top';
     } else {
       addMsg('Your recommendation for the <strong>' + shoe.name + '</strong> has been sent!', 'bot');
       addSuggs(['Start over']);
