@@ -674,7 +674,7 @@ function addSuggs(items){
 function clearSuggs(){document.querySelectorAll('.suggs').forEach(e=>e.remove());document.querySelectorAll('.suggs-label').forEach(e=>e.remove());}
 
 function handleSugg(text){
-  if(text==='Start over'){window.location.href='https://summit.svpoc.io/2026/dsg/';return;}
+  if(text==='Start over'){window.top.location.href='https://summit.svpoc.io/2026/dsg/selector.html';return;}
   if(text==='Switch sports'){show('screen-sport');S.turn=0;return;}
   if(text==='Show me another option'){clearSuggs();addMsg(text,'user');showAlt();return;}
   if(text==='Email me my shoe recommendation'){clearSuggs();addMsg(text,'user');showEmailFlow();return;}
