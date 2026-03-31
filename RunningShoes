@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Running Shoes — DICK'S Sporting Goods Summit Product Guide</title>
+
+<style>
+  body { font-family: Arial, sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; color: #222; }
+  h1 { font-size: 2em; border-bottom: 3px solid #1e7a4a; padding-bottom: 10px; }
+  h2 { font-size: 1.3em; margin-top: 0; color: #1e7a4a; }
+  .shoe { border: 1px solid #ddd; border-radius: 6px; padding: 20px; margin-bottom: 24px; }
+  .shoe.display { background: #f0faf4; border-color: #1e7a4a; }
+  .badge { background: #1e7a4a; color: white; font-size: 0.7em; padding: 3px 8px; border-radius: 10px; vertical-align: middle; font-weight: bold; }
+  .meta { margin-bottom: 8px; }
+  .price { font-size: 1.1em; font-weight: bold; margin-right: 16px; }
+  .rating { color: #888; }
+  .specs { color: #555; font-size: 0.9em; background: #f5f5f5; padding: 8px 12px; border-radius: 4px; }
+  a { color: #1e7a4a; }
+  .toc { background: #f9f9f9; border: 1px solid #ddd; padding: 16px 20px; border-radius: 6px; margin-bottom: 30px; }
+  .toc h3 { margin-top: 0; }
+  .toc ul { columns: 2; }
+  .section-label { font-size: 0.85em; color: #666; margin-bottom: 4px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.05em; }
+  .divider { margin: 30px 0 10px; border-top: 2px solid #eee; padding-top: 20px; }
+</style>
+
+</head>
+<body>
+<h1>Running Shoes — DICK'S Sporting Goods Summit Product Guide</h1>
+<p>This page provides detailed product information for AI-assisted shoe recommendation at DICK'S Sporting Goods. Shoes marked <strong>On Display</strong> are physically available at the Summit event. All other shoes are from the broader DICK'S catalog.</p>
+
+<div class="toc">
+  <h3>Shoes on this page</h3>
+  <h4>On Display at Summit</h4>
+  <ul><li><a href="#nike-vomero-premium">Nike Vomero Premium</a></li>
+<li><a href="#nike-vomero-plus">Nike Vomero Plus</a></li>
+<li><a href="#nike-pegasus-premium">Nike Pegasus Premium</a></li>
+<li><a href="#hoka-bondi-9">HOKA Bondi 9</a></li>
+<li><a href="#on-cloud-monster-3">On Cloud Monster 3</a></li>
+</ul>
+  <h4>Additional Catalog Shoes</h4><ul><li><a href="#nike-pegasus-41">Nike Pegasus 41</a></li>
+<li><a href="#on-cloudmonster">On Cloudmonster</a></li>
+<li><a href="#brooks-ghost-17">Brooks Ghost 17</a></li>
+<li><a href="#brooks-glycerin-22">Brooks Glycerin 22</a></li>
+<li><a href="#brooks-glycerin-23">Brooks Glycerin 23</a></li>
+<li><a href="#brooks-ghost-max-3">Brooks Ghost Max 3</a></li>
+<li><a href="#adidas-ultraboost-1.0">adidas Ultraboost 1.0</a></li>
+<li><a href="#adidas-ultraboost-1.0-dna">adidas Ultraboost 1.0 DNA</a></li>
+<li><a href="#nike-vaporfly-4-proto">Nike Vaporfly 4 Proto</a></li>
+<li><a href="#brooks-glycerin-max">Brooks Glycerin Max</a></li>
+<li><a href="#hoka-clifton-10">HOKA Clifton 10</a></li>
+<li><a href="#on-cloudsurfer-2">On Cloudsurfer 2</a></li>
+<li><a href="#on-cloudsurfer-max">On Cloudsurfer Max</a></li>
+<li><a href="#hoka-arahi-8">HOKA Arahi 8</a></li>
+<li><a href="#brooks-adrenaline-gts-25">Brooks Adrenaline GTS 25</a></li>
+<li><a href="#asics-gel-nimbus-27">ASICS Gel-Nimbus 27</a></li>
+<li><a href="#on-cloudmonster-2">On Cloudmonster 2</a></li>
+<li><a href="#nike-alphafly-3-proto">Nike Alphafly 3 Proto</a></li>
+</ul>
+</div>
+
+<p class="section-label">On Display at Summit</p>
+
+<div class="shoe" id="nike-vomero-premium">
+  <h2>Nike Vomero Premium <span class="badge">On Display</span></h2>
+  <div class="meta"><span class="price">$180</span> <span class="rating">Rating: 4.5/5</span></div>
+  <p class="specs">Weight: 10.6 oz &bull; Cushion: High &bull; Cut: Low &bull; Drop: 10mm &bull; Support: Neutral &bull; Surface: Road</p>
+  <p>The Nike Vomero Premium is Nike's most cushioned road running shoe ever — a bold, anti-gravity daily trainer designed for high-mileage athletes who want maximum impact protection without sacrificing feel. It features a towering 55mm heel stack height, combining a full-length ZoomX foam midsole with two exposed Air Zoom units — one in the heel and one in the forefoot — borrowed directly from Nike's MaxFly and Victory track spikes. The result is a uniquely springy, plush ride that rolls through each stride with surprising momentum. Worn by Faith Kipyegon during her Breaking4 training, the Vomero Premium is Nike's answer for elite marathon runners who want a true recovery trainer that still feels alive underfoot. The wide, stable platform prevents wobble despite all that foam, and the exaggerated "AIR" branding on the heel is a deliberate nod to the 1996 Air More Uptempo. Best for: recovery runs, easy-pace long runs, and high-mileage days when your legs need a break. Key specs: 55mm heel stack, ZoomX + dual Air Zoom units, 10.6 oz, 10mm drop, neutral, road.</p>
+  
+</div>
+
+<div class="shoe" id="nike-vomero-plus">
+  <h2>Nike Vomero Plus <span class="badge">On Display</span></h2>
+  <div class="meta"><span class="price">$180</span> <span class="rating">Rating: 4.4/5</span></div>
+  <p class="specs">Weight: 10.9 oz &bull; Cushion: High &bull; Cut: Low &bull; Drop: 10mm &bull; Support: Neutral &bull; Surface: Road</p>
+  <p>The Nike Vomero Plus sits one step below the Vomero Premium in Nike's max-cushion lineup but is no less impressive. It features a full-length ZoomX midsole at a 45mm stack height, offering a softer, lighter, and more responsive ride than the standard Vomero 18. Without the weight of the dual Air Zoom units, the Vomero Plus feels slightly more agile and is a better everyday option for runners who want extreme cushion without the heft of the Premium. Olympic silver medalist Jess Hull described it as "a great introductory shoe for a smooth, responsive and well-cushioned ride at a wide range of paces." Great for daily mileage, easy runs, and runners stepping into max-cushion territory. Key specs: 45mm stack, full ZoomX midsole, 10.9 oz, 10mm drop, neutral, road.</p>
+  
+</div>
+
+<div class="shoe" id="nike-pegasus-premium">
+  <h2>Nike Pegasus Premium <span class="badge">On Display</span></h2>
+  <div class="meta"><span class="price">$160</span> <span class="rating">Rating: 4.5/5</span></div>
+  <p class="specs">Weight: 10.2 oz &bull; Cushion: Moderate &bull; Cut: Low &bull; Drop: 10mm &bull; Support: Neutral &bull; Surface: Road</p>
+  <p>The Nike Pegasus Premium is the elevated version of Nike's iconic everyday workhorse, built for runners who want the familiar Pegasus ride with significantly more cushioning and energy return. It features a full-length Air Zoom Strobel unit for a snappy, responsive toe-off, plus a ZoomX foam midsole for a noticeably softer landing than the standard Pegasus 41. At 10.2 oz and a 10mm drop, it suits runners logging daily mileage across a range of paces — not just recovery jogs but moderate-effort runs and longer efforts. Key specs: Air Zoom Strobel + ZoomX, 10.2 oz, 10mm drop, moderate cushion, neutral, road.</p>
+  
+</div>
+
+<div class="shoe" id="hoka-bondi-9">
+  <h2>HOKA Bondi 9 <span class="badge">On Display</span></h2>
+  <div class="meta"><span class="price">$165</span> <span class="rating">Rating: 4.6/5</span></div>
+  <p class="specs">Weight: 9.4 oz &bull; Cushion: Max &bull; Cut: Low &bull; Drop: 4mm &bull; Support: Neutral &bull; Surface: Road</p>
+  <p>The HOKA Bondi 9 is HOKA's flagship max-cushion daily trainer, completely overhauled for 2025. The biggest upgrade is an all-new supercritical EVA foam midsole — a significant step up from the compressed EVA of previous models — delivering a noticeably more responsive and bouncy ride while retaining the deep, forgiving cushion the Bondi is known for. Stack height increased to 43mm heel / 38mm forefoot, and HOKA added an Active Foot Frame for improved rearfoot stability. The upper features 55% recycled polyester, a 3D molded collar for ankle comfort, and structured knit with zonal breathability. MetaRocker geometry creates a smooth, rolling heel-to-toe transition that reduces calf fatigue on long runs or long days on your feet. Earned the APMA Seal of Acceptance. Best for: easy runs, recovery days, long walks, and anyone who spends hours on hard surfaces. Key specs: supercritical EVA, 43/38mm stack, 9.4 oz (women's), 5mm drop, max cushion, neutral, road.</p>
+  
+</div>
+
+<div class="shoe" id="on-cloud-monster-3">
+  <h2>On Cloud Monster 3 <span class="badge">On Display</span></h2>
+  <div class="meta"><span class="price">$170</span> <span class="rating">Rating: 4.3/5</span></div>
+  <p class="specs">Weight: 8.8 oz &bull; Cushion: Moderate &bull; Cut: Low &bull; Drop: 6mm &bull; Support: Neutral &bull; Surface: Road</p>
+  <p>The On Cloud Monster 3 is On Running's biggest, boldest daily trainer — built for runners who want maximum cushioning from On's signature CloudTec technology. Oversized CloudTec pods create a uniquely soft, spring-loaded sensation, with each pod compressing and rebounding independently with every stride. The Cloud Monster 3 sits on a wide, stable platform that makes it feel more grounded than its towering stack suggests. Weighing under 10 oz, it's one of the lighter options in the max-cushion category — great for high-mileage runners who want protective cushioning without dragging around a heavy shoe. Key specs: oversized CloudTec pods, Helion superfoam, 6mm drop, neutral, road.</p>
+  
+</div>
+
+<div class="divider"><p class="section-label">Additional Catalog</p></div>
+<div class="shoe" id="nike-pegasus-41">
+  <h2>Nike Pegasus 41 </h2>
+  <div class="meta"><span class="price">$130</span> <span class="rating">Rating: 4.5/5</span></div>
+  <p class="specs">Weight: 10.0 oz &bull; Cushion: Moderate &bull; Cut: Low &bull; Drop: 10mm &bull; Support: Neutral &bull; Surface: Road</p>
+  <p>The Nike Pegasus 41 is the 41st chapter of Nike's most trusted everyday trainer — a shoe that has earned its reputation by being exactly what most runners need most of the time. It features a ReactX foam midsole for a responsive, bouncy ride with moderate cushioning, plus an engineered mesh upper for breathability and durability. At 10.0 oz and 10mm drop, it's one of the most balanced daily trainers in Nike's lineup: not so cushioned that it feels slow, not so minimal that recovery runs feel punishing. Key specs: ReactX foam, 10.0 oz, 10mm drop, moderate cushion, neutral, road.</p>
+  <p><a href="https://www.dickssportinggoods.com/p/nike-mens-pegasus-41-running-shoes-24nikmpgss41vltccrnn/24nikmpgss41vltccrnn?color=Ash%2FBlack" target="_blank">View at DICK'S Sporting Goods →</a></p>
+</div>
+
+<div class="shoe" id="on-cloudmonster">
+  <h2>On Cloudmonster </h2>
+  <div class="meta"><span class="price">$170</span> <span class="rating">Rating: 4.4/5</span></div>
+  <p class="specs">Weight: 9.9 oz &bull; Cushion: Moderate &bull; Cut: Low &bull; Drop: 6mm &bull; Support: Neutral &bull; Surface: Road</p>
+  <p>The On Cloudmonster is On Running's entry into maximum cushioning, featuring the brand's oversized CloudTec pods in a larger, more voluminous configuration. It offers a distinctly different sensation from traditional foam — firmer underfoot than a HOKA or Nike max-cushion shoe, but with unique spring-like energy return as the pods decompress. At 9.9 oz with a 6mm drop, it's lightweight for a high-stack shoe. Best for moderate-pace daily training runs where you want impact protection without a dead, sluggish feel. Key specs: CloudTec, 9.9 oz, 6mm drop, moderate cushion, neutral, road.</p>
+  <p><a href="https://www.dickssportinggoods.com/p/on-mens-cloudmonster-shoes-22mazmcldmnstrclxmns/22mazmcldmnstrclxmns?color=Alloy%2FSilver" target="_blank">View at DICK'S Sporting Goods →</a></p>
+</div>
+
+<div class="shoe" id="brooks-ghost-17">
+  <h2>Brooks Ghost 17 </h2>
+  <div class="meta"><span class="price">$140</span> <span class="rating">Rating: 4.6/5</span></div>
+  <p class="specs">Weight: 10.1 oz &bull; Cushion: Moderate &bull; Cut: Low &bull; Drop: 12mm &bull; Support: Neutral &bull; Surface: Road</p>
+  <p>The Brooks Ghost 17 is one of the most consistently trusted everyday trainers in running — known for its balanced mix of cushioning, responsiveness, and versatility. The 2025 update delivers a smooth neutral ride with moderate cushioning via Brooks' DNA LOFT v3 foam, keeping the shoe light and lively at 10.1 oz with a 12mm drop. The Ghost 17 works across a wide range of runners and paces, from beginners to experienced runners logging serious mileage. Fits true to size with a comfortable, roomy toe box. Key specs: DNA LOFT v3, 10.1 oz, 12mm drop, moderate cushion, neutral, road.</p>
+  <p><a href="https://www.dickssportinggoods.com/p/brooks-mens-ghost-17-running-shoes-25bromghst17blckbmns/25bromghst17blckbmns" target="_blank">View at DICK'S Sporting Goods →</a></p>
+</div>
+
+<div class="shoe" id="brooks-glycerin-22">
+  <h2>Brooks Glycerin 22 </h2>
+  <div class="meta"><span class="price">$160</span> <span class="rating">Rating: 4.7/5</span></div>
+  <p class="specs">Weight: 10.6 oz &bull; Cushion: High &bull; Cut: Low &bull; Drop: 10mm &bull; Support: Neutral &bull; Surface: Road</p>
+  <p>The Brooks Glycerin 22 is Brooks' premium max-cushion daily trainer, featuring a plush DNA LOFT v3 foam midsole that delivers exceptional softness for long, slow miles and recovery runs. At 10.6 oz and 10mm drop, it provides high cushioning without completely sacrificing responsiveness for moderate training. A long-time favorite among runners who prioritize underfoot comfort and a smooth, protective ride. Key specs: DNA LOFT v3, 10.6 oz, 10mm drop, high cushion, neutral, road.</p>
+  <p><a href="https://www.dickssportinggoods.com/p/brooks-mens-glycerin-22-running-shoes-24bromglycrn22blkmns/24bromglycrn22blkmns?color=Orange%2FNightlife%2FWhite" target="_blank">View at DICK'S Sporting Goods →</a></p>
+</div>
+
+<div class="shoe" id="brooks-glycerin-23">
+  <h2>Brooks Glycerin 23 </h2>
+  <div class="meta"><span class="price">$160</span> <span class="rating">Rating: 4.6/5</span></div>
+  <p class="specs">Weight: 10.4 oz &bull; Cushion: High &bull; Cut: Low &bull; Drop: 10mm &bull; Support: Neutral &bull; Surface: Road</p>
+  <p>The Brooks Glycerin 23 is the latest iteration of Brooks' top-shelf daily trainer, with updated nitrogen-infused DNA LOFT midsole foam delivering even more bounce and softness. At 10.4 oz and 10mm drop, it's one of the most comfortable high-mileage trainers available — ideal for runners who spend a lot of time on their feet and want a shoe that absorbs every footstrike with authority. Key specs: nitrogen DNA LOFT, 10.4 oz, 10mm drop, high cushion, neutral, road.</p>
+  <p><a href="https://www.dickssportinggoods.com/p/brooks-mens-glycerin-23-running-shoes-25bromrunnglycrn23kjq/25bromrunnglycrn23kjq" target="_blank">View at DICK'S Sporting Goods →</a></p>
+</div>
+
+<div class="shoe" id="brooks-ghost-max-3">
+  <h2>Brooks Ghost Max 3 </h2>
+  <div class="meta"><span class="price">$150</span> <span class="rating">Rating: 4.5/5</span></div>
+  <p class="specs">Weight: 10.8 oz &bull; Cushion: High &bull; Cut: Low &bull; Drop: 6mm &bull; Support: Neutral &bull; Surface: Road</p>
+  <p>The Brooks Ghost Max 3 is a max-cushion variant of the beloved Ghost franchise, with a higher-volume DNA LOFT foam stack for runners who want the familiar Ghost fit and feel but with more underfoot protection. With a 6mm drop and 10.8 oz weight, it strikes a balance between low-drop runners who want a natural feel and those who want serious cushioning — making it a great transition shoe or daily recovery option for Ghost loyalists. Key specs: DNA LOFT, 10.8 oz, 6mm drop, high cushion, neutral, road.</p>
+  <p><a href="https://www.dickssportinggoods.com/p/brooks-mens-ghost-max-3-running-shoes-25bromrunnghstmx3bcff/25bromrunnghstmx3bcff" target="_blank">View at DICK'S Sporting Goods →</a></p>
+</div>
+
+<div class="shoe" id="adidas-ultraboost-1.0">
+  <h2>adidas Ultraboost 1.0 </h2>
+  <div class="meta"><span class="price">$190</span> <span class="rating">Rating: 4.5/5</span></div>
+  <p class="specs">Weight: 11.9 oz &bull; Cushion: High &bull; Cut: Low &bull; Drop: 10mm &bull; Support: Neutral &bull; Surface: Road</p>
+  <p>The adidas Ultraboost 1.0 is a reissue of the shoe that helped define the premium running lifestyle category. The Boost midsole delivers exceptional energy return and a uniquely responsive, cloud-like feel that holds up over hundreds of miles. At 11.9 oz, it's heavier than most performance trainers, but the step-in feel and all-day comfort make it a go-to for runners who want a shoe that transitions seamlessly from training runs to everyday wear. Key specs: full-length Boost, Primeknit upper, 11.9 oz, 10mm drop, high cushion, neutral, road.</p>
+  <p><a href="https://www.dickssportinggoods.com/p/adidas-mens-ultraboost-1-0-shoes-23adimltrbst10crdmns/23adimltrbst10crdmns?color=Preloved%20Ink%2FIcey%20Blue%2FMatte%20Gold" target="_blank">View at DICK'S Sporting Goods →</a></p>
+</div>
+
+<div class="shoe" id="adidas-ultraboost-1.0-dna">
+  <h2>adidas Ultraboost 1.0 DNA </h2>
+  <div class="meta"><span class="price">$190</span> <span class="rating">Rating: 4.5/5</span></div>
+  <p class="specs">Weight: 11.9 oz &bull; Cushion: High &bull; Cut: Low &bull; Drop: 10mm &bull; Support: Neutral &bull; Surface: Road</p>
+  <p>The adidas Ultraboost 1.0 DNA is a lifestyle-performance hybrid that takes the original Ultraboost silhouette and updates it for contemporary runners and style-conscious wearers. Full-length Boost midsole cushioning, a Primeknit upper that molds to the foot, and a Continental rubber outsole for reliable grip. At 11.9 oz, it's on the heavier side, but the supreme underfoot comfort and iconic design make it one of the most wearable running-lifestyle shoes available. Key specs: full-length Boost, Primeknit upper, Continental outsole, 11.9 oz, 10mm drop.</p>
+  <p><a href="https://www.dickssportinggoods.com/p/adidas-mens-ultraboost-1-0-dna-shoes-22adimltrbst10trpmns/22adimltrbst10trpmns?color=Crystal%20White%2FCollegiate%20Green%2FHalo%20Silver" target="_blank">View at DICK'S Sporting Goods →</a></p>
+</div>
+
+<div class="shoe" id="nike-vaporfly-4-proto">
+  <h2>Nike Vaporfly 4 Proto </h2>
+  <div class="meta"><span class="price">$260</span> <span class="rating">Rating: 4.7/5</span></div>
+  <p class="specs">Weight: 6.6 oz &bull; Cushion: Moderate &bull; Cut: Low &bull; Drop: 8mm &bull; Support: Neutral &bull; Surface: Road</p>
+  <p>The Nike Vaporfly 4 Proto is Nike's elite race-day super shoe for runners chasing personal bests at the marathon and half-marathon. It features a carbon fiber plate embedded in a ZoomX foam midsole, creating the propulsive, spring-like energy return that has made the Vaporfly line the shoe of choice on podiums around the world. At just 6.6 oz with an 8mm drop and narrow fit profile, every aspect is optimized for race-day performance — not daily training. If you're toeing a start line and want every possible advantage, this is the shoe. Key specs: carbon plate + ZoomX, 6.6 oz, 8mm drop, narrow fit, race day.</p>
+  <p><a href="https://www.dickssportinggoods.com/p/nike-mens-nike-vaporfly-4-proto-road-running-shoes-25nikmvprfly4slblrnn/25nikmvprfly4slblrnn?color=Citron%20Pulse%2FIndigo%20Burst%2FLaser%20Orange" target="_blank">View at DICK'S Sporting Goods →</a></p>
+</div>
+
+<div class="shoe" id="brooks-glycerin-max">
+  <h2>Brooks Glycerin Max </h2>
+  <div class="meta"><span class="price">$170</span> <span class="rating">Rating: 4.5/5</span></div>
+  <p class="specs">Weight: 11.6 oz &bull; Cushion: Max &bull; Cut: Low &bull; Drop: 6mm &bull; Support: Neutral &bull; Surface: Road</p>
+  <p>The Brooks Glycerin Max is the absolute ceiling of Brooks' cushioning technology — the highest-stack, most protective shoe Brooks has ever made. Max-cushion DNA LOFT foam provides exceptional shock absorption for runners who need maximum joint protection, whether from high body weight, injury history, or years of hard mileage. At 11.6 oz with a 6mm drop, it's a substantial shoe that's a good option for runners transitioning toward more natural movement while still wanting serious cushioning. Key specs: max DNA LOFT, 11.6 oz, 6mm drop, max cushion, neutral, road.</p>
+  <p><a href="https://www.dickssportinggoods.com/p/brooks-mens-glycerin-max-running-shoes-24bromglycrnmxgrymns/24bromglycrnmxgrymns" target="_blank">View at DICK'S Sporting Goods →</a></p>
+</div>
+
+<div class="shoe" id="hoka-clifton-10">
+  <h2>HOKA Clifton 10 </h2>
+  <div class="meta"><span class="price">$145</span> <span class="rating">Rating: 4.5/5</span></div>
+  <p class="specs">Weight: 7.9 oz &bull; Cushion: Moderate &bull; Cut: Low &bull; Drop: 5mm &bull; Support: Neutral &bull; Surface: Road</p>
+  <p>The HOKA Clifton 10 is HOKA's most popular daily trainer — a lighter, more versatile alternative to the Bondi that still delivers excellent cushioning for everyday mileage. Updated for 2025 with a revised 8mm drop and improved midsole foam for a smoother, more energetic ride. At just 7.9 oz for women's, it's one of the lightest max-cushion options available — a favorite for runners who want daily-trainer protection without unnecessary weight. MetaRocker geometry guides a smooth heel-to-toe transition. Key specs: supercritical EVA, 7.9 oz (W), 8mm drop, moderate cushion, neutral, road.</p>
+  <p><a href="https://www.dickssportinggoods.com/p/hoka-womens-clifton-10-running-shoes-25fhqwclftn10blckftw/25fhqwclftn10blckftw?color=Stardust/Cosmic%20Grey" target="_blank">View at DICK'S Sporting Goods →</a></p>
+</div>
+
+<div class="shoe" id="on-cloudsurfer-2">
+  <h2>On Cloudsurfer 2 </h2>
+  <div class="meta"><span class="price">$150</span> <span class="rating">Rating: 4.3/5</span></div>
+  <p class="specs">Weight: 8.8 oz &bull; Cushion: Moderate &bull; Cut: Low &bull; Drop: 10mm &bull; Support: Neutral &bull; Surface: Road</p>
+  <p>The On Cloudsurfer 2 is On Running's everyday trainer built for natural, efficient movement. Full-length Helion superfoam with CloudTec pods provides responsive cushioning without a squishy, slow feel. The Cloudsurfer 2 suits runners who want a connected, ground-feel ride with moderate cushioning — a good middle ground between On's more minimal options and the max-cushion Cloud Monster. Key specs: Helion + CloudTec, 8.8 oz, 10mm drop, moderate cushion, neutral, road.</p>
+  <p><a href="https://www.dickssportinggoods.com/p/on-womens-cloudsurfer-2-running-shoes-24mazwcldsrfr2glcftw/24mazwcldsrfr2glcftw?color=Pearl/Ivory" target="_blank">View at DICK'S Sporting Goods →</a></p>
+</div>
+
+<div class="shoe" id="on-cloudsurfer-max">
+  <h2>On Cloudsurfer Max </h2>
+  <div class="meta"><span class="price">$180</span> <span class="rating">Rating: 4.3/5</span></div>
+  <p class="specs">Weight: 9.5 oz &bull; Cushion: High &bull; Cut: Low &bull; Drop: 6mm &bull; Support: Neutral &bull; Surface: Road</p>
+  <p>The On Cloudsurfer Max is On Running's high-cushion daily trainer option, with a thicker, more voluminous CloudTec midsole than the standard Cloudsurfer. At 9.5 oz with a 6mm drop, it provides high cushioning in the On style — firmer and more energetic than HOKA or Nike max-cushion offerings, with a distinctive spring-like pop from the CloudTec pods. Best for runners who want On's signature feel with more underfoot protection. Key specs: max CloudTec, 9.5 oz, 6mm drop, high cushion, neutral, road.</p>
+  <p><a href="https://www.dickssportinggoods.com/p/on-womens-cloudsurfer-max-running-shoes-25mazwcldsrfrmxblftw/25mazwcldsrfrmxblftw?color=White/Pink" target="_blank">View at DICK'S Sporting Goods →</a></p>
+</div>
+
+<div class="shoe" id="hoka-arahi-8">
+  <h2>HOKA Arahi 8 </h2>
+  <div class="meta"><span class="price">$140</span> <span class="rating">Rating: 4.4/5</span></div>
+  <p class="specs">Weight: 8.9 oz &bull; Cushion: Moderate &bull; Cut: Low &bull; Drop: 5mm &bull; Support: Stability &bull; Surface: Road</p>
+  <p>The HOKA Arahi 8 is HOKA's stability daily trainer, offering the brand's signature max-cushion ride with added medial support for overpronators. J-Frame technology provides a firm, guiding structure along the inner edge of the midsole without a traditional rigid post — resulting in a supportive shoe that still feels natural and comfortable. At 8.9 oz and 5mm drop, it's one of the lighter stability trainers available. Key specs: J-Frame stability, supercritical EVA, 8.9 oz, 5mm drop, moderate cushion, stability, road.</p>
+  <p><a href="https://www.dickssportinggoods.com/p/hoka-womens-arahi-8-running-shoes-25fhqwrh8whtwhtxxftw/25fhqwrh8whtwhtxxftw?color=Alabaster/Lingonberry" target="_blank">View at DICK'S Sporting Goods →</a></p>
+</div>
+
+<div class="shoe" id="brooks-adrenaline-gts-25">
+  <h2>Brooks Adrenaline GTS 25 </h2>
+  <div class="meta"><span class="price">$140</span> <span class="rating">Rating: 4.6/5</span></div>
+  <p class="specs">Weight: 9.4 oz &bull; Cushion: Moderate &bull; Cut: Low &bull; Drop: 12mm &bull; Support: Stability &bull; Surface: Road</p>
+  <p>The Brooks Adrenaline GTS 25 is one of the most trusted stability running shoes ever made, entering its 25th year as a go-to for overpronators seeking support and comfort. GuideRails technology limits excess movement rather than forcing the foot into a rigid position, for a more natural gait correction. At 9.4 oz with a 12mm drop, it's a solid everyday trainer with real support — and a shoe runners come back to again and again. Key specs: GuideRails, DNA LOFT, 9.4 oz, 12mm drop, moderate cushion, stability, road.</p>
+  <p><a href="https://www.dickssportinggoods.com/p/Brooks-Women's-Adrenaline-GTS-25-Running-Shoes-25BROWRUNNDRNLNGTSFEB/25BROWRUNNDRNLNGTSFEB" target="_blank">View at DICK'S Sporting Goods →</a></p>
+</div>
+
+<div class="shoe" id="asics-gel-nimbus-27">
+  <h2>ASICS Gel-Nimbus 27 </h2>
+  <div class="meta"><span class="price">$160</span> <span class="rating">Rating: 4.5/5</span></div>
+  <p class="specs">Weight: 8.8 oz &bull; Cushion: High &bull; Cut: Low &bull; Drop: 8mm &bull; Support: Neutral &bull; Surface: Road</p>
+  <p>The ASICS Gel-Nimbus 27 is ASICS' top-tier premium cushioned daily trainer — one of the most luxurious everyday running shoes on the market. FF BLAST+ ECO foam delivers a plush, high-energy ride, while ASICS' signature GEL technology provides targeted heel and forefoot shock absorption. At 8.8 oz with an 8mm drop, the Nimbus 27 is lighter than many max-cushion competitors — a great choice for runners who want premium underfoot feel without unnecessary weight. Key specs: FF BLAST+ ECO, GEL cushioning, 8.8 oz, 8mm drop, high cushion, neutral, road.</p>
+  <p><a href="https://www.dickssportinggoods.com/p/asics-womens-gel-nimbus-27-running-shoes-24asiwglnmbs27blcftw/24asiwglnmbs27blcftw?color=White/Light%20Purple" target="_blank">View at DICK'S Sporting Goods →</a></p>
+</div>
+
+<div class="shoe" id="on-cloudmonster-2">
+  <h2>On Cloudmonster 2 </h2>
+  <div class="meta"><span class="price">$170</span> <span class="rating">Rating: 4.3/5</span></div>
+  <p class="specs">Weight: 8.8 oz &bull; Cushion: Moderate &bull; Cut: Low &bull; Drop: 6mm &bull; Support: Neutral &bull; Surface: Road</p>
+  <p>The On Cloudmonster 2 refines the original Cloudmonster with an updated midsole and upper. Oversized CloudTec pods in a high-stack, high-volume configuration deliver maximum cushioning. At 8.8 oz with a 6mm drop, it remains one of the lighter shoes in its category. Delivers On's signature responsive feel with enough protection for easy days and long runs. Key specs: oversized CloudTec, 8.8 oz, 6mm drop, moderate cushion, neutral, road.</p>
+  <p><a href="https://www.dickssportinggoods.com/p/on-womens-cloudmonster-2-running-shoes-23mazwcldmnstr2blftw/23mazwcldmnstr2blftw?color=White/Tangerine" target="_blank">View at DICK'S Sporting Goods →</a></p>
+</div>
+
+<div class="shoe" id="nike-alphafly-3-proto">
+  <h2>Nike Alphafly 3 Proto </h2>
+  <div class="meta"><span class="price">$285</span> <span class="rating">Rating: 4.7/5</span></div>
+  <p class="specs">Weight: 7.3 oz &bull; Cushion: High &bull; Cut: Low &bull; Drop: 8mm &bull; Support: Neutral &bull; Surface: Road</p>
+  <p>The Nike Alphafly 3 Proto is Nike's pinnacle race-day super shoe — the elite companion to the Vaporfly for runners chasing finish-line glory at the highest level. Twin Air Zoom pods in the forefoot plus a full-length carbon plate embedded in ZoomX foam deliver explosive energy return with every stride. At just 7.3 oz, it's remarkably light for how much technology is packed in. Worn by the world's fastest marathoners. Key specs: carbon plate + ZoomX + twin Air Zoom, 7.3 oz, 8mm drop, high cushion, narrow, race day.</p>
+  <p><a href="https://www.dickssportinggoods.com/p/nike-womens-alphafly-3-proto-running-shoes-23nikwlphflynxt3wrnn/23nikwlphflynxt3wrnn?color=Coconut%20Milk" target="_blank">View at DICK'S Sporting Goods →</a></p>
+</div>
+
+
+</body>
+</html>
