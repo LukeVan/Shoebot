@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lifestyle Shoes — DICK'S Sporting Goods Summit Product Guide</title>
+
+<style>
+  body { font-family: Arial, sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; color: #222; }
+  h1 { font-size: 2em; border-bottom: 3px solid #1e7a4a; padding-bottom: 10px; }
+  h2 { font-size: 1.3em; margin-top: 0; color: #1e7a4a; }
+  .shoe { border: 1px solid #ddd; border-radius: 6px; padding: 20px; margin-bottom: 24px; }
+  .shoe.display { background: #f0faf4; border-color: #1e7a4a; }
+  .badge { background: #1e7a4a; color: white; font-size: 0.7em; padding: 3px 8px; border-radius: 10px; vertical-align: middle; font-weight: bold; }
+  .meta { margin-bottom: 8px; }
+  .price { font-size: 1.1em; font-weight: bold; margin-right: 16px; }
+  .rating { color: #888; }
+  .specs { color: #555; font-size: 0.9em; background: #f5f5f5; padding: 8px 12px; border-radius: 4px; }
+  a { color: #1e7a4a; }
+  .toc { background: #f9f9f9; border: 1px solid #ddd; padding: 16px 20px; border-radius: 6px; margin-bottom: 30px; }
+  .toc h3 { margin-top: 0; }
+  .toc ul { columns: 2; }
+  .section-label { font-size: 0.85em; color: #666; margin-bottom: 4px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.05em; }
+  .divider { margin: 30px 0 10px; border-top: 2px solid #eee; padding-top: 20px; }
+</style>
+
+</head>
+<body>
+<h1>Lifestyle Shoes — DICK'S Sporting Goods Summit Product Guide</h1>
+<p>This page provides detailed product information for AI-assisted shoe recommendation at DICK'S Sporting Goods. Shoes marked <strong>On Display</strong> are physically available at the Summit event. All other shoes are from the broader DICK'S catalog.</p>
+
+<div class="toc">
+  <h3>Shoes on this page</h3>
+  <h4>On Display at Summit</h4>
+  <ul><li><a href="#nike-dunk-low">Nike Dunk Low</a></li>
+<li><a href="#new-balance-9060">New Balance 9060</a></li>
+<li><a href="#adidas-samba-og">Adidas Samba OG</a></li>
+<li><a href="#nike-air-max-270-premium">Nike Air Max 270 Premium</a></li>
+<li><a href="#on-cloud-6">ON Cloud 6</a></li>
+</ul>
+  
+</div>
+
+<p class="section-label">On Display at Summit</p>
+
+<div class="shoe" id="nike-dunk-low">
+  <h2>Nike Dunk Low <span class="badge">On Display</span></h2>
+  <div class="meta"> </div>
+  
+  <p>The Nike Dunk Low is one of the most recognizable sneakers in the world — originally a basketball shoe in 1985, adopted by skate culture, now a foundational piece of contemporary sneaker culture. Leather upper, Nike Air cushioning, padded collar, and classic Swoosh branding across nearly four decades. Available in an enormous range of colorways — as much a style choice as a footwear decision.</p>
+  
+</div>
+
+<div class="shoe" id="new-balance-9060">
+  <h2>New Balance 9060 <span class="badge">On Display</span></h2>
+  <div class="meta"> </div>
+  
+  <p>The New Balance 9060 is New Balance's premium dad-shoe-era lifestyle sneaker — a chunky, retro-inspired silhouette with genuine performance credentials. ABZORB and SBS cushioning for a comfortable, cloud-like ride, and a bulky layered aesthetic that has made it a favorite across sneaker culture. One of New Balance's hottest lifestyle models.</p>
+  
+</div>
+
+<div class="shoe" id="adidas-samba-og">
+  <h2>Adidas Samba OG <span class="badge">On Display</span></h2>
+  <div class="meta"> </div>
+  
+  <p>The adidas Samba OG is the shoe that started one of the biggest sneaker trends of the 21st century. Originally designed in 1950 as a soccer training shoe for icy conditions, the Samba's gum rubber sole, T-toe overlay, and suede construction have made it one of the most beloved silhouettes in sneaker history. Its simple, understated design remains unchanged and timeless — and one of the most influential sneakers in the world right now.</p>
+  
+</div>
+
+<div class="shoe" id="nike-air-max-270-premium">
+  <h2>Nike Air Max 270 Premium <span class="badge">On Display</span></h2>
+  <div class="meta"> </div>
+  
+  <p>The Nike Air Max 270 Premium is an elevated version of Nike's lifestyle Air Max, featuring the brand's largest visible Air heel unit. Exceptional all-day comfort from the massive Air unit, with Premium materials and details for a more refined look. A lifestyle shoe that genuinely delivers on comfort — sitting at the intersection of performance technology and street-ready style.</p>
+  
+</div>
+
+<div class="shoe" id="on-cloud-6">
+  <h2>ON Cloud 6 <span class="badge">On Display</span></h2>
+  <div class="meta"> </div>
+  
+  <p>The ON Cloud 6 is On Running's core lifestyle runner — a shoe that can handle easy runs but is equally at home as an everyday wear. CloudTec pods provide On's signature cushioning underfoot, while the clean, minimal aesthetic makes the Cloud 6 one of the most versatile shoes in On's lineup. Swiss-engineered for runners who want performance DNA in a shoe they can wear all day.</p>
+  
+</div>
+
+
+
+</body>
+</html>
