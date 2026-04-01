@@ -7,127 +7,38 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500&display=swap');
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Barlow', sans-serif;
-    background: #f7f6f3;
-    color: #1a1a1a;
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 32px 24px 64px;
-  }
+  body { font-family: 'Barlow', sans-serif; background: #f7f6f3; color: #1a1a1a; max-width: 960px; margin: 0 auto; padding: 32px 24px 64px; }
   header { border-bottom: 3px solid #1a1a1a; padding-bottom: 20px; margin-bottom: 36px; }
-  header h1 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 3rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: -0.5px;
-    line-height: 1;
-  }
+  header h1 { font-family: 'Barlow Condensed', sans-serif; font-size: 3rem; font-weight: 700; text-transform: uppercase; letter-spacing: -0.5px; line-height: 1; }
   header p { font-size: 0.95rem; color: #555; margin-top: 8px; }
-  .toc {
-    background: #1a1a1a;
-    color: #f7f6f3;
-    padding: 24px 28px;
-    margin-bottom: 48px;
-    border-radius: 2px;
-  }
-  .toc h3 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 16px;
-    color: #aaa;
-  }
+  .toc { background: #1a1a1a; color: #f7f6f3; padding: 24px 28px; margin-bottom: 48px; border-radius: 2px; }
+  .toc h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; color: #aaa; }
   .toc-section { margin-bottom: 16px; }
-  .toc-section h4 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #888;
-    margin-bottom: 8px;
-  }
+  .toc-section h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: #888; margin-bottom: 8px; }
   .toc ul { list-style: none; columns: 2; column-gap: 32px; }
   .toc ul li { margin-bottom: 4px; font-size: 0.88rem; }
   .toc ul a { color: #f7f6f3; text-decoration: none; border-bottom: 1px solid #444; }
   .toc ul a:hover { border-color: #f7f6f3; }
-  .section-label {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: #888;
-    margin: 48px 0 16px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #ddd;
-  }
-  .shoe {
-    background: #fff;
-    border: 1px solid #e8e6e0;
-    margin-bottom: 16px;
-    border-radius: 2px;
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    overflow: hidden;
-    position: relative;
-  }
+  .section-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px; color: #888; margin: 48px 0 16px; padding-bottom: 8px; border-bottom: 1px solid #ddd; }
+  .shoe { background: #fff; border: 1px solid #e8e6e0; margin-bottom: 16px; border-radius: 2px; display: grid; grid-template-columns: 200px 1fr; overflow: hidden; }
   .shoe.display { border-left: 4px solid #1a1a1a; }
-  .shoe-image {
-    background: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 16px;
-    min-height: 180px;
-  }
-  .shoe-image img {
-    width: 100%;
-    height: 168px;
-    object-fit: contain;
-    display: block;
-    mix-blend-mode: multiply;
-  }
-  .shoe-image.no-image {
-    background: #ebebeb;
-  }
+  .shoe-image { background: #fff; display: flex; align-items: center; justify-content: center; padding: 16px; min-height: 180px; }
+  .shoe-image img { width: 100%; height: 168px; object-fit: contain; display: block; mix-blend-mode: multiply; }
+  .shoe-image.no-image { background: #ebebeb; }
   .shoe-content { padding: 22px 24px; }
   .shoe-header { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
-  .shoe h2 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.35rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.3px;
-  }
-  .badge {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.65rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    background: #1a1a1a;
-    color: #fff;
-    padding: 3px 8px;
-    border-radius: 1px;
-    white-space: nowrap;
-  }
-  .meta { display: flex; gap: 16px; margin-bottom: 10px; align-items: center; }
+  .shoe h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.35rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; }
+  .badge { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; background: #1a1a1a; color: #fff; padding: 3px 8px; border-radius: 1px; white-space: nowrap; }
+  .meta { display: flex; gap: 16px; margin-bottom: 8px; align-items: center; }
   .rating { font-size: 0.85rem; color: #888; }
+  .specs { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 0.78rem; color: #555; background: #f7f6f3; padding: 8px 12px; margin-bottom: 12px; border-radius: 1px; }
+  .specs strong { color: #1a1a1a; font-weight: 600; margin-right: 3px; }
+  .specs .best-for { width: 100%; margin-top: 4px; color: #1a1a1a; font-size: 0.8rem; }
+  .specs .best-for strong { color: #1a1a1a; }
   .shoe p { font-size: 0.9rem; line-height: 1.65; color: #333; margin-bottom: 12px; }
-  .shoe a.shop-link {
-    color: #1a1a1a;
-    font-size: 0.83rem;
-    font-weight: 500;
-    border-bottom: 1px solid #1a1a1a;
-    text-decoration: none;
-  }
+  .shoe a.shop-link { color: #1a1a1a; font-size: 0.83rem; font-weight: 500; border-bottom: 1px solid #1a1a1a; text-decoration: none; }
   .shoe a.shop-link:hover { opacity: 0.6; }
-  @media (max-width: 600px) {
-    .shoe { grid-template-columns: 1fr; }
-    .shoe-image { min-height: 200px; }
-  }
+  @media (max-width: 600px) { .shoe { grid-template-columns: 1fr; } .shoe-image { min-height: 200px; } }
 </style>
 </head>
 <body>
@@ -135,12 +46,9 @@
   <h1>Soccer Cleats</h1>
   <p>Product knowledge base for AI-assisted shoe recommendations at DICK'S Sporting Goods. Shoes marked <strong>On Display</strong> are physically available at the Summit activation.</p>
 </header>
-
 <div class="toc">
   <h3>Shoes on this page</h3>
-  <div class="toc-section">
-    <h4>On Display at Summit</h4>
-    <ul><li><a href="#adidas-f50-club-fg-adult">Adidas F50 Club FG - Adult</a></li>
+  <div class="toc-section"><h4>On Display at Summit</h4><ul><li><a href="#adidas-f50-club-fg-adult">Adidas F50 Club FG - Adult</a></li>
 <li><a href="#adidas-f50-pro-fg-adult">Adidas F50 Pro FG - Adult</a></li>
 <li><a href="#nike-mercurial-superfly-10-academy-fg-mg-adult">Nike Mercurial Superfly 10 Academy FG/MG - Adult</a></li>
 <li><a href="#nike-mercurial-vapor-16-academy-fg-mg-adult">Nike Mercurial Vapor 16 Academy FG/MG - Adult</a></li>
@@ -150,12 +58,8 @@
 <li><a href="#adidas-predator-club-fg-adult">Adidas Predator Club FG - Adult</a></li>
 <li><a href="#adidas-predator-league-ft-fg-adult">Adidas Predator League FT FG - Adult</a></li>
 <li><a href="#adidas-predator-pro-ft-fg-adult">Adidas Predator Pro FT FG - Adult</a></li>
-</ul>
-  </div>
-  <div class="toc-section">
-      <h4>Full Catalog</h4>
-      <ul><li><a href="#under-armour-shadow-elite-3-pv-fg-men">Under Armour Shadow Elite 3 PV FG - Men</a></li>
-<li><a href="#nike-zoom-mercurial-superfly-10-elite-fg-men">Nike Zoom Mercurial Superfly 10 Elite FG - Men</a></li>
+</ul></div>
+  <div class="toc-section"><h4>Full Catalog</h4><ul><li><a href="#nike-zoom-mercurial-superfly-10-elite-fg-men">Nike Zoom Mercurial Superfly 10 Elite FG - Men</a></li>
 <li><a href="#under-armour-shadow-3-turf-men">Under Armour Shadow 3 Turf - Men</a></li>
 <li><a href="#adidas-goletto-ix-turf-men">adidas Goletto IX Turf - Men</a></li>
 <li><a href="#adidas-predator-league-ft-turf-men">adidas Predator League FT Turf - Men</a></li>
@@ -170,243 +74,256 @@
 <li><a href="#nike-tiempo-maestro-club-turf-women">Nike Tiempo Maestro Club Turf - Women</a></li>
 <li><a href="#nike-tiempo-ligera-pro-turf-women">Nike Tiempo Ligera Pro Turf - Women</a></li>
 <li><a href="#nike-mercurial-zoom-vapor-16-pro-ag-women">Nike Mercurial Zoom Vapor 16 Pro AG - Women</a></li>
-</ul>
-    </div>
+</ul></div>
 </div>
-
 <p class="section-label">On Display at Summit</p>
-<div class="shoe display" id="adidas-f50-club-fg-adult">
+<div class="shoe display" id="adidas-f50-club-fg-adult" data-product="Adidas F50 Club FG - Adult" data-sport="Soccer" data-gender="Adult" data-rating="4.5">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/JI0045_OrangeBlue_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Adidas F50 Club FG - Adult" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Adidas F50 Club FG - Adult</h2><span class="badge">On Display</span></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 9.2 oz</span><span><strong>Cushion</strong> Low</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Surface</strong> Firm Ground</span><span><strong>Cleat</strong> FG</span><span><strong>Play Style</strong> Control</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $110</span><span class="best-for"><strong>Best For</strong> Developing players and weekend players who want a speed-focused cleat at an accessible price</span></div>
     <p>The speed-forward F50 design at a more accessible price. Same low-profile silhouette and stud configuration as the Pro, with a durable synthetic upper for regular training. For developing players who want a fast-feeling cleat.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/adidas-f50-club-fg-soccer-cleats-25adiasoccf50clbfgbaf/25adiasoccf50clbfgbaf?recid=PageElement:product_rr_v1e8mm3:80273:&sku=27131550&recToken=rt.2.WyJwcm9kdWN0IiwgNTgzMjQxMCwgbnVsbCwgIjI3MTMxNTUwIiwgIjI1QURJQVNPQ0NGNTBDTEJGR0JBRiIsIDgwMjczLCAwLCAiMjAyNi0wMy0xMlQyMzoyMzozMC45MzM2ODVaIl0" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe display" id="adidas-f50-pro-fg-adult">
+<div class="shoe display" id="adidas-f50-pro-fg-adult" data-product="Adidas F50 Pro FG - Adult" data-sport="Soccer" data-gender="Adult" data-rating="4.5">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/JR8949_WhiteYellow_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Adidas F50 Pro FG - Adult" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Adidas F50 Pro FG - Adult</h2><span class="badge">On Display</span></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 9.2 oz</span><span><strong>Cushion</strong> Low</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Surface</strong> Firm Ground</span><span><strong>Cleat</strong> FG</span><span><strong>Play Style</strong> Control</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $110</span><span class="best-for"><strong>Best For</strong> Wingers, attackers, and speed-first players on natural grass</span></div>
     <p>adidas' flagship speed cleat for firm ground. Lightweight engineered mesh upper with a streamlined, low-drag silhouette built for explosive pace. For wingers, attackers, and anyone whose game is built on first step and top speed.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/adidas-f50-pro-fg-soccer-cleats-25adiasoccf50prfgwroa/25adiasoccf50prfgwroa?color=White%2FYellow" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe display" id="nike-mercurial-superfly-10-academy-fg-mg-adult">
+<div class="shoe display" id="nike-mercurial-superfly-10-academy-fg-mg-adult" data-product="Nike Mercurial Superfly 10 Academy FG/MG - Adult" data-sport="Soccer" data-gender="Adult" data-rating="4.3">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/FQ1456-446_BlueWhite_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Mercurial Superfly 10 Academy FG/MG - Adult" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Nike Mercurial Superfly 10 Academy FG/MG - Adult</h2><span class="badge">On Display</span></div>
     <div class="meta"><span class="rating">&#9733; 4.3/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 8.5 oz</span><span><strong>Cushion</strong> Low</span><span><strong>Ankle</strong> Mid-cut</span><span><strong>Surface</strong> Firm Ground</span><span><strong>Cleat</strong> FG/MG</span><span><strong>Play Style</strong> Speed</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $90</span><span class="best-for"><strong>Best For</strong> Fast players who want high-cut ankle lockdown on firm or moderate turf</span></div>
     <p>The high-cut Dynamic Fit collar wraps the ankle in sock-like lockdown for explosive cuts and sprints. FG/MG plate handles firm and moderate turf. Mercurial speed DNA at an accessible Academy price.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/nike-mercurial-superfly-10-academy-fg-mg-soccer-cleats-25nikasocczmsprflyyie/25nikasocczmsprflyyie?color=Blue%2FWhite" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe display" id="nike-mercurial-vapor-16-academy-fg-mg-adult">
+<div class="shoe display" id="nike-mercurial-vapor-16-academy-fg-mg-adult" data-product="Nike Mercurial Vapor 16 Academy FG/MG - Adult" data-sport="Soccer" data-gender="Adult" data-rating="4.5">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/FQ1458-446_BlueWhite_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Mercurial Vapor 16 Academy FG/MG - Adult" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Nike Mercurial Vapor 16 Academy FG/MG - Adult</h2><span class="badge">On Display</span></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 8.5 oz</span><span><strong>Cushion</strong> Low</span><span><strong>Ankle</strong> Mid-cut</span><span><strong>Surface</strong> Firm Ground</span><span><strong>Cleat</strong> FG/MG</span><span><strong>Play Style</strong> Speed</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $90</span><span class="best-for"><strong>Best For</strong> Fast players who prefer low-cut freedom of movement on firm or multi-ground surfaces</span></div>
     <p>The low-cut Mercurial for players who want maximum ankle mobility and pure first-step speed. FG/MG plate performs on firm and multi-ground surfaces.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/nike-mercurial-vapor-16-academy-fg-mg-soccer-cleats-25nikasocczmvpr16cago/25nikasocczmvpr16cago?color=Blue%2FWhite" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe display" id="nike-phantom-6-academy-high-fg-mg-adult">
+<div class="shoe display" id="nike-phantom-6-academy-high-fg-mg-adult" data-product="Nike Phantom 6 Academy High FG/MG - Adult" data-sport="Soccer" data-gender="Adult" data-rating="4.5">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/HQ2278-400_ROYALRED_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Phantom 6 Academy High FG/MG - Adult" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Nike Phantom 6 Academy High FG/MG - Adult</h2><span class="badge">On Display</span></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 8.0 oz</span><span><strong>Cushion</strong> Low</span><span><strong>Ankle</strong> Mid-cut</span><span><strong>Surface</strong> Artificial Ground</span><span><strong>Cleat</strong> AG</span><span><strong>Play Style</strong> Control</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $200</span><span class="best-for"><strong>Best For</strong> Developing players who want ankle support and ball control on firm or multi-ground surfaces</span></div>
     <p>Nike's precision cleat for technical players on firm and multi-ground surfaces. High-cut collar for ankle support and lockdown, textured upper for exceptional ball-control feel. Works across multiple surface types.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/nike-phantom-6-academy-high-fg-mg-soccer-cleats-25nikaphntm360dfcnthc/25nikaphntm360dfcnthc?color=Royal%2FRed" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe display" id="nike-phantom-6-club-high-fg-mg-adult">
+<div class="shoe display" id="nike-phantom-6-club-high-fg-mg-adult" data-product="Nike Phantom 6 Club High FG/MG - Adult" data-sport="Soccer" data-gender="Adult" data-rating="4.5">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/HQ2275-446_BluePink_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Phantom 6 Club High FG/MG - Adult" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Nike Phantom 6 Club High FG/MG - Adult</h2><span class="badge">On Display</span></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 8.0 oz</span><span><strong>Cushion</strong> Low</span><span><strong>Ankle</strong> Mid-cut</span><span><strong>Surface</strong> Artificial Ground</span><span><strong>Cleat</strong> AG</span><span><strong>Play Style</strong> Control</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $200</span><span class="best-for"><strong>Best For</strong> Beginners and recreational players who want a high-cut control cleat</span></div>
     <p>Entry-level Phantom with the same high-cut design and control-focused upper as the Academy, at a price suited for recreational players and beginners.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/nike-phantom-6-club-high-fg-mg-soccer-cleats-25nikasoccphntm6hglou/25nikasoccphntm6hglou?color=Blue%2FPink" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe display" id="nike-phantom-6-pro-ag-adult">
+<div class="shoe display" id="nike-phantom-6-pro-ag-adult" data-product="Nike Phantom 6 Pro AG - Adult" data-sport="Soccer" data-gender="Adult" data-rating="4.3">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/HQ2317-400_ROYALRED_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Phantom 6 Pro AG - Adult" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Nike Phantom 6 Pro AG - Adult</h2><span class="badge">On Display</span></div>
     <div class="meta"><span class="rating">&#9733; 4.3/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 8.0 oz</span><span><strong>Cushion</strong> Low</span><span><strong>Ankle</strong> Mid-cut</span><span><strong>Surface</strong> Artificial Ground</span><span><strong>Cleat</strong> AG</span><span><strong>Play Style</strong> Control</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $200</span><span class="best-for"><strong>Best For</strong> Technical players on artificial ground who demand precision touch and control</span></div>
     <p>Nike's top-tier precision cleat for artificial ground surfaces. Textured upper for exceptional first-touch control and accurate shooting. AG stud configuration engineered specifically for modern turf - no cleat-catching.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/nike-phantom-6-pro-ag-soccer-cleats-25nikaphntm360prgntha/25nikaphntm360prgntha?Product=ProductSuggest" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe display" id="adidas-predator-club-fg-adult">
+<div class="shoe display" id="adidas-predator-club-fg-adult" data-product="Adidas Predator Club FG - Adult" data-sport="Soccer" data-gender="Adult" data-rating="4.5">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/JS0350_BlackRed_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Adidas Predator Club FG - Adult" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Adidas Predator Club FG - Adult</h2><span class="badge">On Display</span></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 9.2 oz</span><span><strong>Cushion</strong> Low</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Surface</strong> Firm Ground</span><span><strong>Cleat</strong> FG</span><span><strong>Play Style</strong> Control</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $110</span><span class="best-for"><strong>Best For</strong> Recreational and amateur league players who want Predator ball control on a budget</span></div>
     <p>Predator DNA at a recreational price. HybridTouch upper and Strikeskin technology give players the ball-control feel the Predator is famous for, in a boot suited for training and amateur leagues.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/adidas-predator-club-fg-soccer-cleats-25adiasoccprdtrclbcxk/25adiasoccprdtrclbcxk?color=Black%2FRed" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe display" id="adidas-predator-league-ft-fg-adult">
+<div class="shoe display" id="adidas-predator-league-ft-fg-adult" data-product="Adidas Predator League FT FG - Adult" data-sport="Soccer" data-gender="Adult" data-rating="4.3">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/JI1111_WhiteBlack_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Adidas Predator League FT FG - Adult" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Adidas Predator League FT FG - Adult</h2><span class="badge">On Display</span></div>
     <div class="meta"><span class="rating">&#9733; 4.3/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 9.2 oz</span><span><strong>Cushion</strong> Low</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Surface</strong> Firm Ground</span><span><strong>Cleat</strong> FG</span><span><strong>Play Style</strong> Control</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $110</span><span class="best-for"><strong>Best For</strong> Club and league players who want proven Predator control without paying Pro prices</span></div>
     <p>Mid-tier Predator for serious club players. HYBRIDFEEL upper with STRIKESCALE texture and STRIKEFINS for enhanced grip, fold-over tongue, lightweight CONTROLPLATE outsole. 30 years of Predator heritage at a competitive price.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/adidas-predator-league-ft-fg-soccer-cleats-25adiaprdtrlgftfgclta/25adiaprdtrlgftfgclta?color=White%2FBlack" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe display" id="adidas-predator-pro-ft-fg-adult">
+<div class="shoe display" id="adidas-predator-pro-ft-fg-adult" data-product="Adidas Predator Pro FT FG - Adult" data-sport="Soccer" data-gender="Adult" data-rating="4.5">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/JS0950_RedWhite_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Adidas Predator Pro FT FG - Adult" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Adidas Predator Pro FT FG - Adult</h2><span class="badge">On Display</span></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 9.2 oz</span><span><strong>Cushion</strong> Low</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Surface</strong> Firm Ground</span><span><strong>Cleat</strong> FG</span><span><strong>Play Style</strong> Control</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $110</span><span class="best-for"><strong>Best For</strong> Technical midfielders and playmakers who prioritize touch, passing accuracy, and ball control</span></div>
     <p>The Predator's top-tier control cleat. HybridTouch 2.0 upper with Strikeskin fins grip the ball for pinpoint passing and powerful shooting. Full-length Controlplate 2.0 outsole, fold-over tongue for lockdown. Soccer's definitive touch boot.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/adidas-predator-pro-ft-fg-soccer-cleats-25adiasoccprdtrprfzye/25adiasoccprdtrprfzye?color=Red%2FWhite" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-
 <p class="section-label">Full Catalog</p>
-<div class="shoe" id="under-armour-shadow-elite-3-pv-fg-men">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25UARASHDWLT3FGPVCLT_Black_White?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Under Armour Shadow Elite 3 PV FG - Men" loading="lazy"></div>
-  <div class="shoe-content">
-    <div class="shoe-header"><h2>Under Armour Shadow Elite 3 PV FG - Men</h2></div>
-    <div class="meta"><span class="rating">&#9733; 4.2/5</span></div>
-    <p>UA's top-tier firm ground cleat for all-around natural grass performance. Precision upper, low-cut design for freedom of movement, FG stud configuration optimized for traction and quick direction changes.</p>
-    <a class="shop-link" href="https://www.dickssportinggoods.com/p/Under-Armour-Shadow-Elite-3-PV-FG-Soccer-Cleats-25UARASHDWLT3FGPVCLT/25UARASHDWLT3FGPVCLT" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
-  </div>
-</div>
-<div class="shoe" id="nike-zoom-mercurial-superfly-10-elite-fg-men">
+<div class="shoe" id="nike-zoom-mercurial-superfly-10-elite-fg-men" data-product="Nike Zoom Mercurial Superfly 10 Elite FG - Men" data-sport="Soccer" data-gender="Men" data-rating="4.5">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25NIKAZMSPRFLY10LNTHE_Pink_Red?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Zoom Mercurial Superfly 10 Elite FG - Men" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Nike Zoom Mercurial Superfly 10 Elite FG - Men</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 7.6 oz</span><span><strong>Cushion</strong> Low</span><span><strong>Ankle</strong> Mid-cut</span><span><strong>Surface</strong> Firm Ground</span><span><strong>Cleat</strong> FG</span><span><strong>Play Style</strong> Speed</span><span><strong>Fit</strong> Narrow</span><span><strong>Price</strong> $275</span><span class="best-for"><strong>Best For</strong> Elite-level speed players on natural grass, the most serious competitors</span></div>
     <p>Nike's top-of-the-line speed cleat with an Air Zoom Strobel unit for explosive energy return. The Elite FG is what the pros wear - engineered for elite-level firm ground performance.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/nike-zoom-mercurial-superfly-10-elite-fg-soccer-cleats-25nikazmsprfly10lnthe/25nikazmsprfly10lnthe?color=Pink/Red" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe" id="under-armour-shadow-3-turf-men">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25UARASHDWTRF3BLKCLT_Black?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Under Armour Shadow 3 Turf - Men" loading="lazy"></div>
+<div class="shoe" id="under-armour-shadow-3-turf-men" data-product="Under Armour Shadow 3 Turf - Men" data-sport="Soccer" data-gender="Men" data-rating="4.1">
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25UARASHDWTRF3BLKCLT_Black_Red?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Under Armour Shadow 3 Turf - Men" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Under Armour Shadow 3 Turf - Men</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.1/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 9.5 oz</span><span><strong>Cushion</strong> Low</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Surface</strong> Turf</span><span><strong>Cleat</strong> TF</span><span><strong>Play Style</strong> All-Around</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $65</span><span class="best-for"><strong>Best For</strong> Players who train primarily on artificial turf and need a durable everyday training cleat</span></div>
     <p>Durable all-purpose training cleat for artificial turf. Rubber nub sole provides grip without cleat-catching risk. Lightweight and built for daily use.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/Under-Armour-Shadow-3-Turf-Soccer-Cleats-25UARASHDWTRF3BLKCLT/25UARASHDWTRF3BLKCLT" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe" id="adidas-goletto-ix-turf-men">
+<div class="shoe" id="adidas-goletto-ix-turf-men" data-product="adidas Goletto IX Turf - Men" data-sport="Soccer" data-gender="Men" data-rating="4.0">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/24ADIAGLTTXTFBLKWCLT_Black_White?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="adidas Goletto IX Turf - Men" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>adidas Goletto IX Turf - Men</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.0/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 9.5 oz</span><span><strong>Cushion</strong> Low</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Surface</strong> Turf</span><span><strong>Cleat</strong> TF</span><span><strong>Play Style</strong> All-Around</span><span><strong>Fit</strong> Wide</span><span><strong>Price</strong> $45</span><span class="best-for"><strong>Best For</strong> Beginners, youth players, and recreational players on turf who need an affordable option</span></div>
     <p>adidas' entry-level turf training shoe. Durable synthetic upper, reliable turf grip, practical price. The everyday option for recreational players and youth athletes.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/adidas-goletto-ix-turf-soccer-cleats-24adiaglttxtfblkwclt/24adiaglttxtfblkwclt?color=Black/White" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe" id="adidas-predator-league-ft-turf-men">
+<div class="shoe" id="adidas-predator-league-ft-turf-men" data-product="adidas Predator League FT Turf - Men" data-sport="Soccer" data-gender="Men" data-rating="4.3">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25ADIASOCCPRDTRLGFHNI_White_Blue?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="adidas Predator League FT Turf - Men" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>adidas Predator League FT Turf - Men</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.3/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 9.5 oz</span><span><strong>Cushion</strong> Low</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Surface</strong> Turf</span><span><strong>Cleat</strong> TF</span><span><strong>Play Style</strong> Control</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $100</span><span class="best-for"><strong>Best For</strong> Control-focused players who train on turf and want meaningful touch technology</span></div>
     <p>Predator control DNA on turf. STRIKESCALE upper texture and STRIKEFINS for ball grip on an artificial turf rubber nub outsole. Meaningful touch technology in a training cleat.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/adidas-predator-league-ft-turf-soccer-cleats-25adiasoccprdtrlgfhni/25adiasoccprdtrlgfhni?color=White/Blue" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe" id="adidas-copa-pure-iv-pro-turf-men">
+<div class="shoe" id="adidas-copa-pure-iv-pro-turf-men" data-product="adidas Copa Pure IV Pro Turf - Men" data-sport="Soccer" data-gender="Men" data-rating="4.3">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25ADIASOCCCPPRVPRTVXO_Black_Red?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="adidas Copa Pure IV Pro Turf - Men" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>adidas Copa Pure IV Pro Turf - Men</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.3/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 9.0 oz</span><span><strong>Cushion</strong> Low</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Surface</strong> Turf</span><span><strong>Cleat</strong> TF</span><span><strong>Play Style</strong> Control</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $120</span><span class="best-for"><strong>Best For</strong> Technical players on turf who want the softest, most responsive ball contact possible</span></div>
     <p>Touch above everything else. Soft, padded upper provides an almost glove-like contact with the ball on turf. The choice of technical midfielders who want to feel every touch clearly.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/adidas-copa-pure-iv-pro-turf-soccer-cleats-25adiasocccpprvprtvxo/25adiasocccpprvprtvxo?color=Black/Red" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe" id="puma-future-7-match-indoor-men">
+<div class="shoe" id="puma-future-7-match-indoor-men" data-product="Puma Future 7 Match Indoor - Men" data-sport="Soccer" data-gender="Men" data-rating="4.2">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/24PUMAFTR7MTCHTBLCLTA_Blue_White?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Puma Future 7 Match Indoor - Men" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Puma Future 7 Match Indoor - Men</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.2/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 8.5 oz</span><span><strong>Cushion</strong> Low</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Surface</strong> Indoor</span><span><strong>Cleat</strong> IN</span><span><strong>Play Style</strong> Speed</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $80</span><span class="best-for"><strong>Best For</strong> Players who compete in futsal or indoor soccer and need a grippy flat-soled shoe</span></div>
     <p>Futsal and indoor specialist. Grippy flat rubber sole handles smooth gym floors safely, lightweight upper stays nimble for quick explosive movements. Worn in elite form by Neymar.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/puma-future-7-match-indoor-soccer-shoes-24pumaftr7mtchtblclta/24pumaftr7mtchtblclta?color=Blue/White" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe" id="adidas-predator-club-indoor-sala-men">
+<div class="shoe" id="adidas-predator-club-indoor-sala-men" data-product="adidas Predator Club Indoor Sala - Men" data-sport="Soccer" data-gender="Men" data-rating="4.0">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25ADIAPRDTRCLBNSLCLTB_Black_White?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="adidas Predator Club Indoor Sala - Men" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>adidas Predator Club Indoor Sala - Men</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.0/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 8.5 oz</span><span><strong>Cushion</strong> Low</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Surface</strong> Indoor</span><span><strong>Cleat</strong> IN</span><span><strong>Play Style</strong> All-Around</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $55</span><span class="best-for"><strong>Best For</strong> Indoor and futsal players who want Predator ball control on a court surface</span></div>
     <p>Predator control brought indoors. Flat non-marking rubber sole, HybridTouch-style upper with Strikeskin texture for precision on the indoor pitch.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/adidas-predator-club-indoor-sala-soccer-shoes-25adiaprdtrclbnslcltb/25adiaprdtrclbnslcltb?color=Black/White" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe" id="adidas-samba-messi-indoor-women">
+<div class="shoe" id="adidas-samba-messi-indoor-women" data-product="adidas Samba Messi Indoor - Women" data-sport="Soccer" data-gender="Women" data-rating="4.4">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/24ADIASMBNTRMMBLKCLT_Black_Pink?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="adidas Samba Messi Indoor - Women" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>adidas Samba Messi Indoor - Women</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.4/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 8.0 oz</span><span><strong>Cushion</strong> Low</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Surface</strong> Indoor</span><span><strong>Cleat</strong> IN</span><span><strong>Play Style</strong> Control</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $100</span><span class="best-for"><strong>Best For</strong> Indoor soccer and futsal players, Messi fans, collectors</span></div>
     <p>A Lionel Messi collaboration reinterpreting the iconic Samba as an indoor soccer cleat. Court-adapted construction with Messi's personal design touches - a collector's piece as much as a performance product.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/adidas-samba-messi-indoor-soccer-shoes-24adiasmbntrmmblkclt/24adiasmbntrmmblkclt?color=Black/Pink" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe" id="adidas-f50-sparkfusion-pro-mid-fg-women">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25ADIWF50SPRKFPRFCLT_Black_White?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="adidas F50 Sparkfusion Pro Mid FG - Women" loading="lazy"></div>
+<div class="shoe" id="adidas-f50-sparkfusion-pro-mid-fg-women" data-product="adidas F50 Sparkfusion Pro Mid FG - Women" data-sport="Soccer" data-gender="Women" data-rating="4.3">
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25ADIWF50SPRKFPRFCLT_Purple_Green?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="adidas F50 Sparkfusion Pro Mid FG - Women" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>adidas F50 Sparkfusion Pro Mid FG - Women</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.3/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 7.5 oz</span><span><strong>Cushion</strong> Low</span><span><strong>Ankle</strong> Mid-cut</span><span><strong>Surface</strong> Firm Ground</span><span><strong>Cleat</strong> FG</span><span><strong>Play Style</strong> Speed</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $200</span><span class="best-for"><strong>Best For</strong> Attacking women's players who want speed and ankle support on firm ground</span></div>
     <p>Women's mid-cut speed cleat for explosive attackers who want ankle support without sacrificing pace. F50's speed-forward stud configuration on firm ground.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/adidas-F50-Sparkfusion-Pro-Mid-FG-Soccer-Cleats-25ADIWF50SPRKFPRFCLT/25ADIWF50SPRKFPRFCLT" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe" id="adidas-f50-sparkfusion-elite-mid-fg-ag-women">
+<div class="shoe" id="adidas-f50-sparkfusion-elite-mid-fg-ag-women" data-product="adidas F50 Sparkfusion Elite Mid FG/AG - Women" data-sport="Soccer" data-gender="Women" data-rating="4.5">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25ADIWSOCCF50SPRKFRKI_White_Blue?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="adidas F50 Sparkfusion Elite Mid FG/AG - Women" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>adidas F50 Sparkfusion Elite Mid FG/AG - Women</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 7.0 oz</span><span><strong>Cushion</strong> Low</span><span><strong>Ankle</strong> Mid-cut</span><span><strong>Surface</strong> Firm Ground</span><span><strong>Cleat</strong> FG/AG</span><span><strong>Play Style</strong> Speed</span><span><strong>Fit</strong> Narrow</span><span><strong>Price</strong> $300</span><span class="best-for"><strong>Best For</strong> Elite women's players who want top-tier speed performance on firm or artificial ground</span></div>
     <p>The top of adidas' women's speed lineup. Elite-tier construction on a FG/AG plate - one of the most versatile high-performance women's cleats for competitive players.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/adidas-womens-f50-sparkfusion-elite-mid-fg-ag-soccer-cleats-25adiwsoccf50sprkfrki/25adiwsoccf50sprkfrki?color=White/Blue" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe" id="adidas-copa-mundial-women">
+<div class="shoe" id="adidas-copa-mundial-women" data-product="adidas Copa Mundial - Women" data-sport="Soccer" data-gender="Women" data-rating="4.8">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/15ADIMCPMNDLXXXXXNTH_Black_White?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="adidas Copa Mundial - Women" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>adidas Copa Mundial - Women</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.8/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 10.5 oz</span><span><strong>Cushion</strong> Low</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Surface</strong> Firm Ground</span><span><strong>Cleat</strong> FG</span><span><strong>Play Style</strong> All-Around</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $165</span><span class="best-for"><strong>Best For</strong> Touch-first players of any level, purists who want the most natural ball feel ever made</span></div>
     <p>In continuous production since 1979. Soft kangaroo leather upper molds to the foot for a custom-like fit over time - soccer's definitive touch boot worn by generations of the world's best players.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/adidas-Copa-Mundial-Soccer-Cleat-15ADIMCPMNDLXXXXXNTH/15ADIMCPMNDLXXXXXNTH" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe" id="puma-future-9-ultimate-fg-women">
+<div class="shoe" id="puma-future-9-ultimate-fg-women" data-product="Puma Future 9 Ultimate FG - Women" data-sport="Soccer" data-gender="Women" data-rating="4.4">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25PUMASOCCFTR9LTMTUVG_Blue_Blue?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Puma Future 9 Ultimate FG - Women" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Puma Future 9 Ultimate FG - Women</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.4/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 7.4 oz</span><span><strong>Cushion</strong> Low</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Surface</strong> Firm Ground</span><span><strong>Cleat</strong> FG</span><span><strong>Play Style</strong> Speed</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $250</span><span class="best-for"><strong>Best For</strong> Fast women's players on natural grass who want elite-level speed performance</span></div>
     <p>Puma's top-tier women's speed cleat for firm ground. FUZIONFIT+ adaptive upper wraps the foot for secure lockdown, ULTRA-LITE outsole minimizes weight for the fastest players on natural grass.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/puma-future-9-ultimate-fg-soccer-cleats-25pumasoccftr9ltmtuvg/25pumasoccftr9ltmtuvg?color=Blue/Blue" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe" id="nike-tiempo-maestro-club-turf-women">
+<div class="shoe" id="nike-tiempo-maestro-club-turf-women" data-product="Nike Tiempo Maestro Club Turf - Women" data-sport="Soccer" data-gender="Women" data-rating="4.2">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25NIKASOCCTMPMSTRCTLK_Black_Blue?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Tiempo Maestro Club Turf - Women" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Nike Tiempo Maestro Club Turf - Women</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.2/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 8.5 oz</span><span><strong>Cushion</strong> Low</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Surface</strong> Turf</span><span><strong>Cleat</strong> TF</span><span><strong>Play Style</strong> Control</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $70</span><span class="best-for"><strong>Best For</strong> Technical women's players who train on turf and want Tiempo's legendary soft touch</span></div>
     <p>Tiempo's legendary soft touch on turf. Synthetic upper mimics plush leather feel on an artificial turf sole - the control cleat for technically gifted players who train on turf.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/nike-tiempo-maestro-club-turf-soccer-cleats-25nikasocctmpmstrctlk/25nikasocctmpmstrctlk?color=Black/Blue" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe" id="nike-tiempo-ligera-pro-turf-women">
+<div class="shoe" id="nike-tiempo-ligera-pro-turf-women" data-product="Nike Tiempo Ligera Pro Turf - Women" data-sport="Soccer" data-gender="Women" data-rating="4.3">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25NIKASOCCTMPLGRTFEBA_White_Black?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Tiempo Ligera Pro Turf - Women" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Nike Tiempo Ligera Pro Turf - Women</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.3/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 8.2 oz</span><span><strong>Cushion</strong> Low</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Surface</strong> Turf</span><span><strong>Cleat</strong> TF</span><span><strong>Play Style</strong> Control</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $130</span><span class="best-for"><strong>Best For</strong> Control-focused women's players on turf who want touch quality at a competitive price</span></div>
     <p>Tiempo ball-control philosophy at a competitive price on turf. Padded strike zone and textured upper deliver touch and feel across a wide range of artificial grass types.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/nike-tiempo-ligera-pro-turf-soccer-cleats-25nikasocctmplgrtfeba/25nikasocctmplgrtfeba?color=White/Black" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe" id="nike-mercurial-zoom-vapor-16-pro-ag-women">
+<div class="shoe" id="nike-mercurial-zoom-vapor-16-pro-ag-women" data-product="Nike Mercurial Zoom Vapor 16 Pro AG - Women" data-sport="Soccer" data-gender="Women" data-rating="4.4">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25NIKASOCCZMVPR16PBDD_Blue_White?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Mercurial Zoom Vapor 16 Pro AG - Women" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Nike Mercurial Zoom Vapor 16 Pro AG - Women</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.4/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 7.2 oz</span><span><strong>Cushion</strong> Low</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Surface</strong> Artificial Ground</span><span><strong>Cleat</strong> AG</span><span><strong>Play Style</strong> Speed</span><span><strong>Fit</strong> Narrow</span><span><strong>Price</strong> $230</span><span class="best-for"><strong>Best For</strong> Fast women's players on artificial ground who want explosive energy return</span></div>
     <p>Premium women's speed cleat for AG surfaces. Air Zoom Strobel in the forefoot for explosive energy return - running shoe tech brought to the pitch. Low-cut for maximum first-step mobility.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/nike-mercurial-zoom-vapor-16-pro-ag-soccer-cleats-25nikasocczmvpr16pbdd/25nikasocczmvpr16pbdd?color=Blue/White" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
