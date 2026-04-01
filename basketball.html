@@ -7,127 +7,38 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500&display=swap');
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Barlow', sans-serif;
-    background: #f7f6f3;
-    color: #1a1a1a;
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 32px 24px 64px;
-  }
+  body { font-family: 'Barlow', sans-serif; background: #f7f6f3; color: #1a1a1a; max-width: 960px; margin: 0 auto; padding: 32px 24px 64px; }
   header { border-bottom: 3px solid #1a1a1a; padding-bottom: 20px; margin-bottom: 36px; }
-  header h1 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 3rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: -0.5px;
-    line-height: 1;
-  }
+  header h1 { font-family: 'Barlow Condensed', sans-serif; font-size: 3rem; font-weight: 700; text-transform: uppercase; letter-spacing: -0.5px; line-height: 1; }
   header p { font-size: 0.95rem; color: #555; margin-top: 8px; }
-  .toc {
-    background: #1a1a1a;
-    color: #f7f6f3;
-    padding: 24px 28px;
-    margin-bottom: 48px;
-    border-radius: 2px;
-  }
-  .toc h3 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 16px;
-    color: #aaa;
-  }
+  .toc { background: #1a1a1a; color: #f7f6f3; padding: 24px 28px; margin-bottom: 48px; border-radius: 2px; }
+  .toc h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; color: #aaa; }
   .toc-section { margin-bottom: 16px; }
-  .toc-section h4 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #888;
-    margin-bottom: 8px;
-  }
+  .toc-section h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: #888; margin-bottom: 8px; }
   .toc ul { list-style: none; columns: 2; column-gap: 32px; }
   .toc ul li { margin-bottom: 4px; font-size: 0.88rem; }
   .toc ul a { color: #f7f6f3; text-decoration: none; border-bottom: 1px solid #444; }
   .toc ul a:hover { border-color: #f7f6f3; }
-  .section-label {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: #888;
-    margin: 48px 0 16px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #ddd;
-  }
-  .shoe {
-    background: #fff;
-    border: 1px solid #e8e6e0;
-    margin-bottom: 16px;
-    border-radius: 2px;
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    overflow: hidden;
-    position: relative;
-  }
+  .section-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px; color: #888; margin: 48px 0 16px; padding-bottom: 8px; border-bottom: 1px solid #ddd; }
+  .shoe { background: #fff; border: 1px solid #e8e6e0; margin-bottom: 16px; border-radius: 2px; display: grid; grid-template-columns: 200px 1fr; overflow: hidden; }
   .shoe.display { border-left: 4px solid #1a1a1a; }
-  .shoe-image {
-    background: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 16px;
-    min-height: 180px;
-  }
-  .shoe-image img {
-    width: 100%;
-    height: 168px;
-    object-fit: contain;
-    display: block;
-    mix-blend-mode: multiply;
-  }
-  .shoe-image.no-image {
-    background: #ebebeb;
-  }
+  .shoe-image { background: #fff; display: flex; align-items: center; justify-content: center; padding: 16px; min-height: 180px; }
+  .shoe-image img { width: 100%; height: 168px; object-fit: contain; display: block; mix-blend-mode: multiply; }
+  .shoe-image.no-image { background: #ebebeb; }
   .shoe-content { padding: 22px 24px; }
   .shoe-header { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
-  .shoe h2 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.35rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.3px;
-  }
-  .badge {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.65rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    background: #1a1a1a;
-    color: #fff;
-    padding: 3px 8px;
-    border-radius: 1px;
-    white-space: nowrap;
-  }
-  .meta { display: flex; gap: 16px; margin-bottom: 10px; align-items: center; }
+  .shoe h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.35rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; }
+  .badge { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; background: #1a1a1a; color: #fff; padding: 3px 8px; border-radius: 1px; white-space: nowrap; }
+  .meta { display: flex; gap: 16px; margin-bottom: 8px; align-items: center; }
   .rating { font-size: 0.85rem; color: #888; }
+  .specs { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 0.78rem; color: #555; background: #f7f6f3; padding: 8px 12px; margin-bottom: 12px; border-radius: 1px; }
+  .specs strong { color: #1a1a1a; font-weight: 600; margin-right: 3px; }
+  .specs .best-for { width: 100%; margin-top: 4px; color: #1a1a1a; font-size: 0.8rem; }
+  .specs .best-for strong { color: #1a1a1a; }
   .shoe p { font-size: 0.9rem; line-height: 1.65; color: #333; margin-bottom: 12px; }
-  .shoe a.shop-link {
-    color: #1a1a1a;
-    font-size: 0.83rem;
-    font-weight: 500;
-    border-bottom: 1px solid #1a1a1a;
-    text-decoration: none;
-  }
+  .shoe a.shop-link { color: #1a1a1a; font-size: 0.83rem; font-weight: 500; border-bottom: 1px solid #1a1a1a; text-decoration: none; }
   .shoe a.shop-link:hover { opacity: 0.6; }
-  @media (max-width: 600px) {
-    .shoe { grid-template-columns: 1fr; }
-    .shoe-image { min-height: 200px; }
-  }
+  @media (max-width: 600px) { .shoe { grid-template-columns: 1fr; } .shoe-image { min-height: 200px; } }
 </style>
 </head>
 <body>
@@ -135,20 +46,14 @@
   <h1>Basketball Shoes</h1>
   <p>Product knowledge base for AI-assisted shoe recommendations at DICK'S Sporting Goods. Shoes marked <strong>On Display</strong> are physically available at the Summit activation.</p>
 </header>
-
 <div class="toc">
   <h3>Shoes on this page</h3>
-  <div class="toc-section">
-    <h4>On Display at Summit</h4>
-    <ul><li><a href="#adidas-d-o-n-issue-7-men">Adidas D.O.N. Issue #7 - Men</a></li>
+  <div class="toc-section"><h4>On Display at Summit</h4><ul><li><a href="#adidas-d-o-n-issue-7-men">Adidas D.O.N. Issue #7 - Men</a></li>
 <li><a href="#nike-g-t-cut-4-men">Nike G.T. Cut 4 - Men</a></li>
 <li><a href="#nike-ja-3-12-time-men">Nike Ja 3 '12 Time' - Men</a></li>
 <li><a href="#nike-sabrina-3-equity-women">Nike Sabrina 3 'Equity' - Women</a></li>
-</ul>
-  </div>
-  <div class="toc-section">
-      <h4>Full Catalog</h4>
-      <ul><li><a href="#air-jordan-8-retro-men">Air Jordan 8 Retro - Men</a></li>
+</ul></div>
+  <div class="toc-section"><h4>Full Catalog</h4><ul><li><a href="#air-jordan-8-retro-men">Air Jordan 8 Retro - Men</a></li>
 <li><a href="#air-jordan-4-retro-love-letter-men">Air Jordan 4 Retro Love Letter - Men</a></li>
 <li><a href="#new-balance-two-wxy-v5-men">New Balance Two WXY V5 - Men</a></li>
 <li><a href="#converse-shai-001-ares-grey-men">Converse Shai 001 Ares Grey - Men</a></li>
@@ -168,225 +73,246 @@
 <li><a href="#air-jordan-12-retro-women">Air Jordan 12 Retro - Women</a></li>
 <li><a href="#nike-ja-3-women">Nike Ja 3 - Women</a></li>
 <li><a href="#air-jordan-4-retro-flight-club-women">Air Jordan 4 Retro Flight Club - Women</a></li>
-</ul>
-    </div>
+</ul></div>
 </div>
-
 <p class="section-label">On Display at Summit</p>
-<div class="shoe display" id="adidas-d-o-n-issue-7-men">
+<div class="shoe display" id="adidas-d-o-n-issue-7-men" data-product="Adidas D.O.N. Issue #7 - Men" data-sport="Basketball" data-gender="Men" data-rating="4.5">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/JR7697_BlackYellow_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Adidas D.O.N. Issue #7 - Men" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Adidas D.O.N. Issue #7 - Men</h2><span class="badge">On Display</span></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 11.0 oz</span><span><strong>Cushion</strong> Moderate</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Surface</strong> Indoor Court</span><span><strong>Play Style</strong> Versatile</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $110</span><span class="best-for"><strong>Best For</strong> Relentless attacking guards who score from everywhere and never slow down</span></div>
     <p>Donovan Mitchell's 7th signature - built for the relentless attacking guard. Lightstrike Pro cushioning for a bouncy, responsive platform, multi-directional traction for drives and pull-ups. Do Or Nothing.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/adidas-d-o-nissue-7-basketball-shoes-25adiadnss7clpsxxmns/25adiadnss7clpsxxmns?color=Black%2FYellow" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe display" id="nike-g-t-cut-4-men">
+<div class="shoe display" id="nike-g-t-cut-4-men" data-product="Nike G.T. Cut 4 - Men" data-sport="Basketball" data-gender="Men" data-rating="4.5">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/IQ6206500_VividPurpBlueBlue_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike G.T. Cut 4 - Men" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Nike G.T. Cut 4 - Men</h2><span class="badge">On Display</span></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 10.0 oz</span><span><strong>Cushion</strong> Low</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Surface</strong> Indoor Court</span><span><strong>Play Style</strong> Speed/Slashing</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $180</span><span class="best-for"><strong>Best For</strong> Guards and wings who rely on quickness, cutting, and lateral movement</span></div>
     <p>Nike's most advanced guard shoe ever. ZoomX 3.0 foam, parabolic Zoom Strobel, RBR-X foam, and a Cushlon carrier deliver unprecedented court-feel responsiveness. Generative traction engineered for multi-directional cuts. Unveiled by Paige Bueckers at the 2025 WNBA All-Star Weekend.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/nike-g-tcut-4-launch-basketball-shoes-25nikabaskgtct4lncpeg/25nikabaskgtct4lncpeg?color=Vivid%20Purp%2FBlue%2FBlue" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe display" id="nike-ja-3-12-time-men">
+<div class="shoe display" id="nike-ja-3-12-time-men" data-product="Nike Ja 3 '12 Time' - Men" data-sport="Basketball" data-gender="Men" data-rating="4.5">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/IQ6755300_TurqOrange_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Ja 3 '12 Time' - Men" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Nike Ja 3 '12 Time' - Men</h2><span class="badge">On Display</span></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 11.0 oz</span><span><strong>Cushion</strong> Low</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Surface</strong> Indoor Court</span><span><strong>Play Style</strong> Speed/Slashing</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $130</span><span class="best-for"><strong>Best For</strong> Explosive guards and rim-runners who attack relentlessly</span></div>
     <p>Ja Morant's third signature, built for guards who live at the rim. Air Zoom Strobel delivers a bouncy, responsive feel optimized for drive-and-finish plays. The '12 Time' colorway carries personal meaning for Morant.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/nike-ja-3-basketball-shoes-25nikabaskj312tmxxamk/25nikabaskj312tmxxamk?color=Turq%2FOrange" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe display" id="nike-sabrina-3-equity-women">
+<div class="shoe display" id="nike-sabrina-3-equity-women" data-product="Nike Sabrina 3 'Equity' - Women" data-sport="Basketball" data-gender="Women" data-rating="4.5">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/HF2881003_BlkIvoryMintSmokeGry_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Sabrina 3 'Equity' - Women" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Nike Sabrina 3 'Equity' - Women</h2><span class="badge">On Display</span></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 10.5 oz</span><span><strong>Cushion</strong> Moderate</span><span><strong>Ankle</strong> Mid-cut</span><span><strong>Surface</strong> Indoor Court</span><span><strong>Play Style</strong> Versatile</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $140</span><span class="best-for"><strong>Best For</strong> Versatile guards who play at multiple positions and want all-around court performance</span></div>
     <p>Sabrina Ionescu's third signature, representing her commitment to equal treatment in women's basketball. Full-length Air Zoom Strobel and multi-directional traction for guards who play at multiple positions.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/nike-sabrina-3-equity-basketball-shoes-25nikabasksbrn3phnlgk/25nikabasksbrn3phnlgk?color=Blk%20Ivory%2FMint%2FSmoke%20Gry" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-
 <p class="section-label">Full Catalog</p>
-<div class="shoe" id="air-jordan-8-retro-men">
+<div class="shoe" id="air-jordan-8-retro-men" data-product="Air Jordan 8 Retro - Men" data-sport="Basketball" data-gender="Men" data-rating="4.5">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25JORABASKRJRDN8RTCCE_White_Black_Red?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Air Jordan 8 Retro - Men" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Air Jordan 8 Retro - Men</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 16.0 oz</span><span><strong>Cushion</strong> High</span><span><strong>Ankle</strong> Mid-cut</span><span><strong>Surface</strong> Indoor Court</span><span><strong>Play Style</strong> Versatile</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $210</span><span class="best-for"><strong>Best For</strong> Players and collectors who want basketball heritage with real Air cushioning</span></div>
     <p>The shoe Jordan wore during his 1993 championship run. Elaborate lacing system and crossover ankle straps for exceptional lockdown. Air cushioning, genuine leather upper. A wearable piece of basketball history.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/air-jordan-8-retro-basketball-shoes-25jorabaskrjrdn8rtcce/25jorabaskrjrdn8rtcce?color=White/Black/Red" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe" id="air-jordan-4-retro-love-letter-men">
+<div class="shoe" id="air-jordan-4-retro-love-letter-men" data-product="Air Jordan 4 Retro Love Letter - Men" data-sport="Basketball" data-gender="Men" data-rating="4.6">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25NIKABASKWMNSRJRDEPI_Pale_Ivory_Sierra_Red_Tough_Red?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Air Jordan 4 Retro Love Letter - Men" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Air Jordan 4 Retro Love Letter - Men</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.6/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 13.0 oz</span><span><strong>Cushion</strong> Moderate</span><span><strong>Ankle</strong> Mid-cut</span><span><strong>Surface</strong> Indoor Court</span><span><strong>Play Style</strong> Versatile</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $215</span><span class="best-for"><strong>Best For</strong> Collectors and players who want iconic Jordan style with premium construction</span></div>
     <p>A premium colorway of one of the most iconic Jordan silhouettes. The AJ4 debuted in 1989 with Spike Lee's Mars Blackmon ads. Love Letter edition features soft, romantic tones and premium construction details.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/air-jordan-4-retro-womens-love-letter-basketball-shoes-25nikabaskwmnsrjrdepi/25nikabaskwmnsrjrdepi?color=Pale%20Ivory/Sierra%20Red/Tough%20Red" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe" id="new-balance-two-wxy-v5-men">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/24NWBATWWXYV5BLCKMNS_Black?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="New Balance Two WXY V5 - Men" loading="lazy"></div>
+<div class="shoe" id="new-balance-two-wxy-v5-men" data-product="New Balance Two WXY V5 - Men" data-sport="Basketball" data-gender="Men" data-rating="4.3">
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/24NWBATWWXYV5BLCKMNS_Black_old?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="New Balance Two WXY V5 - Men" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>New Balance Two WXY V5 - Men</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.3/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 12.0 oz</span><span><strong>Cushion</strong> Moderate</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Surface</strong> Indoor Court</span><span><strong>Play Style</strong> Versatile</span><span><strong>Fit</strong> Wide</span><span><strong>Price</strong> $130</span><span class="best-for"><strong>Best For</strong> Guards and wings who want serious performance from New Balance's top basketball shoe</span></div>
     <p>New Balance's premier performance basketball shoe. FUELCELL foam for responsive, springy cushioning with a supportive fit for lockdown during aggressive cuts and lateral movements.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/new-balance-two-waxy-v5-basketball-shoes-24nwbatwwxyv5blckmns/24nwbatwwxyv5blckmns?color=Black" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe" id="converse-shai-001-ares-grey-men">
+<div class="shoe" id="converse-shai-001-ares-grey-men" data-product="Converse Shai 001 Ares Grey - Men" data-sport="Basketball" data-gender="Men" data-rating="4.3">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25CONABASKSH001RSGAEQ_Origin_Story_Iron_Grey?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Converse Shai 001 Ares Grey - Men" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Converse Shai 001 Ares Grey - Men</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.3/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 12.5 oz</span><span><strong>Cushion</strong> Moderate</span><span><strong>Ankle</strong> Mid-cut</span><span><strong>Surface</strong> Indoor Court</span><span><strong>Play Style</strong> Versatile</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $130</span><span class="best-for"><strong>Best For</strong> Guards who want Converse's return to performance basketball with SGA's fluid style in mind</span></div>
     <p>Shai Gilgeous-Alexander's debut signature - Converse's return to serious performance basketball. Full-length React cushioning, mid-cut design, and traction optimized for SGA's uniquely fluid, unconventional movement.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/converse-shai-001-ares-grey-basketball-shoes-25conabasksh001rsgaeq/25conabasksh001rsgaeq?color=Origin%20Story/Iron%20Grey" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe" id="under-armour-curry-fox-2-banzitos-men">
+<div class="shoe" id="under-armour-curry-fox-2-banzitos-men" data-product="Under Armour Curry Fox 2 Banzitos - Men" data-sport="Basketball" data-gender="Men" data-rating="4.4">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25UNDABASKCRRYFX2BBFA_White_Blue_Black?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Under Armour Curry Fox 2 Banzitos - Men" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Under Armour Curry Fox 2 Banzitos - Men</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.4/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 12.0 oz</span><span><strong>Cushion</strong> Moderate</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Surface</strong> Indoor Court</span><span><strong>Play Style</strong> Speed/Slashing</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $160</span><span class="best-for"><strong>Best For</strong> Quick guards and shooters who want a low-profile, responsive ride</span></div>
     <p>From Stephen Curry's signature line - FLOW midsole provides a grippy, responsive ride without a traditional rubber outsole. Built for quick guards who shoot first and ask questions later.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/under-armour-curry-fox-2-banzitos-basketball-shoes-25undabaskcrryfx2bbfa/25undabaskcrryfx2bbfa?color=White/Blue/Black" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe" id="under-armour-curry-series-7-men">
+<div class="shoe" id="under-armour-curry-series-7-men" data-product="Under Armour Curry Series 7 - Men" data-sport="Basketball" data-gender="Men" data-rating="4.3">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25UNDABASKCRRYSRS7DEA_Grey?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Under Armour Curry Series 7 - Men" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Under Armour Curry Series 7 - Men</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.3/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 12.5 oz</span><span><strong>Cushion</strong> Moderate</span><span><strong>Ankle</strong> Mid-cut</span><span><strong>Surface</strong> Indoor Court</span><span><strong>Play Style</strong> Versatile</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $160</span><span class="best-for"><strong>Best For</strong> All-around guards who want lockdown and cushioning for Curry-style movement</span></div>
     <p>The latest core Curry signature - mid-top design with Charged cushioning for the explosive lateral movement and jump-stop mechanics that define Curry's game.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/under-armour-curry-series-7-basketball-shoes-25undabaskcrrysrs7dea/25undabaskcrrysrs7dea?color=Grey" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe" id="anta-kai-1-speed-men">
+<div class="shoe" id="anta-kai-1-speed-men" data-product="ANTA Kai 1 Speed - Men" data-sport="Basketball" data-gender="Men" data-rating="4.3">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25VOQAK1SPDBLGNDSMNS_Coral_Blue?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="ANTA Kai 1 Speed - Men" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>ANTA Kai 1 Speed - Men</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.3/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 11.5 oz</span><span><strong>Cushion</strong> Moderate</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Surface</strong> Indoor Court</span><span><strong>Play Style</strong> Speed/Slashing</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $125</span><span class="best-for"><strong>Best For</strong> Quick guards who want maximum court feel and first-step responsiveness</span></div>
     <p>Kyrie Irving's debut signature with ANTA. Low-top speed shoe with A-FlashEdge cushioning and a thin, grippy outsole for maximum court feel. A legitimate performance option from China's leading sportswear brand.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/anta-kai-1-speed-basketball-shoes-25voqak1spdblgndsmns/25voqak1spdblgndsmns?color=Coral/Blue" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe" id="anta-kai-3-423-htz-men">
+<div class="shoe" id="anta-kai-3-423-htz-men" data-product="ANTA Kai 3 423 HTZ - Men" data-sport="Basketball" data-gender="Men" data-rating="4.3">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25ANTABASKK3432HTZQDY_Purple_Orange?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="ANTA Kai 3 423 HTZ - Men" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>ANTA Kai 3 423 HTZ - Men</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.3/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 12.0 oz</span><span><strong>Cushion</strong> Moderate</span><span><strong>Ankle</strong> Mid-cut</span><span><strong>Surface</strong> Indoor Court</span><span><strong>Play Style</strong> Versatile</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $150</span><span class="best-for"><strong>Best For</strong> Versatile guards who want mid-cut support with Kyrie Irving's precision-focused design</span></div>
     <p>The third shoe in Kyrie Irving's ANTA signature line - ANTA's most refined court performer yet, with a mid-cut build and A-FlashEdge cushioning for versatile guard play.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/anta-kai-3-423-htz-basketball-shoes-25antabaskk3432htzqdy/25antabaskk3432htzqdy?color=Purple/Orange" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe" id="adidas-harden-volume-9-men">
+<div class="shoe" id="adidas-harden-volume-9-men" data-product="adidas Harden Volume 9 - Men" data-sport="Basketball" data-gender="Men" data-rating="4.3">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25ADIABASKHRDNVLM9EEC_Black_Silver_Blue?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="adidas Harden Volume 9 - Men" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>adidas Harden Volume 9 - Men</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.3/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 13.5 oz</span><span><strong>Cushion</strong> Moderate</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Surface</strong> Indoor Court</span><span><strong>Play Style</strong> Post/Power</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $160</span><span class="best-for"><strong>Best For</strong> Isolation scorers and pull-up specialists who need a stable platform for Harden-style footwork</span></div>
     <p>James Harden's 9th signature - built for the scorer's scorer. Wide, stable platform for pull-up situations, Lightstrike Pro for responsive impact protection, traction designed for Harden's shuffling, lateral-heavy footwork.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/adidas-harden-volume-9-basketball-shoes-25adiabaskhrdnvlm9eec/25adiabaskhrdnvlm9eec?color=Black/Silver/Blue" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe" id="reebok-angel-reese-1-men">
+<div class="shoe" id="reebok-angel-reese-1-men" data-product="Reebok Angel Reese 1 - Men" data-sport="Basketball" data-gender="Men" data-rating="4.2">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25REEABASKNGLRS1WHPYQ_White_Black_Red?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Reebok Angel Reese 1 - Men" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Reebok Angel Reese 1 - Men</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.2/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 12.0 oz</span><span><strong>Cushion</strong> Moderate</span><span><strong>Ankle</strong> Mid-cut</span><span><strong>Surface</strong> Indoor Court</span><span><strong>Play Style</strong> Versatile</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $120</span><span class="best-for"><strong>Best For</strong> Interior players and post players who want support and cushioning for a physical game</span></div>
     <p>Angel Reese's debut signature - Reebok's return to women's basketball with one of the sport's most electric young stars. Mid-cut design with responsive foam built for interior court play.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/reebok-angel-reese-1-basketball-shoes-25reeabasknglrs1whpyq/25reeabasknglrs1whpyq?color=White/Black/Red" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe" id="nike-lebron-xxiii-men">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25NIKABASKLBRNXXSHUVR_Cool_Grey_Black?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike LeBron XXIII - Men" loading="lazy"></div>
+<div class="shoe" id="nike-lebron-xxiii-men" data-product="Nike LeBron XXIII - Men" data-sport="Basketball" data-gender="Men" data-rating="4.5">
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25NIKABASKLBRNXXSHUVR_Cool_Grey_Black_Cool_Grey?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike LeBron XXIII - Men" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Nike LeBron XXIII - Men</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 15.0 oz</span><span><strong>Cushion</strong> High</span><span><strong>Ankle</strong> Mid-cut</span><span><strong>Surface</strong> Indoor Court</span><span><strong>Play Style</strong> Post/Power</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $200</span><span class="best-for"><strong>Best For</strong> Power forwards and big guards who need maximum cushioning for a physical, dominant style of play</span></div>
     <p>LeBron's 23rd signature - a milestone shoe for one of basketball's greatest careers. Full-length Air Zoom Strobel, ZoomX foam, and a reinforced upper built for the high-impact movements that define LeBron's physical dominance.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/nike-lebron-xxiii-shut-up-dribble-basketball-shoes-25nikabasklbrnxxshuvr/25nikabasklbrnxxshuvr?color=Cool%20Grey/Black/Cool%20Grey" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe" id="nike-g-t-cut-4-launch-women">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25NIKABASKGTCT4LNCPEG_Vivid_Purple_Blue?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike G.T. Cut 4 Launch - Women" loading="lazy"></div>
+<div class="shoe" id="nike-g-t-cut-4-launch-women" data-product="Nike G.T. Cut 4 Launch - Women" data-sport="Basketball" data-gender="Women" data-rating="4.5">
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25NIKABASKGTCT4LNCPEG_Vivid_Purp_Blue_Blue?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike G.T. Cut 4 Launch - Women" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Nike G.T. Cut 4 Launch - Women</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 10.0 oz</span><span><strong>Cushion</strong> Low</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Surface</strong> Indoor Court</span><span><strong>Play Style</strong> Speed/Slashing</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $180</span><span class="best-for"><strong>Best For</strong> Guards and wings who play with speed and cut first — women's version of Nike's most advanced guard shoe</span></div>
     <p>The women's launch colorway of Nike's new guard flagship. All the tech - ZoomX 3.0, Zoom Strobel, RBR-X foam - in a distinct women's colorway. For players who play with speed and cut first.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/nike-g-tcut-4-launch-basketball-shoes-25nikabaskgtct4lncpeg/25nikabaskgtct4lncpeg?color=Vivid%20Purp/Blue/Blue" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe" id="new-balance-p400-women">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/26NEWABASKP400V4BLZNY_Black_White?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="New Balance P400 - Women" loading="lazy"></div>
+<div class="shoe" id="new-balance-p400-women" data-product="New Balance P400 - Women" data-sport="Basketball" data-gender="Women" data-rating="4.3">
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/26NEWABASKP400V4BLZNY_Black_Team_Red?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="New Balance P400 - Women" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>New Balance P400 - Women</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.3/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 11.5 oz</span><span><strong>Cushion</strong> Moderate</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Surface</strong> Indoor Court</span><span><strong>Play Style</strong> Versatile</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $140</span><span class="best-for"><strong>Best For</strong> Women's guards and wings who want a high-performance shoe from a brand committed to basketball</span></div>
     <p>New Balance's performance basketball shoe for women. FUELCELL platform for responsive, high-energy cushioning built for guards and wings who want a serious performer from a brand all-in on basketball.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/New-Balance-P400-Basketball-Shoes-26NEWABASKP400V4BLZNY/26NEWABASKP400V4BLZNY" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe" id="adidas-anthony-edwards-1-low-women">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25ADIA1LWPRLVDLMXMNS_Preloved_Lilac?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="adidas Anthony Edwards 1 Low - Women" loading="lazy"></div>
+<div class="shoe" id="adidas-anthony-edwards-1-low-women" data-product="adidas Anthony Edwards 1 Low - Women" data-sport="Basketball" data-gender="Women" data-rating="4.3">
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25ADIA1LWPRLVDLMXMNS_Black_Lime_Green?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="adidas Anthony Edwards 1 Low - Women" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>adidas Anthony Edwards 1 Low - Women</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.3/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 11.5 oz</span><span><strong>Cushion</strong> Low</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Surface</strong> Indoor Court</span><span><strong>Play Style</strong> Speed/Slashing</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $120</span><span class="best-for"><strong>Best For</strong> Explosive guards and wings who want low-cut freedom for above-the-rim plays</span></div>
     <p>Anthony Edwards' debut signature in a low-top build. Lightstrike Pro cushioning for the explosive first step and above-the-rim finishing that defines AE's game.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/adidas-Anthony-Edwards-1-Low-Basketball-Shoes-25ADIA1LWPRLVDLMXMNS/25ADIA1LWPRLVDLMXMNS" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe" id="nike-kobe-9-elite-low-em-protro-women">
+<div class="shoe" id="nike-kobe-9-elite-low-em-protro-women" data-product="Nike Kobe 9 Elite Low EM Protro - Women" data-sport="Basketball" data-gender="Women" data-rating="4.7">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25NIKABASKKBXMLWHYFIU_Hydrogen_Blue_White?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Kobe 9 Elite Low EM Protro - Women" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Nike Kobe 9 Elite Low EM Protro - Women</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.7/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 10.5 oz</span><span><strong>Cushion</strong> Low</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Surface</strong> Indoor Court</span><span><strong>Play Style</strong> Speed/Slashing</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $200</span><span class="best-for"><strong>Best For</strong> Guards and slashers who want a technically precise, lightweight low-top with a legendary feel</span></div>
     <p>A reissue of the revolutionary 2014 Kobe - the first basketball shoe ever made with a Flyknit upper, creating a surreal sock-like fit. The Protro update adds modern refinements. Lightweight and intensely technical.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/nike-kobe-9-elite-low-em-protro-basketball-shoes-25nikabaskkbxmlwhyfiu/25nikabaskkbxmlwhyfiu?color=Hydrogen%20Blue/White" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe" id="air-jordan-6-retro-infrared-women">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25JORABASKRJRDN6RTFPQ_Black_Light_Crimson?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Air Jordan 6 Retro Infrared - Women" loading="lazy"></div>
+<div class="shoe" id="air-jordan-6-retro-infrared-women" data-product="Air Jordan 6 Retro Infrared - Women" data-sport="Basketball" data-gender="Women" data-rating="4.6">
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25JORABASKRJRDN6RTFPQ_Black_Lt_Crimson?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Air Jordan 6 Retro Infrared - Women" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Air Jordan 6 Retro Infrared - Women</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.6/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 14.0 oz</span><span><strong>Cushion</strong> Moderate</span><span><strong>Ankle</strong> Mid-cut</span><span><strong>Surface</strong> Indoor Court</span><span><strong>Play Style</strong> Versatile</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $200</span><span class="best-for"><strong>Best For</strong> Collectors and players who want one of Jordan's most iconic championship colorways</span></div>
     <p>The Black/Infrared AJ6 from 1991 - the year Jordan won his first championship. The first Jordan shoe with a pull-tab, designed with Tinker Hatfield. Iconic colorway, collector-grade status.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/air-jordan-retro-6-infrared-salesman-basketball-shoes-25jorabaskrjrdn6rtfpq/25jorabaskrjrdn6rtfpq?color=Black/Lt%20Crimson" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe" id="converse-shai-001-clean-slate-women">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25CONABASKSH001WHTNVY_White?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Converse Shai 001 Clean Slate - Women" loading="lazy"></div>
+<div class="shoe" id="converse-shai-001-clean-slate-women" data-product="Converse Shai 001 Clean Slate - Women" data-sport="Basketball" data-gender="Women" data-rating="4.3">
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25CONABASKSH001WHTNVY_White_White_White?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Converse Shai 001 Clean Slate - Women" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Converse Shai 001 Clean Slate - Women</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.3/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 11.0 oz</span><span><strong>Cushion</strong> Moderate</span><span><strong>Ankle</strong> Mid-cut</span><span><strong>Surface</strong> Indoor Court</span><span><strong>Play Style</strong> Versatile</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $130</span><span class="best-for"><strong>Best For</strong> Women's players who want SGA's performance signature in a clean, minimal colorway</span></div>
     <p>The Clean Slate colorway of SGA's debut signature. Same React cushioning and mid-cut performance as the Ares Grey, in a minimal, clean aesthetic that reflects Gilgeous-Alexander's understated style.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/converse-shai-001-clean-slate-basketball-shoes-25conabasksh001whtnvy/25conabasksh001whtnvy?color=White/White/White" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe" id="air-jordan-12-retro-women">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25JDNARJRDN12RTRXNKEA_White_French_Blue_Metallic_Silver_Red?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Air Jordan 12 Retro - Women" loading="lazy"></div>
+<div class="shoe" id="air-jordan-12-retro-women" data-product="Air Jordan 12 Retro - Women" data-sport="Basketball" data-gender="Women" data-rating="4.5">
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25JDNARJRDN12RTRXNKEA_Wht_Frnch_Blu_Mtlcslvr_Rd?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Air Jordan 12 Retro - Women" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Air Jordan 12 Retro - Women</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 15.0 oz</span><span><strong>Cushion</strong> High</span><span><strong>Ankle</strong> Mid-cut</span><span><strong>Surface</strong> Indoor Court</span><span><strong>Play Style</strong> Versatile</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $200</span><span class="best-for"><strong>Best For</strong> Collectors and players who want Jordan's 1997 championship shoe</span></div>
     <p>The shoe from Jordan's 1997 championship season. Quilted stitching inspired by the Japanese flag, distinctive mudguard sole. A timeless design from the peak of Jordan's dynasty.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/air-jordan-12-retro-basketball-shoes-25jdnarjrdn12rtrxnkea/25jdnarjrdn12rtrxnkea?color=Wht/Frnch%20Blu/Mtlcslvr/Rd" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe" id="nike-ja-3-women">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25NIKABASKJ312TMXXAMK_Turquoise_Orange?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Ja 3 - Women" loading="lazy"></div>
+<div class="shoe" id="nike-ja-3-women" data-product="Nike Ja 3 - Women" data-sport="Basketball" data-gender="Women" data-rating="4.4">
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25NIKABASKJ312TMXXAMK_Turq_Orange?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Ja 3 - Women" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Nike Ja 3 - Women</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.4/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 11.0 oz</span><span><strong>Cushion</strong> Low</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Surface</strong> Indoor Court</span><span><strong>Play Style</strong> Speed/Slashing</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $130</span><span class="best-for"><strong>Best For</strong> Explosive guards and rim-runners who want to play at full speed all game</span></div>
     <p>Ja Morant's third signature in women's sizing. Air Zoom Strobel cushioning, low-cut design, and traction built for explosive guards who want to play at full speed all game.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/nike-ja-3-basketball-shoes-25nikabaskj312tmxxamk/25nikabaskj312tmxxamk?color=Turq/Orange" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe" id="air-jordan-4-retro-flight-club-women">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25JORABASKRJRDN4RTZYI_Black_University_Red?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Air Jordan 4 Retro Flight Club - Women" loading="lazy"></div>
+<div class="shoe" id="air-jordan-4-retro-flight-club-women" data-product="Air Jordan 4 Retro Flight Club - Women" data-sport="Basketball" data-gender="Women" data-rating="4.5">
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25JORABASKRJRDN4RTZYI_Black_Uni_Red?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Air Jordan 4 Retro Flight Club - Women" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Air Jordan 4 Retro Flight Club - Women</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
+    <div class="specs"><span><strong>Weight</strong> 14.0 oz</span><span><strong>Cushion</strong> Moderate</span><span><strong>Ankle</strong> Mid-cut</span><span><strong>Surface</strong> Indoor Court</span><span><strong>Play Style</strong> Versatile</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $215</span><span class="best-for"><strong>Best For</strong> Women's players and collectors who want premium AJ4 construction in a women's colorway</span></div>
     <p>Premium women's colorway of the Air Jordan 4. The AJ4's visible Air unit, mesh netting, and support wings with premium Flight Club materials - collector's piece as much as a wearable shoe.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/air-jordan-4-retro-flight-club-basketball-shoes-25jorabaskrjrdn4rtzyi/25jorabaskrjrdn4rtzyi?color=Black/Uni%20Red" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
