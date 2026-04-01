@@ -7,127 +7,34 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500&display=swap');
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Barlow', sans-serif;
-    background: #f7f6f3;
-    color: #1a1a1a;
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 32px 24px 64px;
-  }
+  body { font-family: 'Barlow', sans-serif; background: #f7f6f3; color: #1a1a1a; max-width: 960px; margin: 0 auto; padding: 32px 24px 64px; }
   header { border-bottom: 3px solid #1a1a1a; padding-bottom: 20px; margin-bottom: 36px; }
-  header h1 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 3rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: -0.5px;
-    line-height: 1;
-  }
+  header h1 { font-family: 'Barlow Condensed', sans-serif; font-size: 3rem; font-weight: 700; text-transform: uppercase; letter-spacing: -0.5px; line-height: 1; }
   header p { font-size: 0.95rem; color: #555; margin-top: 8px; }
-  .toc {
-    background: #1a1a1a;
-    color: #f7f6f3;
-    padding: 24px 28px;
-    margin-bottom: 48px;
-    border-radius: 2px;
-  }
-  .toc h3 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 16px;
-    color: #aaa;
-  }
+  .toc { background: #1a1a1a; color: #f7f6f3; padding: 24px 28px; margin-bottom: 48px; border-radius: 2px; }
+  .toc h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; color: #aaa; }
   .toc-section { margin-bottom: 16px; }
-  .toc-section h4 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #888;
-    margin-bottom: 8px;
-  }
+  .toc-section h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: #888; margin-bottom: 8px; }
   .toc ul { list-style: none; columns: 2; column-gap: 32px; }
   .toc ul li { margin-bottom: 4px; font-size: 0.88rem; }
   .toc ul a { color: #f7f6f3; text-decoration: none; border-bottom: 1px solid #444; }
   .toc ul a:hover { border-color: #f7f6f3; }
-  .section-label {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: #888;
-    margin: 48px 0 16px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #ddd;
-  }
-  .shoe {
-    background: #fff;
-    border: 1px solid #e8e6e0;
-    margin-bottom: 16px;
-    border-radius: 2px;
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    overflow: hidden;
-    position: relative;
-  }
+  .section-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px; color: #888; margin: 48px 0 16px; padding-bottom: 8px; border-bottom: 1px solid #ddd; }
+  .shoe { background: #fff; border: 1px solid #e8e6e0; margin-bottom: 16px; border-radius: 2px; display: grid; grid-template-columns: 200px 1fr; overflow: hidden; }
   .shoe.display { border-left: 4px solid #1a1a1a; }
-  .shoe-image {
-    background: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 16px;
-    min-height: 180px;
-  }
-  .shoe-image img {
-    width: 100%;
-    height: 168px;
-    object-fit: contain;
-    display: block;
-    mix-blend-mode: multiply;
-  }
-  .shoe-image.no-image {
-    background: #ebebeb;
-  }
+  .shoe-image { background: #fff; display: flex; align-items: center; justify-content: center; padding: 16px; min-height: 180px; }
+  .shoe-image img { width: 100%; height: 168px; object-fit: contain; display: block; mix-blend-mode: multiply; }
+  .shoe-image.no-image { background: #ebebeb; }
   .shoe-content { padding: 22px 24px; }
   .shoe-header { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
-  .shoe h2 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.35rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.3px;
-  }
-  .badge {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.65rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    background: #1a1a1a;
-    color: #fff;
-    padding: 3px 8px;
-    border-radius: 1px;
-    white-space: nowrap;
-  }
+  .shoe h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.35rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; }
+  .badge { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; background: #1a1a1a; color: #fff; padding: 3px 8px; border-radius: 1px; white-space: nowrap; }
   .meta { display: flex; gap: 16px; margin-bottom: 10px; align-items: center; }
   .rating { font-size: 0.85rem; color: #888; }
   .shoe p { font-size: 0.9rem; line-height: 1.65; color: #333; margin-bottom: 12px; }
-  .shoe a.shop-link {
-    color: #1a1a1a;
-    font-size: 0.83rem;
-    font-weight: 500;
-    border-bottom: 1px solid #1a1a1a;
-    text-decoration: none;
-  }
+  .shoe a.shop-link { color: #1a1a1a; font-size: 0.83rem; font-weight: 500; border-bottom: 1px solid #1a1a1a; text-decoration: none; }
   .shoe a.shop-link:hover { opacity: 0.6; }
-  @media (max-width: 600px) {
-    .shoe { grid-template-columns: 1fr; }
-    .shoe-image { min-height: 200px; }
-  }
+  @media (max-width: 600px) { .shoe { grid-template-columns: 1fr; } .shoe-image { min-height: 200px; } }
 </style>
 </head>
 <body>
@@ -135,12 +42,9 @@
   <h1>Running Shoes</h1>
   <p>Product knowledge base for AI-assisted shoe recommendations at DICK'S Sporting Goods. Shoes marked <strong>On Display</strong> are physically available at the Summit activation.</p>
 </header>
-
 <div class="toc">
   <h3>Shoes on this page</h3>
-  <div class="toc-section">
-    <h4>On Display at Summit</h4>
-    <ul><li><a href="#hoka-bondi-9-men">Hoka Bondi 9 - Men</a></li>
+  <div class="toc-section"><h4>On Display at Summit</h4><ul><li><a href="#hoka-bondi-9-men">Hoka Bondi 9 - Men</a></li>
 <li><a href="#hoka-bondi-9-women">Hoka Bondi 9 - Women</a></li>
 <li><a href="#on-cloud-monster-3-men">ON Cloud Monster 3 - Men</a></li>
 <li><a href="#on-cloud-monster-3-women">ON Cloud Monster 3 - Women</a></li>
@@ -149,11 +53,8 @@
 <li><a href="#nike-vomero-plus-men">Nike Vomero Plus - Men</a></li>
 <li><a href="#nike-vomero-premium-women">Nike Vomero Premium - Women</a></li>
 <li><a href="#nike-vomero-premium-men">Nike Vomero Premium - Men</a></li>
-</ul>
-  </div>
-  <div class="toc-section">
-      <h4>Full Catalog</h4>
-      <ul><li><a href="#brooks-ghost-17-men">Brooks Ghost 17 - Men</a></li>
+</ul></div>
+  <div class="toc-section"><h4>Full Catalog</h4><ul><li><a href="#brooks-ghost-17-men">Brooks Ghost 17 - Men</a></li>
 <li><a href="#adidas-ultraboost-1-0-dna-men">adidas Ultraboost 1.0 DNA - Men</a></li>
 <li><a href="#brooks-ghost-max-3-men">Brooks Ghost Max 3 - Men</a></li>
 <li><a href="#nike-pegasus-41-men">Nike Pegasus 41 - Men</a></li>
@@ -173,10 +74,8 @@
 <li><a href="#on-cloudmonster-2-women">On Cloudmonster 2 - Women</a></li>
 <li><a href="#nike-pegasus-41-women">Nike Pegasus 41 - Women</a></li>
 <li><a href="#nike-alphafly-3-proto-women">Nike Alphafly 3 Proto - Women</a></li>
-</ul>
-    </div>
+</ul></div>
 </div>
-
 <p class="section-label">On Display at Summit</p>
 <div class="shoe display" id="hoka-bondi-9-men">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/1162011-DNP_Drizzle_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Hoka Bondi 9 - Men" loading="lazy"></div>
@@ -197,7 +96,7 @@
   </div>
 </div>
 <div class="shoe display" id="on-cloud-monster-3-men">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/3MG10054726_IcebergIvory_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="ON Cloud Monster 3 - Men" loading="lazy"></div>
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/3MG10054726_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="ON Cloud Monster 3 - Men" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>ON Cloud Monster 3 - Men</h2><span class="badge">On Display</span></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
@@ -206,7 +105,7 @@
   </div>
 </div>
 <div class="shoe display" id="on-cloud-monster-3-women">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/3WG10034888_NebulaIvory_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="ON Cloud Monster 3 - Women" loading="lazy"></div>
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/3WG10034888_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="ON Cloud Monster 3 - Women" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>ON Cloud Monster 3 - Women</h2><span class="badge">On Display</span></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
@@ -215,7 +114,7 @@
   </div>
 </div>
 <div class="shoe display" id="nike-pegasus-premium-men">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/HQ2592701_AlabasterBlackBrlyVltVltc_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Pegasus Premium - Men" loading="lazy"></div>
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/HQ2592701_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Pegasus Premium - Men" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Nike Pegasus Premium - Men</h2><span class="badge">On Display</span></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
@@ -224,7 +123,7 @@
   </div>
 </div>
 <div class="shoe display" id="nike-pegasus-premium-women">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/HQ2593802_OrangePulseHotLavBrghtMng_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Pegasus Premium - Women" loading="lazy"></div>
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/HQ2593802_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Pegasus Premium - Women" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Nike Pegasus Premium - Women</h2><span class="badge">On Display</span></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
@@ -233,7 +132,7 @@
   </div>
 </div>
 <div class="shoe display" id="nike-vomero-plus-men">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/HV8150120_WhiteBlackVoltBarelyVolt_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Vomero Plus - Men" loading="lazy"></div>
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/HV8150120_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Vomero Plus - Men" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Nike Vomero Plus - Men</h2><span class="badge">On Display</span></div>
     <div class="meta"><span class="rating">&#9733; 4.4/5</span></div>
@@ -242,7 +141,7 @@
   </div>
 </div>
 <div class="shoe display" id="nike-vomero-premium-women">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/HM5973002_BlackSapphireHotLavnthrct_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Vomero Premium - Women" loading="lazy"></div>
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/HM5973002_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Vomero Premium - Women" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Nike Vomero Premium - Women</h2><span class="badge">On Display</span></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
@@ -251,7 +150,7 @@
   </div>
 </div>
 <div class="shoe display" id="nike-vomero-premium-men">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25NIKMRUNNVMRPRMMLVXO_Alabaster_Blue_Void_Citron_Pulse?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Vomero Premium - Men" loading="lazy"></div>
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25NIKMRUNNVMRPRMMLVXO_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Vomero Premium - Men" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Nike Vomero Premium - Men</h2><span class="badge">On Display</span></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
@@ -259,10 +158,9 @@
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/nike-mens-vomero-premium-running-shoes-25nikmrunnvmrprmmlvxo/25nikmrunnvmrprmmlvxo?color=Alabaster%2FBlue%20Void%2FCitron%20Pulse" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-
 <p class="section-label">Full Catalog</p>
 <div class="shoe" id="brooks-ghost-17-men">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25BROMGHST17BLCKBMNS_Acid_Lime_Navy_White?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Brooks Ghost 17 - Men" loading="lazy"></div>
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25BROMGHST17BLCKBMNS_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Brooks Ghost 17 - Men" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Brooks Ghost 17 - Men</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.6/5</span></div>
@@ -271,7 +169,7 @@
   </div>
 </div>
 <div class="shoe" id="adidas-ultraboost-1-0-dna-men">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/22ADIMLTRBST10TRPMNS_Crystal_White_Collegiate_Green_Halo_Silver?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="adidas Ultraboost 1.0 DNA - Men" loading="lazy"></div>
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/22ADIMLTRBST10TRPMNS_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="adidas Ultraboost 1.0 DNA - Men" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>adidas Ultraboost 1.0 DNA - Men</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
@@ -280,7 +178,7 @@
   </div>
 </div>
 <div class="shoe" id="brooks-ghost-max-3-men">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25BROMRUNNGHSTMX3BCFF_Black?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Brooks Ghost Max 3 - Men" loading="lazy"></div>
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25BROMRUNNGHSTMX3BCFF_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Brooks Ghost Max 3 - Men" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Brooks Ghost Max 3 - Men</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
@@ -289,7 +187,7 @@
   </div>
 </div>
 <div class="shoe" id="nike-pegasus-41-men">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/24NIKMPGSS41VLTCCRNN_Ash_Black?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Pegasus 41 - Men" loading="lazy"></div>
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/24NIKMPGSS41VLTCCRNN_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Pegasus 41 - Men" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Nike Pegasus 41 - Men</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
@@ -298,7 +196,7 @@
   </div>
 </div>
 <div class="shoe" id="brooks-glycerin-23-men">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25BROMRUNNGLYCRN23KJQ_Grey?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Brooks Glycerin 23 - Men" loading="lazy"></div>
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25BROMRUNNGLYCRN23KJQ_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Brooks Glycerin 23 - Men" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Brooks Glycerin 23 - Men</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.6/5</span></div>
@@ -307,7 +205,7 @@
   </div>
 </div>
 <div class="shoe" id="on-cloudmonster-men">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/22MAZMCLDMNSTRCLXMNS_Alloy_Silver?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="On Cloudmonster - Men" loading="lazy"></div>
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/22MAZMCLDMNSTRCLXMNS_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="On Cloudmonster - Men" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>On Cloudmonster - Men</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.4/5</span></div>
@@ -316,7 +214,7 @@
   </div>
 </div>
 <div class="shoe" id="nike-vaporfly-4-proto-men">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25NIKMVPRFLY4SLBLRNN_Citron_Pulse_Indigo_Burst_Laser_Orange?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Vaporfly 4 Proto - Men" loading="lazy"></div>
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25NIKMVPRFLY4SLBLRNN_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Vaporfly 4 Proto - Men" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Nike Vaporfly 4 Proto - Men</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.7/5</span></div>
@@ -325,7 +223,7 @@
   </div>
 </div>
 <div class="shoe" id="brooks-glycerin-max-men">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/24BROMGLYCRNMXGRYMNS_Grey?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Brooks Glycerin Max - Men" loading="lazy"></div>
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/24BROMGLYCRNMXGRYMNS_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Brooks Glycerin Max - Men" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Brooks Glycerin Max - Men</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
@@ -334,7 +232,7 @@
   </div>
 </div>
 <div class="shoe" id="hoka-clifton-10-women">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25FHQWCLFTN10BLCKFTW_Stardust_Cosmic_Grey?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="HOKA Clifton 10 - Women" loading="lazy"></div>
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25FHQWCLFTN10BLCKFTW_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="HOKA Clifton 10 - Women" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>HOKA Clifton 10 - Women</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
@@ -343,7 +241,7 @@
   </div>
 </div>
 <div class="shoe" id="brooks-ghost-max-3-women">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25BROWRUNNGHSTMX3BACE_Black?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Brooks Ghost Max 3 - Women" loading="lazy"></div>
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25BROWRUNNGHSTMX3BACE_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Brooks Ghost Max 3 - Women" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Brooks Ghost Max 3 - Women</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
@@ -352,7 +250,7 @@
   </div>
 </div>
 <div class="shoe" id="on-cloudsurfer-2-women">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/24MAZWCLDSRFR2GLCFTW_Pearl_Ivory?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="On Cloudsurfer 2 - Women" loading="lazy"></div>
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/24MAZWCLDSRFR2GLCFTW_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="On Cloudsurfer 2 - Women" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>On Cloudsurfer 2 - Women</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.3/5</span></div>
@@ -361,7 +259,7 @@
   </div>
 </div>
 <div class="shoe" id="on-cloudsurfer-max-women">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25MAZWCLDSRFRMXBLFTW_White_Pink?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="On Cloudsurfer Max - Women" loading="lazy"></div>
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25MAZWCLDSRFRMXBLFTW_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="On Cloudsurfer Max - Women" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>On Cloudsurfer Max - Women</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.3/5</span></div>
@@ -370,7 +268,7 @@
   </div>
 </div>
 <div class="shoe" id="asics-gel-nimbus-27-women">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/24ASIWGLNMBS27BLCFTW_White_Light_Purple?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="ASICS Gel-Nimbus 27 - Women" loading="lazy"></div>
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/24ASIWGLNMBS27BLCFTW_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="ASICS Gel-Nimbus 27 - Women" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>ASICS Gel-Nimbus 27 - Women</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
@@ -379,7 +277,7 @@
   </div>
 </div>
 <div class="shoe" id="brooks-ghost-17-women">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25BROWGHST17BLCKBFTW_Black?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Brooks Ghost 17 - Women" loading="lazy"></div>
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25BROWGHST17BLCKBFTW_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Brooks Ghost 17 - Women" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Brooks Ghost 17 - Women</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.6/5</span></div>
@@ -388,7 +286,7 @@
   </div>
 </div>
 <div class="shoe" id="nike-vomero-plus-women">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25NIKWRUNNVMRPLSBLDAB_Red_Dark_Red?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Vomero Plus - Women" loading="lazy"></div>
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25NIKWRUNNVMRPLSBLDAB_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Vomero Plus - Women" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Nike Vomero Plus - Women</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.4/5</span></div>
@@ -397,7 +295,7 @@
   </div>
 </div>
 <div class="shoe" id="hoka-arahi-8-women">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25FHQWRH8WHTWHTXXFTW_Alabaster_Lingonberry?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="HOKA Arahi 8 - Women" loading="lazy"></div>
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25FHQWRH8WHTWHTXXFTW_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="HOKA Arahi 8 - Women" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>HOKA Arahi 8 - Women</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.4/5</span></div>
@@ -406,7 +304,7 @@
   </div>
 </div>
 <div class="shoe" id="brooks-adrenaline-gts-25-women">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25BROWRUNNDRNLNGTSFEB_Grey_Pink?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Brooks Adrenaline GTS 25 - Women" loading="lazy"></div>
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25BROWRUNNDRNLNGTSFEB_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Brooks Adrenaline GTS 25 - Women" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Brooks Adrenaline GTS 25 - Women</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.6/5</span></div>
@@ -415,7 +313,7 @@
   </div>
 </div>
 <div class="shoe" id="on-cloudmonster-2-women">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/23MAZWCLDMNSTR2BLFTW_White_Tangerine?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="On Cloudmonster 2 - Women" loading="lazy"></div>
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/23MAZWCLDMNSTR2BLFTW_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="On Cloudmonster 2 - Women" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>On Cloudmonster 2 - Women</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.3/5</span></div>
@@ -424,7 +322,7 @@
   </div>
 </div>
 <div class="shoe" id="nike-pegasus-41-women">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/24NIKWPGSS41WHTRDRNN_Pink_Black_Pink?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Pegasus 41 - Women" loading="lazy"></div>
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/24NIKWPGSS41WHTRDRNN_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Pegasus 41 - Women" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Nike Pegasus 41 - Women</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
@@ -433,7 +331,7 @@
   </div>
 </div>
 <div class="shoe" id="nike-alphafly-3-proto-women">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/23NIKWLPHFLYNXT3WRNN_Coconut_Milk?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Alphafly 3 Proto - Women" loading="lazy"></div>
+  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/23NIKWLPHFLYNXT3WRNN_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Alphafly 3 Proto - Women" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Nike Alphafly 3 Proto - Women</h2></div>
     <div class="meta"><span class="rating">&#9733; 4.7/5</span></div>
