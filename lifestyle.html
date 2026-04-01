@@ -7,127 +7,38 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500&display=swap');
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Barlow', sans-serif;
-    background: #f7f6f3;
-    color: #1a1a1a;
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 32px 24px 64px;
-  }
+  body { font-family: 'Barlow', sans-serif; background: #f7f6f3; color: #1a1a1a; max-width: 960px; margin: 0 auto; padding: 32px 24px 64px; }
   header { border-bottom: 3px solid #1a1a1a; padding-bottom: 20px; margin-bottom: 36px; }
-  header h1 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 3rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: -0.5px;
-    line-height: 1;
-  }
+  header h1 { font-family: 'Barlow Condensed', sans-serif; font-size: 3rem; font-weight: 700; text-transform: uppercase; letter-spacing: -0.5px; line-height: 1; }
   header p { font-size: 0.95rem; color: #555; margin-top: 8px; }
-  .toc {
-    background: #1a1a1a;
-    color: #f7f6f3;
-    padding: 24px 28px;
-    margin-bottom: 48px;
-    border-radius: 2px;
-  }
-  .toc h3 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 16px;
-    color: #aaa;
-  }
+  .toc { background: #1a1a1a; color: #f7f6f3; padding: 24px 28px; margin-bottom: 48px; border-radius: 2px; }
+  .toc h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; color: #aaa; }
   .toc-section { margin-bottom: 16px; }
-  .toc-section h4 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #888;
-    margin-bottom: 8px;
-  }
+  .toc-section h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: #888; margin-bottom: 8px; }
   .toc ul { list-style: none; columns: 2; column-gap: 32px; }
   .toc ul li { margin-bottom: 4px; font-size: 0.88rem; }
   .toc ul a { color: #f7f6f3; text-decoration: none; border-bottom: 1px solid #444; }
   .toc ul a:hover { border-color: #f7f6f3; }
-  .section-label {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: #888;
-    margin: 48px 0 16px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #ddd;
-  }
-  .shoe {
-    background: #fff;
-    border: 1px solid #e8e6e0;
-    margin-bottom: 16px;
-    border-radius: 2px;
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    overflow: hidden;
-    position: relative;
-  }
+  .section-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px; color: #888; margin: 48px 0 16px; padding-bottom: 8px; border-bottom: 1px solid #ddd; }
+  .shoe { background: #fff; border: 1px solid #e8e6e0; margin-bottom: 16px; border-radius: 2px; display: grid; grid-template-columns: 200px 1fr; overflow: hidden; }
   .shoe.display { border-left: 4px solid #1a1a1a; }
-  .shoe-image {
-    background: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 16px;
-    min-height: 180px;
-  }
-  .shoe-image img {
-    width: 100%;
-    height: 168px;
-    object-fit: contain;
-    display: block;
-    mix-blend-mode: multiply;
-  }
-  .shoe-image.no-image {
-    background: #ebebeb;
-  }
+  .shoe-image { background: #fff; display: flex; align-items: center; justify-content: center; padding: 16px; min-height: 180px; }
+  .shoe-image img { width: 100%; height: 168px; object-fit: contain; display: block; mix-blend-mode: multiply; }
+  .shoe-image.no-image { background: #ebebeb; }
   .shoe-content { padding: 22px 24px; }
   .shoe-header { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
-  .shoe h2 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.35rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.3px;
-  }
-  .badge {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.65rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    background: #1a1a1a;
-    color: #fff;
-    padding: 3px 8px;
-    border-radius: 1px;
-    white-space: nowrap;
-  }
-  .meta { display: flex; gap: 16px; margin-bottom: 10px; align-items: center; }
+  .shoe h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.35rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; }
+  .badge { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; background: #1a1a1a; color: #fff; padding: 3px 8px; border-radius: 1px; white-space: nowrap; }
+  .meta { display: flex; gap: 16px; margin-bottom: 8px; align-items: center; }
   .rating { font-size: 0.85rem; color: #888; }
+  .specs { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 0.78rem; color: #555; background: #f7f6f3; padding: 8px 12px; margin-bottom: 12px; border-radius: 1px; }
+  .specs strong { color: #1a1a1a; font-weight: 600; margin-right: 3px; }
+  .specs .best-for { width: 100%; margin-top: 4px; color: #1a1a1a; font-size: 0.8rem; }
+  .specs .best-for strong { color: #1a1a1a; }
   .shoe p { font-size: 0.9rem; line-height: 1.65; color: #333; margin-bottom: 12px; }
-  .shoe a.shop-link {
-    color: #1a1a1a;
-    font-size: 0.83rem;
-    font-weight: 500;
-    border-bottom: 1px solid #1a1a1a;
-    text-decoration: none;
-  }
+  .shoe a.shop-link { color: #1a1a1a; font-size: 0.83rem; font-weight: 500; border-bottom: 1px solid #1a1a1a; text-decoration: none; }
   .shoe a.shop-link:hover { opacity: 0.6; }
-  @media (max-width: 600px) {
-    .shoe { grid-template-columns: 1fr; }
-    .shoe-image { min-height: 200px; }
-  }
+  @media (max-width: 600px) { .shoe { grid-template-columns: 1fr; } .shoe-image { min-height: 200px; } }
 </style>
 </head>
 <body>
@@ -135,78 +46,78 @@
   <h1>Lifestyle Shoes</h1>
   <p>Product knowledge base for AI-assisted shoe recommendations at DICK'S Sporting Goods. Shoes marked <strong>On Display</strong> are physically available at the Summit activation.</p>
 </header>
-
 <div class="toc">
   <h3>Shoes on this page</h3>
-  <div class="toc-section">
-    <h4>On Display at Summit</h4>
-    <ul><li><a href="#new-balance-9060-men">New Balance 9060 - Men</a></li>
+  <div class="toc-section"><h4>On Display at Summit</h4><ul><li><a href="#new-balance-9060-men">New Balance 9060 - Men</a></li>
 <li><a href="#nike-air-max-270-premium-women">Nike Air Max 270 Premium - Women</a></li>
 <li><a href="#on-cloud-6-women">ON Cloud 6 - Women</a></li>
 <li><a href="#nike-dunk-low-men">Nike Dunk Low - Men</a></li>
 <li><a href="#adidas-samba-og-men">Adidas Samba OG - Men</a></li>
 <li><a href="#adidas-samba-og-women">Adidas Samba OG - Women</a></li>
-</ul>
-  </div>
+</ul></div>
   
 </div>
-
 <p class="section-label">On Display at Summit</p>
-<div class="shoe display" id="new-balance-9060-men">
+<div class="shoe display" id="new-balance-9060-men" data-product="New Balance 9060 - Men" data-sport="Lifestyle" data-gender="Men" data-rating="4.5">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/U9060440F_LonestarGreyStoneware_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="New Balance 9060 - Men" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>New Balance 9060 - Men</h2><span class="badge">On Display</span></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
+    <div class="specs"><span class="best-for"><strong>Best For</strong> Sneaker enthusiasts who want a chunky retro aesthetic with genuine all-day comfort</span></div>
     <p>New Balance's premium lifestyle sneaker - a chunky, retro-inspired silhouette with ABZORB and SBS cushioning for a genuinely comfortable ride. A collaboration favorite and one of NB's most-hyped lifestyle models.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/new-balance-mens-9060-shoes-25nwbm9060blkwhtxmns/25nwbm9060blkwhtxmns?color=Calcium" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe display" id="nike-air-max-270-premium-women">
+<div class="shoe display" id="nike-air-max-270-premium-women" data-product="Nike Air Max 270 Premium - Women" data-sport="Lifestyle" data-gender="Women" data-rating="4.5">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/IO9884501_TattooMtlcRedBronze_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Air Max 270 Premium - Women" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Nike Air Max 270 Premium - Women</h2><span class="badge">On Display</span></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
+    <div class="specs"><span class="best-for"><strong>Best For</strong> All-day comfort, lifestyle wear, anyone who wants visible Air cushioning in a premium package</span></div>
     <p>Elevated version of Nike's lifestyle Air Max with the brand's largest visible Air heel unit. Exceptional all-day comfort, premium materials and details for a refined look. Performance technology meets street-ready style.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/nike-womens-air-max-270-premium-shoes-26nikwcasurmx270prgqy/26nikwcasurmx270prgqy?color=Wht%2FFir%2FMtl%20Slv%2FPure%20Plat" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe display" id="on-cloud-6-women">
+<div class="shoe display" id="on-cloud-6-women" data-product="ON Cloud 6 - Women" data-sport="Lifestyle" data-gender="Women" data-rating="4.5">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/3WF10061085_Nimbus_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="ON Cloud 6 - Women" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>ON Cloud 6 - Women</h2><span class="badge">On Display</span></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
+    <div class="specs"><span class="best-for"><strong>Best For</strong> Runners who want performance DNA in a shoe comfortable enough to wear all day</span></div>
     <p>On Running's core lifestyle shoe. CloudTec pods underfoot for On's signature cushioning, clean minimal aesthetic, and Swiss-engineered construction. Versatile enough for easy runs, comfortable enough for all day.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/on-womens-cloud-6-shoes-24mazwcld6chmbrywftw/24mazwcld6chmbrywftw?color=Bliss%20Orchid" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe display" id="nike-dunk-low-men">
+<div class="shoe display" id="nike-dunk-low-men" data-product="Nike Dunk Low - Men" data-sport="Lifestyle" data-gender="Men" data-rating="4.5">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/IB6399301_JadeBlackFir_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Dunk Low - Men" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Nike Dunk Low - Men</h2><span class="badge">On Display</span></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
+    <div class="specs"><span class="best-for"><strong>Best For</strong> Sneaker culture staples, everyday casual wear, anyone who wants a timeless silhouette</span></div>
     <p>One of the most iconic sneakers ever made - a 1985 basketball shoe turned skate icon turned global cultural staple. Leather upper, Air cushioning, padded collar, and the Swoosh. Four decades and still essential.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/nike-mens-dunk-low-shoes-24nikmdnklwrtrvrkmns/24nikmdnklwrtrvrkmns?color=SUMMIT%20WHITE%2FBLUE%20VOID%2FPURE%20PLATINUM" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe display" id="adidas-samba-og-men">
+<div class="shoe display" id="adidas-samba-og-men" data-product="Adidas Samba OG - Men" data-sport="Lifestyle" data-gender="Men" data-rating="4.5">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/IH6844_CloudWhiteCollegiatGrnGm3_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Adidas Samba OG - Men" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Adidas Samba OG - Men</h2><span class="badge">On Display</span></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
+    <div class="specs"><span class="best-for"><strong>Best For</strong> Anyone who wants the most culturally relevant sneaker right now in a timeless, understated design</span></div>
     <p>The shoe that sparked one of the biggest sneaker trends of the decade. Originally a 1950 soccer training shoe for icy conditions - gum rubber sole, T-toe overlay, and suede construction. Simple, understated, and completely timeless.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/adidas-samba-og-shoes-23adiasmbgwhtblkwmns/23adiasmbgwhtblkwmns?color=Black%2FWhite%2FGum" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-<div class="shoe display" id="adidas-samba-og-women">
+<div class="shoe display" id="adidas-samba-og-women" data-product="Adidas Samba OG - Women" data-sport="Lifestyle" data-gender="Women" data-rating="4.5">
   <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/IH3976_BoldGreenOffWhiteGoldMet_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Adidas Samba OG - Women" loading="lazy"></div>
   <div class="shoe-content">
     <div class="shoe-header"><h2>Adidas Samba OG - Women</h2><span class="badge">On Display</span></div>
     <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
+    <div class="specs"><span class="best-for"><strong>Best For</strong> Anyone who wants the most culturally relevant sneaker right now in a timeless, understated design</span></div>
     <p>The shoe that sparked one of the biggest sneaker trends of the decade. Originally a 1950 soccer training shoe for icy conditions - gum rubber sole, T-toe overlay, and suede construction. Simple, understated, and completely timeless.</p>
     <a class="shop-link" href="https://www.dickssportinggoods.com/p/adidas-womens-samba-og-shoes-24adiwsmbgblckgrnftw/24adiwsmbgblckgrnftw?color=ACTIVE%20PINK%2FPURE" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
   </div>
 </div>
-
 
 </body>
 </html>
