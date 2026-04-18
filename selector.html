@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<meta name="theme-color" content="#005243">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<title>DICK'S Sporting Goods</title>
+<style>
+@font-face {
+  font-family: 'DSGSans';
+  src: url('fonts/DSGSans-Black.otf') format('opentype');
+  font-weight: 900;
+}
+@font-face {
+  font-family: 'DSGSans';
+  src: url('fonts/DSGSans-Bold.otf') format('opentype');
+  font-weight: 700;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body, html {
+  height: 100dvh;
+  overflow: hidden;
+  background: #005243;
+  font-family: 'Archivo', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── App shell ── */
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+}
+
+/* ── Header ── */
+.app-header {
+  background: #005243;
+  padding: calc(env(safe-area-inset-top, 14px) + 10px) 14px 10px;
+  flex-shrink: 0;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 10px;
+  padding: 9px 12px;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  font-size: 16px;
+  flex: 1;
+  background: transparent;
+  color: #333;
+  font-family: 'Archivo', sans-serif;
+}
+.search-bar input::placeholder { color: #aaa; }
+
+.header-pills {
+  display: flex;
+  gap: 7px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.header-pills::-webkit-scrollbar { display: none; }
+
+.header-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.28);
+  border-radius: 20px;
+  padding: 5px 12px 5px 10px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+.header-pill:active { background: rgba(255,255,255,0.25); }
+
+/* ── Carousel ── */
+.carousel-wrapper {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  touch-action: pan-y pinch-zoom;
+}
+
+.carousel-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.32s ease-out;
+  will-change: transform;
+}
+
+.carousel-item {
+  flex: 0 0 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center top;
+  position: relative;
+}
+
+/* Gradient overlay so text is readable */
+.carousel-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.6) 100%);
+}
+
+.carousel-item-content {
+  position: absolute;
+  bottom: 52px;
+  left: 22px;
+  right: 22px;
+  color: #fff;
+  z-index: 1;
+}
+
+.carousel-item-title {
+  font-family: 'DSGSans', system-ui, sans-serif;
+  font-weight: 900;
+  font-size: 40px;
+  line-height: 38px;
+  margin-bottom: 6px;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+.carousel-item-desc {
+  font-family: 'Archivo', sans-serif;
+  font-size: 20px;
+  line-height: 1.4;
+  margin-bottom: 14px;
+  opacity: 0.95;
+}
+
+.carousel-item-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px 8px 12px;
+  border-radius: 30px;
+  background: #fff;
+  color: #000;
+  font-family: 'Archivo', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.carousel-item-btn:active { opacity: 0.85; }
+
+/* Carousel dots */
+.carousel-nav {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 7px;
+  z-index: 2;
+}
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.45);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.carousel-dot.active { background: #fff; }
+
+/* Sport placeholder backgrounds */
+.sport-running {
+  background-image: url('images/running.png');
+  background-color: #1a3a2a;
+}
+.sport-basketball {
+  background-image: url('images/basketball.png');
+  background-color: #2a1a0a;
+}
+.sport-soccer {
+  background-image: url('images/soccer.png');
+  background-color: #0a2a1a;
+}
+
+/* ── Bottom tab bar ── */
+.tab-bar {
+  flex-shrink: 0;
+  background: #fff;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.tab-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 0 6px;
+  gap: 3px;
+  cursor: pointer;
+  color: #8e8e93;
+  font-size: 10px;
+  font-weight: 500;
+  -webkit-tap-highlight-color: transparent;
+  font-family: 'Archivo', sans-serif;
+}
+.tab-item.active { color: #005243; }
+.tab-item svg { display: block; }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- ── Header ── -->
+  <div class="app-header">
+    <div class="search-bar">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
+        <circle cx="11" cy="11" r="7.5" stroke="#555" stroke-width="2"/>
+        <path d="M20 20L16.2 16.2" stroke="#555" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <input type="text" placeholder="Search">
+      <svg width="22" height="17" viewBox="0 0 26 20" fill="none">
+        <rect x="0.5" y="1" width="3" height="18" rx="0.5" fill="#555"/>
+        <rect x="5.5" y="1" width="1.5" height="18" rx="0.5" fill="#555"/>
+        <rect x="9" y="1" width="3" height="18" rx="0.5" fill="#555"/>
+        <rect x="14" y="1" width="1.5" height="18" rx="0.5" fill="#555"/>
+        <rect x="17.5" y="1" width="1.5" height="18" rx="0.5" fill="#555"/>
+        <rect x="21.5" y="1" width="2" height="18" rx="0.5" fill="#555"/>
+        <rect x="0.5" y="7" width="25" height="2" rx="0.5" fill="#fff"/>
+        <rect x="0.5" y="11" width="25" height="2" rx="0.5" fill="#fff"/>
+      </svg>
+    </div>
+    <div class="header-pills">
+      <div class="header-pill">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="4" width="18" height="17" rx="2" stroke="white" stroke-width="2"/>
+          <path d="M3 9h18" stroke="white" stroke-width="2"/>
+          <path d="M8 2v3M16 2v3" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Releases
+      </div>
+      <div class="header-pill">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+          <circle cx="14" cy="4" r="2" fill="white"/>
+          <path d="M6 20l3-6 2 3 3-4 2 7" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12 10l2-3 3 2" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Move
+      </div>
+      <div class="header-pill">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+          <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z" stroke="white" stroke-width="2"/>
+          <path d="M9 21v-8h6v8" stroke="white" stroke-width="2"/>
+        </svg>
+        My Store
+      </div>
+      <div class="header-pill">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+          <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Lists
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Carousel ── -->
+  <div class="carousel-wrapper" id="carousel-wrapper">
+    <div class="carousel-track" id="carousel-track">
+
+      <div class="carousel-item sport-running">
+        <div class="carousel-item-content">
+          <h2 class="carousel-item-title">Find your stride</h2>
+          <p class="carousel-item-desc">Everything you need to keep moving.</p>
+          <a href="running.html?sport=running" class="carousel-item-btn" data-sport="running">
+            <img src="icon_button_ai.png" width="16" alt="">
+            Level up your run
+          </a>
+        </div>
+      </div>
+
+      <div class="carousel-item sport-basketball">
+        <div class="carousel-item-content">
+          <h2 class="carousel-item-title">Take the court</h2>
+          <p class="carousel-item-desc">Everything you need to bring your game.</p>
+          <a href="running.html?sport=basketball" class="carousel-item-btn" data-sport="basketball">
+            <img src="icon_button_ai.png" width="16" alt="">
+            Elevate your performance
+          </a>
+        </div>
+      </div>
+
+      <div class="carousel-item sport-soccer">
+        <div class="carousel-item-content">
+          <h2 class="carousel-item-title">Own the pitch</h2>
+          <p class="carousel-item-desc">Soccer essentials for every match.</p>
+          <a href="running.html?sport=soccer" class="carousel-item-btn" data-sport="soccer">
+            <img src="icon_button_ai.png" width="16" alt="">
+            Improve your game
+          </a>
+        </div>
+      </div>
+
+    </div>
+    <div class="carousel-nav" id="carousel-nav">
+      <div class="carousel-dot active"></div>
+      <div class="carousel-dot"></div>
+      <div class="carousel-dot"></div>
+    </div>
+  </div>
+
+  <!-- ── Tab bar ── -->
+  <div class="tab-bar">
+    <div class="tab-item active">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z" fill="#005243"/>
+        <path d="M9 21v-7h6v7" stroke="#005243" stroke-width="2"/>
+      </svg>
+      Shop
+    </div>
+    <div class="tab-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke="#8e8e93" stroke-width="1.8"/>
+        <path d="M3 6h18" stroke="#8e8e93" stroke-width="1.8"/>
+        <path d="M16 10a4 4 0 01-8 0" stroke="#8e8e93" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+      Cart
+    </div>
+    <div class="tab-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="8" r="4" stroke="#8e8e93" stroke-width="1.8"/>
+        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#8e8e93" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+      Account
+    </div>
+    <div class="tab-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="9" stroke="#8e8e93" stroke-width="1.8"/>
+        <path d="M8 12c0-2.2 1.8-4 4-4s4 1.8 4 4-1.8 4-4 4-4-1.8-4-4z" stroke="#8e8e93" stroke-width="1.8"/>
+      </svg>
+      MOVE
+    </div>
+    <div class="tab-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="9" stroke="#8e8e93" stroke-width="1.8"/>
+        <path d="M12 8v8M8 12h8" stroke="#8e8e93" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+      Add
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ── Pass URL params through ──────────────────────────────────────────────
+const params = new URLSearchParams(window.location.search);
+
+document.querySelectorAll('.carousel-item-btn').forEach(function(btn) {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    const dest = new URL(btn.getAttribute('href'), window.location.href);
+    params.forEach((v, k) => dest.searchParams.set(k, v));
+    window.location.href = dest.toString();
+  });
+});
+
+// ── Carousel ────────────────────────────────────────────────────────────
+(function() {
+  const wrapper = document.getElementById('carousel-wrapper');
+  const track   = document.getElementById('carousel-track');
+  const dots    = document.querySelectorAll('.carousel-dot');
+  const count   = 3;
+  let index = 0, startX = 0, dragStartIndex = 0, dragging = false;
+
+  function goTo(i) {
+    index = Math.max(0, Math.min(i, count - 1));
+    track.style.transition = 'transform 0.32s ease-out';
+    track.style.transform  = 'translateX(-' + (index * 100) + '%)';
+    dots.forEach((d, j) => d.classList.toggle('active', j === index));
+  }
+
+  function drag(x) {
+    if (!dragging) return;
+    const pct = ((startX - x) / wrapper.offsetWidth) * 100;
+    const raw = dragStartIndex * 100 + pct;
+    const clamped = Math.max(0, Math.min((count - 1) * 100, raw));
+    track.style.transition = 'none';
+    track.style.transform  = 'translateX(-' + clamped + '%)';
+  }
+
+  function end(x) {
+    if (!dragging) return;
+    dragging = false;
+    const delta = startX - x;
+    let next = dragStartIndex;
+    if (delta >  45 && dragStartIndex < count - 1) next++;
+    if (delta < -45 && dragStartIndex > 0)          next--;
+    goTo(next);
+  }
+
+  dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
+
+  wrapper.addEventListener('touchstart',  e => { startX = e.touches[0].clientX; dragStartIndex = index; dragging = true; }, { passive: true });
+  wrapper.addEventListener('touchmove',   e => drag(e.touches[0].clientX),   { passive: true });
+  wrapper.addEventListener('touchend',    e => end(e.changedTouches[0].clientX), { passive: true });
+  wrapper.addEventListener('pointerdown', e => { if (e.button) return; e.preventDefault(); startX = e.clientX; dragStartIndex = index; dragging = true; });
+  wrapper.addEventListener('pointermove', e => { if (e.buttons === 1) drag(e.clientX); });
+  wrapper.addEventListener('pointerup',   e => { if (!e.button) end(e.clientX); });
+  wrapper.addEventListener('pointercancel', e => { if (!e.button) end(e.clientX); });
+})();
+</script>
+</body>
+</html>

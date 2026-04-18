@@ -2,375 +2,1219 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Running Shoes</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="DICK'S">
+<meta http-equiv="Cache-control" content="no-store">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Ask DICK'S</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500&display=swap');
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Barlow', sans-serif; background: #f7f6f3; color: #1a1a1a; max-width: 960px; margin: 0 auto; padding: 32px 24px 64px; }
-  header { border-bottom: 3px solid #1a1a1a; padding-bottom: 20px; margin-bottom: 36px; }
-  header h1 { font-family: 'Barlow Condensed', sans-serif; font-size: 3rem; font-weight: 700; text-transform: uppercase; letter-spacing: -0.5px; line-height: 1; }
-  header p { font-size: 0.95rem; color: #555; margin-top: 8px; }
-  .toc { background: #1a1a1a; color: #f7f6f3; padding: 24px 28px; margin-bottom: 48px; border-radius: 2px; }
-  .toc h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; color: #aaa; }
-  .toc-section { margin-bottom: 16px; }
-  .toc-section h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: #888; margin-bottom: 8px; }
-  .toc ul { list-style: none; columns: 2; column-gap: 32px; }
-  .toc ul li { margin-bottom: 4px; font-size: 0.88rem; }
-  .toc ul a { color: #f7f6f3; text-decoration: none; border-bottom: 1px solid #444; }
-  .toc ul a:hover { border-color: #f7f6f3; }
-  .section-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px; color: #888; margin: 48px 0 16px; padding-bottom: 8px; border-bottom: 1px solid #ddd; }
-  .shoe { background: #fff; border: 1px solid #e8e6e0; margin-bottom: 16px; border-radius: 2px; display: grid; grid-template-columns: 200px 1fr; overflow: hidden; }
-  .shoe.display { border-left: 4px solid #1a1a1a; }
-  .shoe-image { background: #fff; display: flex; align-items: center; justify-content: center; padding: 16px; min-height: 180px; }
-  .shoe-image img { width: 100%; height: 168px; object-fit: contain; display: block; mix-blend-mode: multiply; }
-  .shoe-image.no-image { background: #ebebeb; }
-  .shoe-content { padding: 22px 24px; }
-  .shoe-header { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
-  .shoe h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.35rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; }
-  .badge { font-family: 'Barlow Condensed', sans-serif; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; background: #1a1a1a; color: #fff; padding: 3px 8px; border-radius: 1px; white-space: nowrap; }
-  .meta { display: flex; gap: 16px; margin-bottom: 8px; align-items: center; }
-  .rating { font-size: 0.85rem; color: #888; }
-  .specs { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 0.78rem; color: #555; background: #f7f6f3; padding: 8px 12px; margin-bottom: 12px; border-radius: 1px; }
-  .specs strong { color: #1a1a1a; font-weight: 600; margin-right: 3px; }
-  .specs .best-for { width: 100%; margin-top: 4px; color: #1a1a1a; font-size: 0.8rem; }
-  .specs .best-for strong { color: #1a1a1a; }
-  .shoe p { font-size: 0.9rem; line-height: 1.65; color: #333; margin-bottom: 12px; }
-  .shoe a.shop-link { color: #1a1a1a; font-size: 0.83rem; font-weight: 500; border-bottom: 1px solid #1a1a1a; text-decoration: none; }
-  .shoe a.shop-link:hover { opacity: 0.6; }
-  @media (max-width: 600px) { .shoe { grid-template-columns: 1fr; } .shoe-image { min-height: 200px; } }
+@font-face {
+  font-family: 'DSGSans';
+  src: url('fonts/DSGSans-Medium.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'DSGSans';
+  src: url('fonts/DSGSans-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'DSGSans';
+  src: url('fonts/DSGSans-Black.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'DSGSans';
+  src: url('fonts/DSGSans-Ultra.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Archivo', sans-serif;
+  background: #fff;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: #131313;
+}
+
+/* ── Header ── */
+.chat-header {
+  flex-shrink: 0;
+  height: calc(52px + env(safe-area-inset-top, 0px));
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-left: 20px;
+  padding-right: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  background: #fff;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.header-title {
+  font-family: 'Archivo', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #131313;
+}
+
+.header-close {
+  position: absolute;
+  right: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #131313;
+  font-size: 18px;
+  padding: 8px;
+  line-height: 1;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ── Messages ── */
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 32px 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.chat-messages::-webkit-scrollbar { display: none; }
+
+/* ── Welcome ── */
+.welcome-heading {
+  font-family: 'DSGSans', sans-serif;
+  font-weight: 800;
+  font-size: 50px;
+  line-height: 47px;
+  color: #131313;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.welcome-sub {
+  font-family: 'Archivo', sans-serif;
+  font-size: 18px;
+  line-height: 26px;
+  color: #131313;
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+/* ── Starter cards (bc-prompt-pill-button--has-image) ── */
+.starter-cards { display: flex; flex-direction: column; gap: 8px; }
+
+.starter-card {
+  font-family: 'Archivo', sans-serif;
+  background: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.15s ease;
+}
+
+.starter-card:active { background: #f5f5f5; }
+
+.starter-card-img {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+  object-fit: cover;
+  background: #f0f0f0;
+  display: block;
+}
+
+.starter-card-text {
+  flex: 1;
+  font-size: 16px;
+  font-weight: 400;
+  color: #131313;
+  line-height: 1.5;
+  padding: 14px 16px;
+  align-self: center;
+}
+
+.starter-card-arrow {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  padding-right: 16px;
+  color: #006554;
+}
+
+.starter-card-arrow svg { width: 20px; height: 20px; display: block; }
+
+/* ── Chat rows ── */
+.msg-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.msg-row.user { justify-content: flex-end; }
+.msg-row.assistant { justify-content: flex-start; }
+
+/* DICK'S avatar */
+.dicks-avatar {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #006554;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DSGSans', sans-serif;
+  font-size: 8px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 0.3px;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 1px;
+}
+
+/* Messages: border-radius 10px, padding 8px 16px */
+.bubble {
+  max-width: 80%;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-family: 'Archivo', sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  word-break: break-word;
+}
+
+.bubble.user {
+  background: #006554;
+  color: #FFFFFF;
+}
+
+.bubble.assistant {
+  background: #FFFFFF;
+  color: #292929;
+  /* --message-concierge-border-width: 0 */
+}
+
+/* ── Loading: transparent background ── */
+.loading-dots {
+  display: flex;
+  gap: 5px;
+  padding: 8px 16px;
+  background: transparent;
+}
+
+.loading-dots span {
+  width: 8px;
+  height: 8px;
+  background: #bbb;
+  border-radius: 50%;
+  animation: dotpulse 1.2s ease-in-out infinite;
+}
+
+.loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+.loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes dotpulse {
+  0%, 60%, 100% { transform: translateY(0); background: #ccc; }
+  30% { transform: translateY(-5px); background: #006554; }
+}
+
+/* ── Message feedback row (Sources + thumbs) ── */
+.msg-feedback {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  padding-left: 48px;
+}
+
+.sources-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Archivo', sans-serif;
+  font-size: 13px;
+  color: #131313;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 0;
+  flex: 1;
+}
+
+.feedback-btns {
+  display: flex;
+  gap: 4px;
+}
+
+.feedback-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.feedback-btn:active { background: #f0f0f0; }
+
+.sources-panel {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 8px 4px;
+  min-width: 240px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  z-index: 10;
+}
+.sources-panel a {
+  display: block;
+  padding: 7px 12px;
+  font-size: 12px;
+  color: #005243;
+  text-decoration: none;
+  border-radius: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sources-panel a:hover { background: #f5f5f5; }
+.sources-btn.no-sources { opacity: 0.4; pointer-events: none; }
+
+/* ── Follow-up suggestions (bc-prompt-suggestion-button) ── */
+.followups-section { margin-top: 4px; }
+
+.followups-label {
+  font-family: 'Archivo', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #131313;
+  margin-bottom: 8px;
+}
+
+.followup-pills { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+
+.followup-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #F0F0F0;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 20px;
+  cursor: pointer;
+  font-family: 'Archivo', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #292929;
+  line-height: 1.4;
+  -webkit-tap-highlight-color: transparent;
+  text-align: left;
+}
+
+.followup-pill:active { background: #E5E5E5; }
+
+.followup-pill svg { flex-shrink: 0; fill: #131313; }
+
+/* ── Shoe rec card ── */
+.shoe-rec-card {
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 16px;
+  overflow: hidden;
+  width: 240px;
+  /* --multimodal-card-box-shadow: none */
+}
+
+.shoe-rec-card img {
+  width: 100%;
+  height: 155px;
+  object-fit: contain;
+  background: #f7f8fa;
+  display: block;
+  padding: 10px;
+}
+
+.shoe-rec-card-body { padding: 12px 14px 14px; }
+
+.shoe-rec-name {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #131313;
+  line-height: 1.25;
+  margin-bottom: 3px;
+}
+
+.shoe-rec-price { font-size: 13px; color: #666; margin-bottom: 10px; font-family: 'DSGSans', sans-serif; }
+
+.shoe-rec-link {
+  display: block;
+  background: #006554;
+  color: #fff;
+  text-align: center;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ── Email button ── */
+.email-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #F0F0F0;
+  border: none;
+  border-radius: 999px;
+  color: #292929;
+  padding: 10px 18px;
+  font-family: 'Archivo', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.email-btn:active { background: #E5E5E5; }
+.email-sent { font-family: 'DSGSans', sans-serif; font-size: 14px; color: #006554; font-weight: 500; }
+
+/* ── Input area ── */
+.chat-input-area {
+  flex-shrink: 0;
+  padding: 12px 16px;
+  padding-bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+  background: #fff;
+  border-top: 1px solid #e8e8e8;
+}
+
+/* Gradient border via wrapper */
+.input-gradient-border {
+  background: linear-gradient(135deg, #4DAF90 0%, #005343 100%);
+  border-radius: 28px;
+  padding: 2px;
+  box-shadow: 0 4px 16px 0 rgba(0,0,0,0.16);
+}
+
+.chat-input-row {
+  display: flex;
+  align-items: center;
+  background: #FFFFFF;
+  border-radius: 26px;
+  height: 48px;
+  padding: 0 6px 0 8px;
+  gap: 6px;
+}
+
+.input-plus-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+  color: #131313;
+}
+
+.chat-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  font-family: 'Archivo', sans-serif;
+  background: transparent;
+  color: #292929;
+  min-width: 0;
+}
+
+.chat-input::placeholder { color: #9a9a9a; }
+
+.input-send-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #005343;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.input-send-btn:active { opacity: 0.8; }
+
+.input-voice-btns {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.input-voice-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+  color: #131313;
+}
 </style>
 </head>
 <body>
-<header>
-  <h1>Running Shoes</h1>
-  <p>Product knowledge base for AI-assisted shoe recommendations at DICK'S Sporting Goods. Shoes marked <strong>On Display</strong> are physically available at the Summit activation.</p>
-</header>
-<div class="toc">
-  <h3>Shoes on this page</h3>
-  <div class="toc-section"><h4>On Display at Summit</h4><ul><li><a href="#hoka-bondi-9-men">Hoka Bondi 9 - Men</a></li>
-<li><a href="#hoka-bondi-9-women">Hoka Bondi 9 - Women</a></li>
-<li><a href="#on-cloud-monster-3-men">ON Cloud Monster 3 - Men</a></li>
-<li><a href="#on-cloud-monster-3-women">ON Cloud Monster 3 - Women</a></li>
-<li><a href="#nike-pegasus-premium-men">Nike Pegasus Premium - Men</a></li>
-<li><a href="#nike-pegasus-premium-women">Nike Pegasus Premium - Women</a></li>
-<li><a href="#nike-vomero-plus-men">Nike Vomero Plus - Men</a></li>
-<li><a href="#nike-vomero-premium-women">Nike Vomero Premium - Women</a></li>
-<li><a href="#nike-vomero-premium-men">Nike Vomero Premium - Men</a></li>
-</ul></div>
-  <div class="toc-section"><h4>Full Catalog</h4><ul><li><a href="#brooks-ghost-17-men">Brooks Ghost 17 - Men</a></li>
-<li><a href="#adidas-ultraboost-1-0-dna-men">adidas Ultraboost 1.0 DNA - Men</a></li>
-<li><a href="#brooks-ghost-max-3-men">Brooks Ghost Max 3 - Men</a></li>
-<li><a href="#nike-pegasus-41-men">Nike Pegasus 41 - Men</a></li>
-<li><a href="#brooks-glycerin-23-men">Brooks Glycerin 23 - Men</a></li>
-<li><a href="#on-cloudmonster-men">On Cloudmonster - Men</a></li>
-<li><a href="#nike-vaporfly-4-proto-men">Nike Vaporfly 4 Proto - Men</a></li>
-<li><a href="#brooks-glycerin-max-men">Brooks Glycerin Max - Men</a></li>
-<li><a href="#hoka-clifton-10-women">HOKA Clifton 10 - Women</a></li>
-<li><a href="#brooks-ghost-max-3-women">Brooks Ghost Max 3 - Women</a></li>
-<li><a href="#on-cloudsurfer-2-women">On Cloudsurfer 2 - Women</a></li>
-<li><a href="#on-cloudsurfer-max-women">On Cloudsurfer Max - Women</a></li>
-<li><a href="#asics-gel-nimbus-27-women">ASICS Gel-Nimbus 27 - Women</a></li>
-<li><a href="#brooks-ghost-17-women">Brooks Ghost 17 - Women</a></li>
-<li><a href="#nike-vomero-plus-women">Nike Vomero Plus - Women</a></li>
-<li><a href="#hoka-arahi-8-women">HOKA Arahi 8 - Women</a></li>
-<li><a href="#brooks-adrenaline-gts-25-women">Brooks Adrenaline GTS 25 - Women</a></li>
-<li><a href="#on-cloudmonster-2-women">On Cloudmonster 2 - Women</a></li>
-<li><a href="#nike-pegasus-41-women">Nike Pegasus 41 - Women</a></li>
-<li><a href="#nike-alphafly-3-proto-women">Nike Alphafly 3 Proto - Women</a></li>
-</ul></div>
+
+<div class="chat-header">
+  <div class="header-title">Ask DICK'S</div>
+  <button class="header-close" onclick="history.back()">✕</button>
 </div>
-<p class="section-label">On Display at Summit</p>
-<div class="shoe display" id="hoka-bondi-9-men" data-product="Hoka Bondi 9 - Men" data-sport="Running" data-gender="Men" data-rating="4.6">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/1162011-DNP_Drizzle_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Hoka Bondi 9 - Men" loading="lazy"></div>
-  <div class="shoe-content">
-    <div class="shoe-header"><h2>Hoka Bondi 9 - Men</h2><span class="badge">On Display</span></div>
-    <div class="meta"><span class="rating">&#9733; 4.6/5</span></div>
-    <div class="specs"><span><strong>Weight</strong> 9.4 oz</span><span><strong>Cushion</strong> Max</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Drop</strong> 4mm</span><span><strong>Pronation</strong> Neutral</span><span><strong>Surface</strong> Road</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $165</span><span class="best-for"><strong>Best For</strong> Recovery runs, long walks, standing all day, runners who need maximum cushioning</span></div>
-    <p>HOKA's flagship max-cushion trainer, rebuilt for 2025. New supercritical EVA foam is bouncier and lighter than previous models, while the 43mm stack, MetaRocker geometry, and Active Foot Frame guide a smooth, rolling stride. APMA-approved and a top pick for recovery runs, long walks, and anyone on their feet all day.</p>
-    <a class="shop-link" href="https://www.dickssportinggoods.com/p/hoka-mens-bondi-9-running-shoes-24fhqmbnd9drzzldwmns/24fhqmbnd9drzzldwmns?color=Neon%20Yuzu%2FSunlight" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
+
+<div class="chat-messages" id="messages">
+  <div id="welcome-state">
+    <div class="welcome-heading" id="welcome-heading">Welcome! Ask me what you need.</div>
+    <div class="welcome-sub">I'm here to assist and support you along your athletic journey. Choose an option below or tell me what interests you.</div>
+    <div class="starter-cards" id="starter-cards"></div>
   </div>
 </div>
-<div class="shoe display" id="hoka-bondi-9-women" data-product="Hoka Bondi 9 - Women" data-sport="Running" data-gender="Women" data-rating="4.6">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/1162012-NYZS_NeonYuzuSunlight_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Hoka Bondi 9 - Women" loading="lazy"></div>
-  <div class="shoe-content">
-    <div class="shoe-header"><h2>Hoka Bondi 9 - Women</h2><span class="badge">On Display</span></div>
-    <div class="meta"><span class="rating">&#9733; 4.6/5</span></div>
-    <div class="specs"><span><strong>Weight</strong> 9.4 oz</span><span><strong>Cushion</strong> Max</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Drop</strong> 4mm</span><span><strong>Pronation</strong> Neutral</span><span><strong>Surface</strong> Road</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $165</span><span class="best-for"><strong>Best For</strong> Recovery runs, long walks, standing all day, runners who need maximum cushioning</span></div>
-    <p>HOKA's flagship max-cushion trainer, rebuilt for 2025. New supercritical EVA foam is bouncier and lighter than previous models, while the 43mm stack, MetaRocker geometry, and Active Foot Frame guide a smooth, rolling stride. APMA-approved and a top pick for recovery runs, long walks, and anyone on their feet all day.</p>
-    <a class="shop-link" href="https://www.dickssportinggoods.com/p/hoka-womens-bondi-9-running-shoes-24fhqwbnd9strflwrftw/24fhqwbnd9strflwrftw?color=Lilac%20Cream%2FTangerine%20Glow" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
+
+<div class="chat-input-area">
+  <div class="input-gradient-border">
+    <div class="chat-input-row">
+      <button class="input-plus-btn">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <circle cx="10" cy="10" r="9" stroke="#131313" stroke-width="1.5"/>
+          <path d="M10 6.5V13.5M6.5 10H13.5" stroke="#131313" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <input class="chat-input" id="chat-input" type="text" placeholder="What can I help you answer?" autocomplete="off">
+      <div class="input-voice-btns" id="voice-btns">
+        <button class="input-voice-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <rect x="9" y="2" width="6" height="12" rx="3" stroke="#131313" stroke-width="1.6"/>
+            <path d="M5 10c0 3.866 3.134 7 7 7s7-3.134 7-7" stroke="#131313" stroke-width="1.6" stroke-linecap="round"/>
+            <line x1="12" y1="17" x2="12" y2="21" stroke="#131313" stroke-width="1.6" stroke-linecap="round"/>
+            <line x1="9" y1="21" x2="15" y2="21" stroke="#131313" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <button class="input-voice-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <rect x="2" y="9" width="2.5" height="6" rx="1.25" fill="#131313"/>
+            <rect x="6" y="6" width="2.5" height="12" rx="1.25" fill="#131313"/>
+            <rect x="10" y="4" width="2.5" height="16" rx="1.25" fill="#131313"/>
+            <rect x="14" y="7" width="2.5" height="10" rx="1.25" fill="#131313"/>
+            <rect x="18" y="10" width="2.5" height="4" rx="1.25" fill="#131313"/>
+            <rect x="22" y="9" width="2.5" height="6" rx="1.25" fill="#131313"/>
+          </svg>
+        </button>
+      </div>
+      <button class="input-send-btn" id="send-btn" style="display:none">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+          <path d="M15.0235 0.975595C14.854 0.806843 14.6017 0.755283 14.3798 0.842779L1.17979 6.04981C0.964171 6.13419 0.817299 6.33653 0.801667 6.56778C0.786035 6.79903 0.904795 7.01856 1.10714 7.13106L6.11104 9.92716L8.92823 14.8967C9.03526 15.085 9.23526 15.2006 9.4501 15.2006C9.46416 15.2006 9.479 15.1998 9.49307 15.199C9.72432 15.1826 9.9251 15.0342 10.0087 14.8186L15.1587 1.61856C15.2454 1.39669 15.1923 1.14356 15.0235 0.975595Z" fill="white"/>
+        </svg>
+      </button>
+    </div>
   </div>
 </div>
-<div class="shoe display" id="on-cloud-monster-3-men" data-product="ON Cloud Monster 3 - Men" data-sport="Running" data-gender="Men" data-rating="4.5">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/3MG10054726_IcebergIvory_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="ON Cloud Monster 3 - Men" loading="lazy"></div>
-  <div class="shoe-content">
-    <div class="shoe-header"><h2>ON Cloud Monster 3 - Men</h2><span class="badge">On Display</span></div>
-    <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
-    <div class="specs"><span><strong>Weight</strong> 9.9 oz</span><span><strong>Cushion</strong> Moderate</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Drop</strong> 6mm</span><span><strong>Pronation</strong> Neutral</span><span><strong>Surface</strong> Road</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $170</span><span class="best-for"><strong>Best For</strong> High-mileage daily training, runners who want max cushion with a lighter feel</span></div>
-    <p>On's biggest daily trainer, built around oversized CloudTec pods that compress and spring back independently with every stride. Despite the high-stack max-cushion build, it comes in under 10oz - one of the lightest shoes in the max-cushion category.</p>
-    <a class="shop-link" href="https://www.dickssportinggoods.com/p/on-mens-cloudmonster-3-running-shoes-26onxmrunncldmnstrktz/26onxmrunncldmnstrktz?color=Limelight%2FSeedling" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
-  </div>
-</div>
-<div class="shoe display" id="on-cloud-monster-3-women" data-product="ON Cloud Monster 3 - Women" data-sport="Running" data-gender="Women" data-rating="4.5">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/3WG10034888_NebulaIvory_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="ON Cloud Monster 3 - Women" loading="lazy"></div>
-  <div class="shoe-content">
-    <div class="shoe-header"><h2>ON Cloud Monster 3 - Women</h2><span class="badge">On Display</span></div>
-    <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
-    <div class="specs"><span><strong>Weight</strong> 9.9 oz</span><span><strong>Cushion</strong> Moderate</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Drop</strong> 6mm</span><span><strong>Pronation</strong> Neutral</span><span><strong>Surface</strong> Road</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $170</span><span class="best-for"><strong>Best For</strong> High-mileage daily training, runners who want max cushion with a lighter feel</span></div>
-    <p>On's biggest daily trainer, built around oversized CloudTec pods that compress and spring back independently with every stride. Despite the high-stack max-cushion build, it comes in under 10oz - one of the lightest shoes in the max-cushion category.</p>
-    <a class="shop-link" href="https://www.dickssportinggoods.com/p/on-womens-cloudmonster-3-running-shoes-26onxwrunncldmnstrspy/26onxwrunncldmnstrspy?color=Sakura%2FSeedling" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
-  </div>
-</div>
-<div class="shoe display" id="nike-pegasus-premium-men" data-product="Nike Pegasus Premium - Men" data-sport="Running" data-gender="Men" data-rating="4.5">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/HQ2592701_AlabasterBlackBrlyVltVltc_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Pegasus Premium - Men" loading="lazy"></div>
-  <div class="shoe-content">
-    <div class="shoe-header"><h2>Nike Pegasus Premium - Men</h2><span class="badge">On Display</span></div>
-    <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
-    <div class="specs"><span><strong>Weight</strong> 10.2 oz</span><span><strong>Cushion</strong> Moderate</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Drop</strong> 10mm</span><span><strong>Pronation</strong> Neutral</span><span><strong>Surface</strong> Road</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $160</span><span class="best-for"><strong>Best For</strong> Daily training at moderate to faster paces, versatile all-rounder</span></div>
-    <p>The Pegasus stacks three cushioning technologies into one shoe: full-length ZoomX foam, a sculpted Air Zoom unit, and a ReactX foam foundation for a trampoline-like bounce on every stride. The breathable engineered mesh upper keeps your foot cool, while the modified waffle outsole provides durable traction for daily training and long runs.</p>
-    <a class="shop-link" href="https://www.dickssportinggoods.com/p/nike-mens-pegasus-premium-running-shoes-24nikmpgssprmmblkrnn/24nikmpgssprmmblkrnn?color=Alabaster%2FBlack%2FBarely%20Volt%2FVolt%20Ice" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
-  </div>
-</div>
-<div class="shoe display" id="nike-pegasus-premium-women" data-product="Nike Pegasus Premium - Women" data-sport="Running" data-gender="Women" data-rating="4.5">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/HQ2593802_OrangePulseHotLavBrghtMng_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Pegasus Premium - Women" loading="lazy"></div>
-  <div class="shoe-content">
-    <div class="shoe-header"><h2>Nike Pegasus Premium - Women</h2><span class="badge">On Display</span></div>
-    <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
-    <div class="specs"><span><strong>Weight</strong> 10.2 oz</span><span><strong>Cushion</strong> Moderate</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Drop</strong> 10mm</span><span><strong>Pronation</strong> Neutral</span><span><strong>Surface</strong> Road</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $160</span><span class="best-for"><strong>Best For</strong> Daily training at moderate to faster paces, versatile all-rounder</span></div>
-    <p>The Pegasus stacks three cushioning technologies into one shoe: full-length ZoomX foam, a sculpted Air Zoom unit, and a ReactX foam foundation for a trampoline-like bounce on every stride. The breathable engineered mesh upper keeps your foot cool, while the modified waffle outsole provides durable traction for daily training and long runs.</p>
-    <a class="shop-link" href="https://www.dickssportinggoods.com/p/nike-womens-pegasus-premium-running-shoes-24nikwpgss41prmgrrnn/24nikwpgss41prmgrrnn?color=Sanddrift%2FBlack%2FCoconut%20Milk%2FWhite" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
-  </div>
-</div>
-<div class="shoe display" id="nike-vomero-plus-men" data-product="Nike Vomero Plus - Men" data-sport="Running" data-gender="Men" data-rating="4.4">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/HV8150120_WhiteBlackVoltBarelyVolt_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Vomero Plus - Men" loading="lazy"></div>
-  <div class="shoe-content">
-    <div class="shoe-header"><h2>Nike Vomero Plus - Men</h2><span class="badge">On Display</span></div>
-    <div class="meta"><span class="rating">&#9733; 4.4/5</span></div>
-    <div class="specs"><span><strong>Weight</strong> 10.9 oz</span><span><strong>Cushion</strong> High</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Drop</strong> 10mm</span><span><strong>Pronation</strong> Neutral</span><span><strong>Surface</strong> Road</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $180</span><span class="best-for"><strong>Best For</strong> Daily training, runners stepping into max cushion for the first time</span></div>
-    <p>Full-length ZoomX foam at a 45mm stack - softer, lighter, and more responsive than the standard Vomero 18. The everyday choice for runners who want serious cloud-like cushioning without the heft of the Premium.</p>
-    <a class="shop-link" href="https://www.dickssportinggoods.com/p/nike-mens-vomero-plus-running-shoes-25nikmrunnvmrplsbleea/25nikmrunnvmrplsbleea?color=Barely%20Volt%2FIndigo%20Burst%2FHot%20Lava" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
-  </div>
-</div>
-<div class="shoe display" id="nike-vomero-premium-women" data-product="Nike Vomero Premium - Women" data-sport="Running" data-gender="Women" data-rating="4.5">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/HM5973002_BlackSapphireHotLavnthrct_INS?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Vomero Premium - Women" loading="lazy"></div>
-  <div class="shoe-content">
-    <div class="shoe-header"><h2>Nike Vomero Premium - Women</h2><span class="badge">On Display</span></div>
-    <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
-    <div class="specs"><span><strong>Weight</strong> 10.6 oz</span><span><strong>Cushion</strong> High</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Drop</strong> 10mm</span><span><strong>Pronation</strong> Neutral</span><span><strong>Surface</strong> Road</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $180</span><span class="best-for"><strong>Best For</strong> Recovery runs, easy long runs, high-mileage athletes who need max impact protection</span></div>
-    <p>Nike's most cushioned road trainer ever. A 55mm heel stack pairs ZoomX foam with dual Air Zoom units borrowed from elite track spikes, delivering a plush, anti-gravity sensation that elite marathoners use for recovery days.</p>
-    <a class="shop-link" href="https://www.dickssportinggoods.com/p/nike-womens-vomero-premium-running-shoes-25nikwrunnvmrprmmbdyy/25nikwrunnvmrprmmbdyy?color=Black%2FSapphire%2FHot%20Lava%2FAnthracite" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
-  </div>
-</div>
-<div class="shoe display" id="nike-vomero-premium-men" data-product="Nike Vomero Premium - Men" data-sport="Running" data-gender="Men" data-rating="4.5">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25NIKMRUNNVMRPRMMLVXO_Alabaster_Blue_Void_Citron_Pulse?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Vomero Premium - Men" loading="lazy"></div>
-  <div class="shoe-content">
-    <div class="shoe-header"><h2>Nike Vomero Premium - Men</h2><span class="badge">On Display</span></div>
-    <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
-    <div class="specs"><span><strong>Weight</strong> 10.6 oz</span><span><strong>Cushion</strong> High</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Drop</strong> 10mm</span><span><strong>Pronation</strong> Neutral</span><span><strong>Surface</strong> Road</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $180</span><span class="best-for"><strong>Best For</strong> Recovery runs, easy long runs, high-mileage athletes who need max impact protection</span></div>
-    <p>Nike's most cushioned road trainer ever. A 55mm heel stack pairs ZoomX foam with dual Air Zoom units borrowed from elite track spikes, delivering a plush, anti-gravity sensation that elite marathoners use for recovery days.</p>
-    <a class="shop-link" href="https://www.dickssportinggoods.com/p/nike-mens-vomero-premium-running-shoes-25nikmrunnvmrprmmlvxo/25nikmrunnvmrprmmlvxo?color=Alabaster%2FBlue%20Void%2FCitron%20Pulse" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
-  </div>
-</div>
-<p class="section-label">Full Catalog</p>
-<div class="shoe" id="brooks-ghost-17-men" data-product="Brooks Ghost 17 - Men" data-sport="Running" data-gender="Men" data-rating="4.6">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25BROMGHST17BLCKBMNS_Acid_Lime_Navy_White?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Brooks Ghost 17 - Men" loading="lazy"></div>
-  <div class="shoe-content">
-    <div class="shoe-header"><h2>Brooks Ghost 17 - Men</h2></div>
-    <div class="meta"><span class="rating">&#9733; 4.6/5</span></div>
-    <div class="specs"><span><strong>Weight</strong> 10.1 oz</span><span><strong>Cushion</strong> Moderate</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Drop</strong> 12mm</span><span><strong>Pronation</strong> Neutral</span><span><strong>Surface</strong> Road</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $140</span><span class="best-for"><strong>Best For</strong> Everyday training, neutral runners who want a smooth balanced ride</span></div>
-    <p>One of running's most trusted daily trainers. DNA LOFT v3 foam delivers a smooth, neutral ride with moderate cushioning at 12mm drop - consistently loved for its balance of protection and responsiveness.</p>
-    <a class="shop-link" href="https://www.dickssportinggoods.com/p/brooks-mens-ghost-17-running-shoes-25bromghst17blckbmns/25bromghst17blckbmns" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
-  </div>
-</div>
-<div class="shoe" id="adidas-ultraboost-1-0-dna-men" data-product="adidas Ultraboost 1.0 DNA - Men" data-sport="Running" data-gender="Men" data-rating="4.5">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/22ADIMLTRBST10TRPMNS_Crystal_White_Collegiate_Green_Halo_Silver?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="adidas Ultraboost 1.0 DNA - Men" loading="lazy"></div>
-  <div class="shoe-content">
-    <div class="shoe-header"><h2>adidas Ultraboost 1.0 DNA - Men</h2></div>
-    <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
-    <div class="specs"><span><strong>Weight</strong> 11.9 oz</span><span><strong>Cushion</strong> High</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Drop</strong> 10mm</span><span><strong>Pronation</strong> Neutral</span><span><strong>Surface</strong> Road</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $190</span><span class="best-for"><strong>Best For</strong> Daily training runs and lifestyle wear, runners who want comfort all day</span></div>
-    <p>The Ultraboost silhouette built for lifestyle wear. Full-length Boost, Primeknit upper that molds to your foot, and Continental outsole. Hard to beat for all-day comfort.</p>
-    <a class="shop-link" href="https://www.dickssportinggoods.com/p/adidas-mens-ultraboost-1-0-dna-shoes-22adimltrbst10trpmns/22adimltrbst10trpmns?color=Crystal%20White%2FCollegiate%20Green%2FHalo%20Silver" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
-  </div>
-</div>
-<div class="shoe" id="brooks-ghost-max-3-men" data-product="Brooks Ghost Max 3 - Men" data-sport="Running" data-gender="Men" data-rating="4.5">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25BROMRUNNGHSTMX3BCFF_Black_Navy_Acid_Lime?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Brooks Ghost Max 3 - Men" loading="lazy"></div>
-  <div class="shoe-content">
-    <div class="shoe-header"><h2>Brooks Ghost Max 3 - Men</h2></div>
-    <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
-    <div class="specs"><span><strong>Weight</strong> 10.8 oz</span><span><strong>Cushion</strong> High</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Drop</strong> 6mm</span><span><strong>Pronation</strong> Neutral</span><span><strong>Surface</strong> Road</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $150</span><span class="best-for"><strong>Best For</strong> Easy days and recovery, Ghost loyalists who want more cushion and a lower drop</span></div>
-    <p>A max-cushion Ghost with a higher DNA LOFT stack and lower 6mm drop. The go-to for Ghost loyalists who want maximum protection on easy days and long runs.</p>
-    <a class="shop-link" href="https://www.dickssportinggoods.com/p/brooks-mens-ghost-max-3-running-shoes-25bromrunnghstmx3bcff/25bromrunnghstmx3bcff" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
-  </div>
-</div>
-<div class="shoe" id="nike-pegasus-41-men" data-product="Nike Pegasus 41 - Men" data-sport="Running" data-gender="Men" data-rating="4.5">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/24NIKMPGSS41VLTCCRNN_Ash_Black?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Pegasus 41 - Men" loading="lazy"></div>
-  <div class="shoe-content">
-    <div class="shoe-header"><h2>Nike Pegasus 41 - Men</h2></div>
-    <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
-    <div class="specs"><span><strong>Weight</strong> 10.0 oz</span><span><strong>Cushion</strong> Moderate</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Drop</strong> 10mm</span><span><strong>Pronation</strong> Neutral</span><span><strong>Surface</strong> Road</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $130</span><span class="best-for"><strong>Best For</strong> Everyday training, beginners and experienced runners who want a reliable do-everything shoe</span></div>
-    <p>41 versions in and still the go-to daily trainer for millions of runners. ReactX foam delivers a responsive, bouncy ride at 10mm drop - balanced and versatile for easy miles through moderate-effort runs.</p>
-    <a class="shop-link" href="https://www.dickssportinggoods.com/p/nike-mens-pegasus-41-running-shoes-24nikmpgss41vltccrnn/24nikmpgss41vltccrnn?color=Ash%2FBlack" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
-  </div>
-</div>
-<div class="shoe" id="brooks-glycerin-23-men" data-product="Brooks Glycerin 23 - Men" data-sport="Running" data-gender="Men" data-rating="4.6">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25BROMRUNNGLYCRN23KJQ_Atlantic_Deep_GreyMist_Coconut?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Brooks Glycerin 23 - Men" loading="lazy"></div>
-  <div class="shoe-content">
-    <div class="shoe-header"><h2>Brooks Glycerin 23 - Men</h2></div>
-    <div class="meta"><span class="rating">&#9733; 4.6/5</span></div>
-    <div class="specs"><span><strong>Weight</strong> 10.4 oz</span><span><strong>Cushion</strong> High</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Drop</strong> 10mm</span><span><strong>Pronation</strong> Neutral</span><span><strong>Surface</strong> Road</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $160</span><span class="best-for"><strong>Best For</strong> Long slow miles, recovery runs, runners who prioritize comfort above all else</span></div>
-    <p>The latest Glycerin with updated nitrogen-infused DNA LOFT foam that's bouncier and softer than ever. At 10.4oz and 10mm drop, one of the most comfortable high-mileage trainers available.</p>
-    <a class="shop-link" href="https://www.dickssportinggoods.com/p/brooks-mens-glycerin-23-running-shoes-25bromrunnglycrn23kjq/25bromrunnglycrn23kjq" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
-  </div>
-</div>
-<div class="shoe" id="on-cloudmonster-men" data-product="On Cloudmonster - Men" data-sport="Running" data-gender="Men" data-rating="4.4">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/22MAZMCLDMNSTRCLXMNS_Alloy_Silver?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="On Cloudmonster - Men" loading="lazy"></div>
-  <div class="shoe-content">
-    <div class="shoe-header"><h2>On Cloudmonster - Men</h2></div>
-    <div class="meta"><span class="rating">&#9733; 4.4/5</span></div>
-    <div class="specs"><span><strong>Weight</strong> 9.9 oz</span><span><strong>Cushion</strong> Moderate</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Drop</strong> 6mm</span><span><strong>Pronation</strong> Neutral</span><span><strong>Surface</strong> Road</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $170</span><span class="best-for"><strong>Best For</strong> Daily training, runners who want max cushion from On without going full Cloud Monster 3</span></div>
-    <p>On Running's max-cushion trainer with oversized CloudTec pods and a 6mm drop. Firmer and more energetic than traditional foam rivals, with On's distinctive spring-like pop. At 9.9oz, lightweight for the category.</p>
-    <a class="shop-link" href="https://www.dickssportinggoods.com/p/on-mens-cloudmonster-shoes-22mazmcldmnstrclxmns/22mazmcldmnstrclxmns?color=Alloy%2FSilver" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
-  </div>
-</div>
-<div class="shoe" id="nike-vaporfly-4-proto-men" data-product="Nike Vaporfly 4 Proto - Men" data-sport="Running" data-gender="Men" data-rating="4.7">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25NIKMVPRFLY4SLBLRNN_Citron_Pulse_Indigo_Burst_Laser_Orange?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Vaporfly 4 Proto - Men" loading="lazy"></div>
-  <div class="shoe-content">
-    <div class="shoe-header"><h2>Nike Vaporfly 4 Proto - Men</h2></div>
-    <div class="meta"><span class="rating">&#9733; 4.7/5</span></div>
-    <div class="specs"><span><strong>Weight</strong> 6.6 oz</span><span><strong>Cushion</strong> Moderate</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Drop</strong> 8mm</span><span><strong>Pronation</strong> Neutral</span><span><strong>Surface</strong> Road</span><span><strong>Fit</strong> Narrow</span><span><strong>Price</strong> $260</span><span class="best-for"><strong>Best For</strong> Race day — marathons and half marathons, competitive runners chasing PRs</span></div>
-    <p>Nike's elite race-day super shoe. Carbon fiber plate embedded in ZoomX foam creates the propulsive energy return that's powered marathon world records. At 6.6oz, every detail is optimized for finish-line performance.</p>
-    <a class="shop-link" href="https://www.dickssportinggoods.com/p/nike-mens-nike-vaporfly-4-proto-road-running-shoes-25nikmvprfly4slblrnn/25nikmvprfly4slblrnn?color=Citron%20Pulse%2FIndigo%20Burst%2FLaser%20Orange" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
-  </div>
-</div>
-<div class="shoe" id="brooks-glycerin-max-men" data-product="Brooks Glycerin Max - Men" data-sport="Running" data-gender="Men" data-rating="4.5">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/24BROMGLYCRNMXGRYMNS_Grey_Dusty_Olive_Tea?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Brooks Glycerin Max - Men" loading="lazy"></div>
-  <div class="shoe-content">
-    <div class="shoe-header"><h2>Brooks Glycerin Max - Men</h2></div>
-    <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
-    <div class="specs"><span><strong>Weight</strong> 11.6 oz</span><span><strong>Cushion</strong> Max</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Drop</strong> 6mm</span><span><strong>Pronation</strong> Neutral</span><span><strong>Surface</strong> Road</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $170</span><span class="best-for"><strong>Best For</strong> Maximum joint protection, heavier runners, injury-prone athletes needing serious cushioning</span></div>
-    <p>The absolute ceiling of Brooks cushioning. Max DNA LOFT foam for serious shock absorption, with a 6mm drop that suits runners transitioning toward more natural movement.</p>
-    <a class="shop-link" href="https://www.dickssportinggoods.com/p/brooks-mens-glycerin-max-running-shoes-24bromglycrnmxgrymns/24bromglycrnmxgrymns" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
-  </div>
-</div>
-<div class="shoe" id="hoka-clifton-10-women" data-product="HOKA Clifton 10 - Women" data-sport="Running" data-gender="Women" data-rating="4.5">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25FHQWCLFTN10BLCKFTW_Stardust_Cosmic_Grey?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="HOKA Clifton 10 - Women" loading="lazy"></div>
-  <div class="shoe-content">
-    <div class="shoe-header"><h2>HOKA Clifton 10 - Women</h2></div>
-    <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
-    <div class="specs"><span><strong>Weight</strong> 7.9 oz</span><span><strong>Cushion</strong> Moderate</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Drop</strong> 5mm</span><span><strong>Pronation</strong> Neutral</span><span><strong>Surface</strong> Road</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $145</span><span class="best-for"><strong>Best For</strong> Everyday training, runners who want lightweight max cushion</span></div>
-    <p>HOKA's best-selling daily trainer, updated for 2025 with a new 8mm drop and improved supercritical EVA foam. At 7.9oz, one of the lightest max-cushion options - ideal for runners who want daily-trainer protection without unnecessary weight.</p>
-    <a class="shop-link" href="https://www.dickssportinggoods.com/p/hoka-womens-clifton-10-running-shoes-25fhqwclftn10blckftw/25fhqwclftn10blckftw?color=Stardust/Cosmic%20Grey" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
-  </div>
-</div>
-<div class="shoe" id="brooks-ghost-max-3-women" data-product="Brooks Ghost Max 3 - Women" data-sport="Running" data-gender="Women" data-rating="4.5">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25BROWRUNNGHSTMX3BACE_White_Grey?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Brooks Ghost Max 3 - Women" loading="lazy"></div>
-  <div class="shoe-content">
-    <div class="shoe-header"><h2>Brooks Ghost Max 3 - Women</h2></div>
-    <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
-    <div class="specs"><span><strong>Weight</strong> 10.8 oz</span><span><strong>Cushion</strong> High</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Drop</strong> 6mm</span><span><strong>Pronation</strong> Neutral</span><span><strong>Surface</strong> Road</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $150</span><span class="best-for"><strong>Best For</strong> Easy days and recovery, Ghost loyalists who want more cushion and a lower drop</span></div>
-    <p>A max-cushion Ghost with a higher DNA LOFT stack and lower 6mm drop. The go-to for Ghost loyalists who want maximum protection on easy days and long runs.</p>
-    <a class="shop-link" href="https://www.dickssportinggoods.com/p/Brooks-Women's-Ghost-Max-3-Running-Shoes-25BROWRUNNGHSTMX3BACE/25BROWRUNNGHSTMX3BACE" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
-  </div>
-</div>
-<div class="shoe" id="on-cloudsurfer-2-women" data-product="On Cloudsurfer 2 - Women" data-sport="Running" data-gender="Women" data-rating="4.3">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/24MAZWCLDSRFR2GLCFTW_Pearl_Ivory?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="On Cloudsurfer 2 - Women" loading="lazy"></div>
-  <div class="shoe-content">
-    <div class="shoe-header"><h2>On Cloudsurfer 2 - Women</h2></div>
-    <div class="meta"><span class="rating">&#9733; 4.3/5</span></div>
-    <div class="specs"><span><strong>Weight</strong> 8.8 oz</span><span><strong>Cushion</strong> Moderate</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Drop</strong> 10mm</span><span><strong>Pronation</strong> Neutral</span><span><strong>Surface</strong> Road</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $150</span><span class="best-for"><strong>Best For</strong> Daily training, runners who want a natural feel with moderate cushion</span></div>
-    <p>On's everyday trainer for natural, efficient movement. Full-length Helion superfoam with CloudTec pods delivers responsive cushioning without a squishy feel. A solid middle ground between On's minimal options and the Cloud Monster.</p>
-    <a class="shop-link" href="https://www.dickssportinggoods.com/p/on-womens-cloudsurfer-2-running-shoes-24mazwcldsrfr2glcftw/24mazwcldsrfr2glcftw?color=Pearl/Ivory" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
-  </div>
-</div>
-<div class="shoe" id="on-cloudsurfer-max-women" data-product="On Cloudsurfer Max - Women" data-sport="Running" data-gender="Women" data-rating="4.3">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25MAZWCLDSRFRMXBLFTW_White_Pink?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="On Cloudsurfer Max - Women" loading="lazy"></div>
-  <div class="shoe-content">
-    <div class="shoe-header"><h2>On Cloudsurfer Max - Women</h2></div>
-    <div class="meta"><span class="rating">&#9733; 4.3/5</span></div>
-    <div class="specs"><span><strong>Weight</strong> 9.5 oz</span><span><strong>Cushion</strong> High</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Drop</strong> 6mm</span><span><strong>Pronation</strong> Neutral</span><span><strong>Surface</strong> Road</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $180</span><span class="best-for"><strong>Best For</strong> Easy runs and recovery, runners who want On's feel with more protection</span></div>
-    <p>On's high-cushion daily trainer - thicker, more voluminous CloudTec than the standard Cloudsurfer. Firmer and more energetic than HOKA or Nike max-cushion rivals, with On's signature spring-like pop underfoot.</p>
-    <a class="shop-link" href="https://www.dickssportinggoods.com/p/on-womens-cloudsurfer-max-running-shoes-25mazwcldsrfrmxblftw/25mazwcldsrfrmxblftw?color=White/Pink" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
-  </div>
-</div>
-<div class="shoe" id="asics-gel-nimbus-27-women" data-product="ASICS Gel-Nimbus 27 - Women" data-sport="Running" data-gender="Women" data-rating="4.5">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/24ASIWGLNMBS27BLCFTW_White_Light_Purple?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="ASICS Gel-Nimbus 27 - Women" loading="lazy"></div>
-  <div class="shoe-content">
-    <div class="shoe-header"><h2>ASICS Gel-Nimbus 27 - Women</h2></div>
-    <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
-    <div class="specs"><span><strong>Weight</strong> 8.8 oz</span><span><strong>Cushion</strong> High</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Drop</strong> 8mm</span><span><strong>Pronation</strong> Neutral</span><span><strong>Surface</strong> Road</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $160</span><span class="best-for"><strong>Best For</strong> Premium daily training, runners who want a lightweight high-cushion shoe</span></div>
-    <p>ASICS' top-tier premium cushioned trainer. FF BLAST+ ECO foam for a plush, high-energy ride with GEL technology targeting heel and forefoot impact. Lighter than most max-cushion rivals at 8.8oz.</p>
-    <a class="shop-link" href="https://www.dickssportinggoods.com/p/asics-womens-gel-nimbus-27-running-shoes-24asiwglnmbs27blcftw/24asiwglnmbs27blcftw?color=White/Light%20Purple" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
-  </div>
-</div>
-<div class="shoe" id="brooks-ghost-17-women" data-product="Brooks Ghost 17 - Women" data-sport="Running" data-gender="Women" data-rating="4.6">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25BROWGHST17BLCKBFTW_Dark_Blue_Light_Blue?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Brooks Ghost 17 - Women" loading="lazy"></div>
-  <div class="shoe-content">
-    <div class="shoe-header"><h2>Brooks Ghost 17 - Women</h2></div>
-    <div class="meta"><span class="rating">&#9733; 4.6/5</span></div>
-    <div class="specs"><span><strong>Weight</strong> 10.1 oz</span><span><strong>Cushion</strong> Moderate</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Drop</strong> 12mm</span><span><strong>Pronation</strong> Neutral</span><span><strong>Surface</strong> Road</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $140</span><span class="best-for"><strong>Best For</strong> Everyday training, neutral runners who want a smooth balanced ride</span></div>
-    <p>One of running's most trusted daily trainers. DNA LOFT v3 foam delivers a smooth, neutral ride with moderate cushioning at 12mm drop - consistently loved for its balance of protection and responsiveness.</p>
-    <a class="shop-link" href="https://www.dickssportinggoods.com/p/Brooks-Women's-Ghost-17-Running-Shoes-25BROWGHST17BLCKBFTW/25BROWGHST17BLCKBFTW" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
-  </div>
-</div>
-<div class="shoe" id="nike-vomero-plus-women" data-product="Nike Vomero Plus - Women" data-sport="Running" data-gender="Women" data-rating="4.4">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25NIKWRUNNVMRPLSBLDAB_Red_Dark_Red?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Vomero Plus - Women" loading="lazy"></div>
-  <div class="shoe-content">
-    <div class="shoe-header"><h2>Nike Vomero Plus - Women</h2></div>
-    <div class="meta"><span class="rating">&#9733; 4.4/5</span></div>
-    <div class="specs"><span><strong>Weight</strong> 10.9 oz</span><span><strong>Cushion</strong> High</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Drop</strong> 10mm</span><span><strong>Pronation</strong> Neutral</span><span><strong>Surface</strong> Road</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $180</span><span class="best-for"><strong>Best For</strong> Daily training, runners stepping into max cushion for the first time</span></div>
-    <p>Full-length ZoomX foam at a 45mm stack - softer, lighter, and more responsive than the standard Vomero 18. The everyday choice for runners who want serious cloud-like cushioning without the heft of the Premium.</p>
-    <a class="shop-link" href="https://www.dickssportinggoods.com/p/nike-womens-vomero-plus-running-shoes-25nikwrunnvmrplsbldab/25nikwrunnvmrplsbldab?color=Red/Dark%20Red" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
-  </div>
-</div>
-<div class="shoe" id="hoka-arahi-8-women" data-product="HOKA Arahi 8 - Women" data-sport="Running" data-gender="Women" data-rating="4.4">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25FHQWRH8WHTWHTXXFTW_Alabaster_Lingonberry?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="HOKA Arahi 8 - Women" loading="lazy"></div>
-  <div class="shoe-content">
-    <div class="shoe-header"><h2>HOKA Arahi 8 - Women</h2></div>
-    <div class="meta"><span class="rating">&#9733; 4.4/5</span></div>
-    <div class="specs"><span><strong>Weight</strong> 8.9 oz</span><span><strong>Cushion</strong> Moderate</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Drop</strong> 5mm</span><span><strong>Pronation</strong> Stability</span><span><strong>Surface</strong> Road</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $140</span><span class="best-for"><strong>Best For</strong> Overpronators who want stability without a heavy, rigid shoe</span></div>
-    <p>HOKA's stability trainer, with J-Frame technology providing firm medial guidance without a traditional rigid post. Plush ride with real support - one of the lighter stability trainers available at 8.9oz.</p>
-    <a class="shop-link" href="https://www.dickssportinggoods.com/p/hoka-womens-arahi-8-running-shoes-25fhqwrh8whtwhtxxftw/25fhqwrh8whtwhtxxftw?color=Alabaster/Lingonberry" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
-  </div>
-</div>
-<div class="shoe" id="brooks-adrenaline-gts-25-women" data-product="Brooks Adrenaline GTS 25 - Women" data-sport="Running" data-gender="Women" data-rating="4.6">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/25BROWRUNNDRNLNGTSFEB_Grey_Pink?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Brooks Adrenaline GTS 25 - Women" loading="lazy"></div>
-  <div class="shoe-content">
-    <div class="shoe-header"><h2>Brooks Adrenaline GTS 25 - Women</h2></div>
-    <div class="meta"><span class="rating">&#9733; 4.6/5</span></div>
-    <div class="specs"><span><strong>Weight</strong> 9.4 oz</span><span><strong>Cushion</strong> Moderate</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Drop</strong> 12mm</span><span><strong>Pronation</strong> Stability</span><span><strong>Surface</strong> Road</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $140</span><span class="best-for"><strong>Best For</strong> Overpronators, runners who need reliable stability for daily training</span></div>
-    <p>In its 25th year as running's most trusted stability shoe. GuideRails limit excess motion naturally rather than forcing the foot into a rigid position. 12mm drop, moderate cushion, dependable every day.</p>
-    <a class="shop-link" href="https://www.dickssportinggoods.com/p/Brooks-Women's-Adrenaline-GTS-25-Running-Shoes-25BROWRUNNDRNLNGTSFEB/25BROWRUNNDRNLNGTSFEB" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
-  </div>
-</div>
-<div class="shoe" id="on-cloudmonster-2-women" data-product="On Cloudmonster 2 - Women" data-sport="Running" data-gender="Women" data-rating="4.3">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/23MAZWCLDMNSTR2BLFTW_White_Tangerine?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="On Cloudmonster 2 - Women" loading="lazy"></div>
-  <div class="shoe-content">
-    <div class="shoe-header"><h2>On Cloudmonster 2 - Women</h2></div>
-    <div class="meta"><span class="rating">&#9733; 4.3/5</span></div>
-    <div class="specs"><span><strong>Weight</strong> 8.8 oz</span><span><strong>Cushion</strong> Moderate</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Drop</strong> 6mm</span><span><strong>Pronation</strong> Neutral</span><span><strong>Surface</strong> Road</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $170</span><span class="best-for"><strong>Best For</strong> Easy runs and long miles, runners who want a cushioned On trainer</span></div>
-    <p>On's second-generation max-cushion trainer. Oversized CloudTec pods deliver On's signature responsive feel with enough protection for easy days and long runs.</p>
-    <a class="shop-link" href="https://www.dickssportinggoods.com/p/on-womens-cloudmonster-2-running-shoes-23mazwcldmnstr2blftw/23mazwcldmnstr2blftw?color=White/Tangerine" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
-  </div>
-</div>
-<div class="shoe" id="nike-pegasus-41-women" data-product="Nike Pegasus 41 - Women" data-sport="Running" data-gender="Women" data-rating="4.5">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/24NIKWPGSS41WHTRDRNN_Pink_Black_Pink?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Pegasus 41 - Women" loading="lazy"></div>
-  <div class="shoe-content">
-    <div class="shoe-header"><h2>Nike Pegasus 41 - Women</h2></div>
-    <div class="meta"><span class="rating">&#9733; 4.5/5</span></div>
-    <div class="specs"><span><strong>Weight</strong> 10.0 oz</span><span><strong>Cushion</strong> Moderate</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Drop</strong> 10mm</span><span><strong>Pronation</strong> Neutral</span><span><strong>Surface</strong> Road</span><span><strong>Fit</strong> Standard</span><span><strong>Price</strong> $130</span><span class="best-for"><strong>Best For</strong> Everyday training, beginners and experienced runners who want a reliable do-everything shoe</span></div>
-    <p>41 versions in and still the go-to daily trainer for millions of runners. ReactX foam delivers a responsive, bouncy ride at 10mm drop - balanced and versatile for easy miles through moderate-effort runs.</p>
-    <a class="shop-link" href="https://www.dickssportinggoods.com/p/nike-womens-pegasus-41-running-shoes-24nikwpgss41whtrdrnn/24nikwpgss41whtrdrnn?color=Pink/Black/Pink" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
-  </div>
-</div>
-<div class="shoe" id="nike-alphafly-3-proto-women" data-product="Nike Alphafly 3 Proto - Women" data-sport="Running" data-gender="Women" data-rating="4.7">
-  <div class="shoe-image"><img src="https://dks.scene7.com/is/image/GolfGalaxy/23NIKWLPHFLYNXT3WRNN_Coconut_Milk?qlt=70&wid=1100&hei=1100&fmt=webp&op_sharpen=1&fit=constrain" alt="Nike Alphafly 3 Proto - Women" loading="lazy"></div>
-  <div class="shoe-content">
-    <div class="shoe-header"><h2>Nike Alphafly 3 Proto - Women</h2></div>
-    <div class="meta"><span class="rating">&#9733; 4.7/5</span></div>
-    <div class="specs"><span><strong>Weight</strong> 7.3 oz</span><span><strong>Cushion</strong> High</span><span><strong>Ankle</strong> Low-cut</span><span><strong>Drop</strong> 8mm</span><span><strong>Pronation</strong> Neutral</span><span><strong>Surface</strong> Road</span><span><strong>Fit</strong> Narrow</span><span><strong>Price</strong> $285</span><span class="best-for"><strong>Best For</strong> Race day — elite marathon performance, runners at the highest competitive level</span></div>
-    <p>Nike's pinnacle race-day shoe. Twin Air Zoom pods in the forefoot plus a carbon plate in ZoomX foam deliver explosive energy return with every stride. At 7.3oz, worn by the world's fastest marathoners.</p>
-    <a class="shop-link" href="https://www.dickssportinggoods.com/p/nike-womens-alphafly-3-proto-running-shoes-23nikwlphflynxt3wrnn/23nikwlphflynxt3wrnn?color=Coconut%20Milk" target="_blank">View at DICK'S Sporting Goods &rarr;</a>
-  </div>
-</div>
+
+<script>
+// ─── Config ────────────────────────────────────────────────────────────
+const CLAUDE_API_KEY = '';
+const EMAILJS_SERVICE_ID = 'service_y5dkqan';
+const EMAILJS_TEMPLATE_ID = 'template_1pjzdkc';
+const EMAILJS_PUBLIC_KEY = 'VrxFJa16cTB_Dj7c2';
+
+// ─── URL params ─────────────────────────────────────────────────────────
+const params = new URLSearchParams(window.location.search);
+const firstName = params.get('firstName') || '';
+const lastName = params.get('lastName') || '';
+const email = params.get('email') || '';
+const sendRec = params.get('sendRecommendation') !== 'false';
+const sportParam = (params.get('sport') || 'running').toLowerCase();
+
+if (firstName) {
+  document.getElementById('welcome-heading').textContent = `Welcome${firstName ? ', ' + firstName : ''}! Ask me what you need.`;
+}
+
+// ─── Sport configs ──────────────────────────────────────────────────────
+const SPORT_CONFIGS = {
+  running: {
+    name: 'Running',
+    systemRole: 'running coach and shoe expert',
+    systemFocus: 'experience level, weekly mileage, cushion preference, injuries, gender and shoe size for recommendation',
+    starterCards: [
+      { q: "I'm brand new to running. How do I get started?", img: 'images/running/image1.png' },
+      { q: "I'm training for my first marathon.", img: 'images/running/image2.jpg' },
+      { q: "How can I prioritize injury prevention while training for running?", img: 'images/running/image3.jpg' }
+    ],
+    scripts: {
+      "I'm brand new to running. How do I get started?": [
+        { text: "Great decision — running is one of the most accessible ways to build fitness. The biggest mistake beginners make is starting too fast. The run/walk method works really well: run 1 minute, walk 2 minutes, repeat. Over a few weeks, flip that ratio. Your easy pace should always be conversational — if you can't speak in full sentences, slow down. What's drawing you to running? Are you looking to get active, maybe work toward a 5K, or do you have a longer-term goal in mind?", sources: [
+          { title: "Guide to Proper Running Form", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/running/guide-to-proper-running-form" },
+          { title: "5K Training Plans", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/running/5k-training-plans" }
+        ]},
+        { text: "That's a perfect starting point. Here's what matters most early on: the 10% rule — never increase your weekly mileage by more than 10% from week to week. Most beginner injuries come from doing too much too soon. Also, do a 5-minute dynamic warm-up before each run and 5 minutes of stretching after. Your body will thank you in week three. Do you have any knee, shin, or foot concerns already, or are you starting completely fresh?", sources: [
+          { title: "Five Pre-Run Stretches", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/running/five-pre-run-stretches" },
+          { title: "When to Replace Running Shoes", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/running/how-to-know-when-to-replace-running-shoes" }
+        ]},
+        { text: "Perfect — you're in a great position to start right. The shoe you choose makes a real difference in how your body feels during those first miles. To match you with the right one: what shoe size do you wear, and are you looking at men's or women's?", sources: [
+          { title: "How to Choose Running Shoes", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/running/how-to-choose-running-shoes" }
+        ]}
+      ],
+      "I'm training for my first marathon.": [
+        { text: "Congrats on committing to a marathon — that's a serious goal. The foundation of good marathon training is keeping 80% of your miles easy. Most first-timers run their easy days too fast and arrive at race day already burned out. A good check: your easy pace should feel like you could hold a full conversation. How many weeks out is your race, and where are you in your training plan right now?", sources: [
+          { title: "Marathon Training Plans", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/running/marathon-training-plans-for-beginners-experienced-runners" },
+          { title: "Marathon Essentials Checklist", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/running/marathon-clothing-and-essentials-checklist" }
+        ]},
+        { text: "Good to know. At marathon mileage, shoe durability and cushioning become critical — running shoes last 300–500 miles and you can easily burn through a pair just in training. You also want something that feels fresh on mile 18, not just mile 1. Are you dealing with any joint issues — knees, hips, or feet — or do you run neutral without much overpronation?", sources: [
+          { title: "When to Replace Running Shoes", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/running/how-to-know-when-to-replace-running-shoes" },
+          { title: "What is a Gait Analysis?", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/running/what-is-a-gait-analysis" }
+        ]},
+        { text: "That's exactly what I need. A good marathon trainer needs to hold up through high mileage and keep your legs feeling good on the long runs. To dial in the right match: what shoe size do you wear, and are you shopping for men's or women's?", sources: [
+          { title: "How to Choose Running Shoes", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/running/how-to-choose-running-shoes" }
+        ]}
+      ],
+      "How can I prioritize injury prevention while training for running?": [
+        { text: "Injury prevention is the smartest thing you can invest in — most running injuries are preventable. The three biggest causes: building mileage too fast, the wrong shoe for your gait, and skipping strength work. Hip and glute strength matter more than most runners realize — weak hips lead to knee and IT band problems. Are you dealing with a specific issue right now like knee pain, shin splints, or plantar fasciitis, or are you being proactive before something comes up?", sources: [
+          { title: "Guide to Proper Running Form", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/running/guide-to-proper-running-form" },
+          { title: "Five Pre-Run Stretches", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/running/five-pre-run-stretches" }
+        ]},
+        { text: "Good context. The most important gait factor for injury prevention is whether you overpronate — if your foot rolls inward on landing, a stability shoe can significantly reduce stress on your knees and ankles. Do you know if you overpronate, or have you had a gait analysis done? And roughly how many days a week are you running?", sources: [
+          { title: "What is a Gait Analysis?", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/running/what-is-a-gait-analysis" },
+          { title: "Benefits of Cushioned Running Shoes", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/running/the-benefits-of-cushioned-running-shoes" }
+        ]},
+        { text: "That's exactly what I needed to hear. Matching you to the right stability or cushioning level can make a real difference long-term. One quick question: what shoe size do you wear, and are you shopping for men's or women's?", sources: [
+          { title: "How to Choose Running Shoes", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/running/how-to-choose-running-shoes" }
+        ]}
+      ]
+    },
+    followups: {
+      "I'm brand new to running. How do I get started?": ["How do I improve my running form?", "What's a good beginner 5K training plan?", "How often should I run as a beginner?"],
+      "I'm training for my first marathon.": ["How should I fuel during long runs?", "How do I build my weekly mileage safely?", "What should I wear for marathon training?"],
+      "How can I prioritize injury prevention while training for running?": ["What stretches should I do after running?", "How do I know if I overpronate?", "When should I replace my running shoes?"]
+    },
+    pickRec: function(h, path, userH) {
+      const g = userH || h;
+      const isW = g.includes("women") || g.includes("female") || g.includes("her ");
+      const stab = h.includes("overpronat") || h.includes("roll") || h.includes("stability") || h.includes("flat feet") || h.includes("shin splint") || h.includes("knee pain");
+      const race = h.includes("race") || h.includes("pr ") || h.includes("time goal") || h.includes("vaporfly") || h.includes("fast");
+      const plush = h.includes("plush") || h.includes("cloud") || h.includes("soft") || h.includes("max cushion") || h.includes("recovery");
+      const marathon = path === "I'm training for my first marathon.";
+      const beginner = path === "I'm brand new to running. How do I get started?";
+      if (stab) return isW ? 'brooks-adrenaline-gts-25-women' : 'brooks-adrenaline-gts-25-men';
+      if (race && marathon) return isW ? 'nike-alphafly-3-proto-women' : 'nike-vaporfly-4-proto-men';
+      if (marathon) return isW ? 'brooks-ghost-17-women' : 'brooks-ghost-17-men';
+      if (plush || beginner) return isW ? 'hoka-bondi-9-women' : 'hoka-bondi-9-men';
+      return isW ? 'nike-pegasus-premium-women' : 'nike-pegasus-premium-men';
+    },
+    shoes: [
+      { id: 'hoka-bondi-9-men', name: 'Hoka Bondi 9 - Men', price: '$165', cushion: 'Max', drop: '4mm', pronation: 'Neutral', bestFor: 'Recovery runs, beginners, maximum cushioning', img: 'https://dks.scene7.com/is/image/GolfGalaxy/1162011-DNP_Drizzle_INS?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/hoka-mens-bondi-9-running-shoes-24fhqmbnd9drzzldwmns/24fhqmbnd9drzzldwmns' },
+      { id: 'hoka-bondi-9-women', name: 'Hoka Bondi 9 - Women', price: '$165', cushion: 'Max', drop: '4mm', pronation: 'Neutral', bestFor: 'Recovery runs, beginners, maximum cushioning', img: 'https://dks.scene7.com/is/image/GolfGalaxy/1162012-NYZS_NeonYuzuSunlight_INS?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/hoka-womens-bondi-9-running-shoes-24fhqwbnd9strflwrftw/24fhqwbnd9strflwrftw' },
+      { id: 'brooks-ghost-17-men', name: 'Brooks Ghost 17 - Men', price: '$140', cushion: 'Moderate', drop: '12mm', pronation: 'Neutral', bestFor: 'Everyday training, marathon prep, smooth balanced ride', img: 'https://dks.scene7.com/is/image/GolfGalaxy/25BROMGHST17BLCKBMNS_Acid_Lime_Navy_White?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/brooks-mens-ghost-17-running-shoes-25bromghst17blckbmns/25bromghst17blckbmns' },
+      { id: 'brooks-ghost-17-women', name: 'Brooks Ghost 17 - Women', price: '$140', cushion: 'Moderate', drop: '12mm', pronation: 'Neutral', bestFor: 'Everyday training, marathon prep, smooth balanced ride', img: 'https://dks.scene7.com/is/image/GolfGalaxy/25BROWGHST17BLCKBFTW_Dark_Blue_Light_Blue?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/Brooks-Womens-Ghost-17-Running-Shoes-25BROWGHST17BLCKBFTW/25BROWGHST17BLCKBFTW' },
+      { id: 'nike-pegasus-premium-men', name: 'Nike Pegasus Premium - Men', price: '$160', cushion: 'Moderate', drop: '10mm', pronation: 'Neutral', bestFor: 'Daily training, versatile all-rounder', img: 'https://dks.scene7.com/is/image/GolfGalaxy/HQ2592701_AlabasterBlackBrlyVltVltc_INS?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/nike-mens-pegasus-premium-running-shoes-24nikmpgssprmmblkrnn/24nikmpgssprmmblkrnn' },
+      { id: 'nike-pegasus-premium-women', name: 'Nike Pegasus Premium - Women', price: '$160', cushion: 'Moderate', drop: '10mm', pronation: 'Neutral', bestFor: 'Daily training, versatile all-rounder', img: 'https://dks.scene7.com/is/image/GolfGalaxy/HQ2593802_OrangePulseHotLavBrghtMng_INS?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/nike-womens-pegasus-premium-running-shoes-24nikwpgss41prmgrrnn/24nikwpgss41prmgrrnn' },
+      { id: 'nike-vomero-premium-men', name: 'Nike Vomero Premium - Men', price: '$250', cushion: 'Max', drop: '10mm', pronation: 'Neutral', bestFor: 'Recovery runs, high-mileage athletes, ultimate cushioning', img: 'https://dks.scene7.com/is/image/GolfGalaxy/25NIKMRUNNVMRPRMMLVXO_Alabaster_Blue_Void_Citron_Pulse?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/nike-mens-vomero-premium-running-shoes-25nikmrunnvmrprmmlvxo/25nikmrunnvmrprmmlvxo' },
+      { id: 'nike-vomero-premium-women', name: 'Nike Vomero Premium - Women', price: '$250', cushion: 'Max', drop: '10mm', pronation: 'Neutral', bestFor: 'Recovery runs, high-mileage athletes, ultimate cushioning', img: 'https://dks.scene7.com/is/image/GolfGalaxy/HM5973002_BlackSapphireHotLavnthrct_INS?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/nike-womens-vomero-premium-running-shoes-25nikwrunnvmrprmmbdyy/25nikwrunnvmrprmmbdyy' },
+      { id: 'brooks-ghost-max-3-men', name: 'Brooks Ghost Max 3 - Men', price: '$150', cushion: 'Max', drop: '6mm', pronation: 'Neutral', bestFor: 'Easy runs, recovery, Ghost loyalists wanting more cushion', img: 'https://dks.scene7.com/is/image/GolfGalaxy/25BROMRUNNGHSTMX3BCFF_Black_Navy_Acid_Lime?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/brooks-mens-ghost-max-3-running-shoes-25bromrunnghstmx3bcff/25bromrunnghstmx3bcff' },
+      { id: 'brooks-ghost-max-3-women', name: 'Brooks Ghost Max 3 - Women', price: '$150', cushion: 'Max', drop: '6mm', pronation: 'Neutral', bestFor: 'Easy runs, recovery, max cushion with lower drop', img: 'https://dks.scene7.com/is/image/GolfGalaxy/25BROWRUNNGHSTMX3BACE_White_Grey?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/Brooks-Womens-Ghost-Max-3-Running-Shoes-25BROWRUNNGHSTMX3BACE/25BROWRUNNGHSTMX3BACE' },
+      { id: 'on-cloud-monster-3-men', name: 'ON Cloud Monster 3 - Men', price: '$170', cushion: 'Max', drop: '6mm', pronation: 'Neutral', bestFor: 'High-mileage training, lightweight max cushion', img: 'https://dks.scene7.com/is/image/GolfGalaxy/3MG10054726_IcebergIvory_INS?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/on-mens-cloudmonster-3-running-shoes-26onxmrunncldmnstrktz/26onxmrunncldmnstrktz' },
+      { id: 'on-cloud-monster-3-women', name: 'ON Cloud Monster 3 - Women', price: '$170', cushion: 'Max', drop: '6mm', pronation: 'Neutral', bestFor: 'High-mileage training, lightweight max cushion', img: 'https://dks.scene7.com/is/image/GolfGalaxy/3WG10034888_NebulaIvory_INS?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/on-womens-cloudmonster-3-running-shoes-26onxwrunncldmnstrspy/26onxwrunncldmnstrspy' },
+      { id: 'brooks-adrenaline-gts-25-men', name: 'Brooks Adrenaline GTS 25 - Men', price: '$140', cushion: 'Moderate', drop: '12mm', pronation: 'Stability', bestFor: 'Overpronators, reliable daily trainer with support', img: 'https://dks.scene7.com/is/image/GolfGalaxy/1104541D272_ArcticWolfRutabagaNavy_INS?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/brooks-mens-adrenaline-gts-25-running-shoes-25bromrunndrnlngtsfbc/25bromrunndrnlngtsfbc' },
+      { id: 'brooks-adrenaline-gts-25-women', name: 'Brooks Adrenaline GTS 25 - Women', price: '$140', cushion: 'Moderate', drop: '12mm', pronation: 'Stability', bestFor: 'Overpronators, reliable daily trainer with support', img: 'https://dks.scene7.com/is/image/GolfGalaxy/25BROWRUNNDRNLNGTSFEB_Grey_Pink?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/Brooks-Womens-Adrenaline-GTS-25-Running-Shoes-25BROWRUNNDRNLNGTSFEB/25BROWRUNNDRNLNGTSFEB' },
+      { id: 'hoka-arahi-8-women', name: 'HOKA Arahi 8 - Women', price: '$140', cushion: 'Moderate', drop: '5mm', pronation: 'Stability', bestFor: 'Overpronators wanting stability without a heavy shoe', img: 'https://dks.scene7.com/is/image/GolfGalaxy/25FHQWRH8WHTWHTXXFTW_Alabaster_Lingonberry?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/hoka-womens-arahi-8-running-shoes-25fhqwrh8whtwhtxxftw/25fhqwrh8whtwhtxxftw' },
+      { id: 'brooks-glycerin-23-men', name: 'Brooks Glycerin 23 - Men', price: '$160', cushion: 'High', drop: '10mm', pronation: 'Neutral', bestFor: 'Long slow miles, premium comfort, recovery', img: 'https://dks.scene7.com/is/image/GolfGalaxy/25BROMRUNNGLYCRN23KJQ_Atlantic_Deep_GreyMist_Coconut?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/brooks-mens-glycerin-23-running-shoes-25bromrunnglycrn23kjq/25bromrunnglycrn23kjq' },
+      { id: 'hoka-clifton-10-women', name: 'HOKA Clifton 10 - Women', price: '$145', cushion: 'Moderate', drop: '5mm', pronation: 'Neutral', bestFor: 'Everyday training, lightweight cushion', img: 'https://dks.scene7.com/is/image/GolfGalaxy/25FHQWCLFTN10BLCKFTW_Stardust_Cosmic_Grey?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/hoka-womens-clifton-10-running-shoes-25fhqwclftn10blckftw/25fhqwclftn10blckftw' },
+      { id: 'asics-gel-nimbus-27-women', name: 'ASICS Gel-Nimbus 27 - Women', price: '$160', cushion: 'High', drop: '8mm', pronation: 'Neutral', bestFor: 'Premium daily training, lightweight high-cushion', img: 'https://dks.scene7.com/is/image/GolfGalaxy/24ASIWGLNMBS27BLCFTW_White_Light_Purple?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/asics-womens-gel-nimbus-27-running-shoes-24asiwglnmbs27blcftw/24asiwglnmbs27blcftw' },
+      { id: 'nike-vaporfly-4-proto-men', name: 'Nike Vaporfly 4 Proto - Men', price: '$260', cushion: 'Moderate', drop: '8mm', pronation: 'Neutral', bestFor: 'Race day, marathons, competitive runners chasing a PR', img: 'https://dks.scene7.com/is/image/GolfGalaxy/25NIKMVPRFLY4SLBLRNN_Citron_Pulse_Indigo_Burst_Laser_Orange?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/nike-mens-nike-vaporfly-4-proto-road-running-shoes-25nikmvprfly4slblrnn/25nikmvprfly4slblrnn' },
+      { id: 'nike-alphafly-3-proto-women', name: 'Nike Alphafly 3 Proto - Women', price: '$285', cushion: 'High', drop: '8mm', pronation: 'Neutral', bestFor: 'Race day, elite marathon performance', img: 'https://dks.scene7.com/is/image/GolfGalaxy/23NIKWLPHFLYNXT3WRNN_Coconut_Milk?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/nike-womens-alphafly-3-proto-running-shoes-23nikwlphflynxt3wrnn/23nikwlphflynxt3wrnn' }
+    ]
+  },
+
+  basketball: {
+    name: 'Basketball',
+    systemRole: 'basketball coach and shoe expert',
+    systemFocus: 'position, playing style, skill level, court surface, gender and shoe size for recommendation',
+    starterCards: [
+      { q: "I just joined a basketball rec league.", img: 'images/basketball/image1.jpg' },
+      { q: "What's the best strength training for basketball?", img: 'images/basketball/image2.jpg' },
+      { q: "How can I improve my dribbling technique in basketball?", img: 'images/basketball/image3.jpg' }
+    ],
+    scripts: {
+      "I just joined a basketball rec league.": [
+        { text: "Welcome to the rec league — it's a ton of fun! The biggest adjustment for new players is usually the pace and physicality. A few things to focus on early: stay in your defensive stance longer than feels natural, communicate loudly on defense, and don't force shots when you're not open. The players who improve the fastest in rec ball work on footwork and defense first — that shows up every possession. What position are you playing, and is this your first time in organized basketball or coming back after some time off?", sources: [
+          { title: "Defense: Stance and Slides", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/basketball/basketball-defense-stance-and-slides" },
+          { title: "Basketball Positions Explained", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/basketball/court-essentials-basketball-positions-explained" }
+        ]},
+        { text: "Good to know. Here's something most rec players figure out the hard way: don't dribble yourself into trouble. Use the dribble to get somewhere, not to fill time. The triple threat position — ball in your hands before you decide to pass, shoot, or drive — is what separates players who look comfortable from those who look rushed. Do you play mostly indoors on hardwood or outdoor concrete courts?", sources: [
+          { title: "Basketball 101: The Triple Threat Position", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/basketball/basketball-101-the-triple-threat-position" },
+          { title: "Common Defensive Strategies", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/basketball/basketball-101-common-defensive-strategies" }
+        ]},
+        { text: "The right shoe for your first season makes a real difference — especially for lateral cuts and ankle support on those defensive slides we talked about. What shoe size do you wear, and are you shopping for men's or women's?", sources: [
+          { title: "Buying Basketball Shoes Guide", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/basketball/buying-basketball-shoes" }
+        ]}
+      ],
+      "What's the best strength training for basketball?": [
+        { text: "Basketball strength training should focus on explosive power and lateral quickness — not just size. The three movement patterns that matter most: hip hinge (Romanian deadlifts, trap bar deadlifts), squat pattern (goblet squats, split squats), and lateral resistance (band walks, lateral lunges). Plyometrics translate directly to the court — box jumps and depth jumps build the vertical and first-step explosion you need. What's your position, and is your main goal first-step explosiveness, vertical jump height, or staying strong through contact?", sources: [
+          { title: "Power Forward Drills", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/basketball/basketball-drills-power-forward-drill" }
+        ]},
+        { text: "That's a smart area to prioritize. One thing most players underestimate: single-leg stability and hip strength. Almost every ankle and knee injury in basketball traces back to weakness here. Add single-leg Romanian deadlifts and lateral step-ups to your program. They look simple but they directly prevent the kind of injuries that sideline players for weeks. How many days a week are you lifting versus playing, and are you in-season or building your base in the offseason?", sources: [
+          { title: "Rip Series Drills", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/basketball/basketball-drills-rip-series" }
+        ]},
+        { text: "Your training style actually tells me a lot about what shoe will work best for you on the court. Explosive players need responsive, supportive cushioning. To get you the right pick: what shoe size do you wear, and are you looking at men's or women's?", sources: [
+          { title: "Buying Basketball Shoes Guide", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/basketball/buying-basketball-shoes" }
+        ]}
+      ],
+      "How can I improve my dribbling technique in basketball?": [
+        { text: "Dribbling improvement comes down to three things: low stance (hips below your waist, not upright), using your fingertips not your palm, and repetition. Start with stationary drills — pounds, crossovers, between-the-legs — with your eyes up. The players who handle the ball best have done thousands of boring stationary reps first. Once those movements feel automatic, add speed and movement. Are you working on a specific skill — crossovers, behind-the-back, pull-back — or is it more about overall ball security and confidence with your weak hand?", sources: [
+          { title: "Basketball 101: How to Dribble", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/basketball/basketball-101-how-to-dribble" },
+          { title: "The Crossover Dribble", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/basketball/basketball-dribbling-the-crossover-dribble" }
+        ]},
+        { text: "Here's a drill that actually works for weak-hand development: do everything with your non-dominant hand for a week — brush your teeth, use your phone, reach for things. It sounds silly but it builds the neural coordination faster than on-court reps alone. Then on the court, figure-8 dribbling at different heights — low, mid, high — builds coordinated wrist and finger control that translates directly to live situations. What position do you play, and are you mostly working on your handle for creating off the dribble or handling full-court pressure?", sources: [
+          { title: "The In-and-Out Dribble", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/basketball/basketball-dribbling-the-in-and-out-dribble" },
+          { title: "Two-Ball Dribbling Drills", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/basketball/two-ball-dribbling-drills" }
+        ]},
+        { text: "Court feel is huge for ball handling — a shoe that lets you feel the floor gives you more confidence with the ball. To find you the right match: what shoe size do you wear, and are you shopping for men's or women's?", sources: [
+          { title: "Buying Basketball Shoes Guide", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/basketball/buying-basketball-shoes" }
+        ]}
+      ]
+    },
+    followups: {
+      "I just joined a basketball rec league.": ["How do I defend without fouling?", "What's the best way to improve my footwork?", "How do I communicate better on defense?"],
+      "What's the best strength training for basketball?": ["How do I improve my vertical jump?", "What's a good warm-up before a game?", "How do I prevent knee injuries in basketball?"],
+      "How can I improve my dribbling technique in basketball?": ["What drills help with weak-hand dribbling?", "How do I dribble under full-court pressure?", "What's the best way to practice crossovers?"]
+    },
+    pickRec: function(h, path, userH) {
+      const g = userH || h;
+      const isW = g.includes("women") || g.includes("female") || g.includes("her ");
+      const isGuard = h.includes("guard") || h.includes("point") || h.includes("shooting guard") || h.includes("quick") || h.includes("dribbl") || h.includes("speed");
+      const isInterior = h.includes("center") || h.includes("power forward") || h.includes("forward") || h.includes("post") || h.includes("contact") || h.includes("strength");
+      if (isW) {
+        if (isGuard) return 'nike-gt-cut-4-women';
+        if (isInterior) return 'nike-sabrina-3-equity-women';
+        return 'nike-sabrina-3-equity-women';
+      }
+      if (isGuard) return 'nike-ja-3-men';
+      if (isInterior) return 'nike-lebron-xxiii-men';
+      return 'nike-gt-cut-4-men';
+    },
+    shoes: [
+      { id: 'nike-gt-cut-4-men', name: 'Nike G.T. Cut 4 - Men', price: '$170', cushion: 'High', support: 'Mid', bestFor: 'Guards, explosive cuts, multi-directional traction', img: 'https://dks.scene7.com/is/image/GolfGalaxy/IQ6206500_VividPurpBlueBlue_INS?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/nike-g-tcut-4-launch-basketball-shoes-25nikabaskgtct4lncpeg/25nikabaskgtct4lncpeg' },
+      { id: 'nike-gt-cut-4-women', name: 'Nike G.T. Cut 4 - Women', price: '$170', cushion: 'High', support: 'Mid', bestFor: 'Guards, explosive cuts, multi-directional traction', img: 'https://dks.scene7.com/is/image/GolfGalaxy/25NIKABASKGTCT4LNCPEG_Vivid_Purp_Blue_Blue?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/nike-g-tcut-4-launch-basketball-shoes-25nikabaskgtct4lncpeg/25nikabaskgtct4lncpeg' },
+      { id: 'nike-ja-3-men', name: 'Nike Ja 3 \'12 Time\' - Men', price: '$140', cushion: 'Moderate', support: 'Low', bestFor: 'Guards who live at the rim, drive-and-finish players', img: 'https://dks.scene7.com/is/image/GolfGalaxy/IQ6755300_TurqOrange_INS?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/nike-ja-3-basketball-shoes-25nikabaskj312tmxxamk/25nikabaskj312tmxxamk' },
+      { id: 'nike-lebron-xxiii-men', name: 'Nike LeBron XXIII - Men', price: '$200', cushion: 'High', support: 'Mid', bestFor: 'All-around play, high-impact movements, dominant athletes', img: 'https://dks.scene7.com/is/image/GolfGalaxy/25NIKABASKLBRNXXSHUVR_Cool_Grey_Black_Cool_Grey?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/nike-lebron-xxiii-shut-up-dribble-basketball-shoes-25nikabasklbrnxxshuvr/25nikabasklbrnxxshuvr' },
+      { id: 'nike-sabrina-3-equity-women', name: 'Nike Sabrina 3 \'Equity\' - Women', price: '$130', cushion: 'Moderate', support: 'Low', bestFor: 'Guards, multi-position players, women\'s performance', img: 'https://dks.scene7.com/is/image/GolfGalaxy/HF2881003_BlkIvoryMintSmokeGry_INS?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/nike-sabrina-3-equity-basketball-shoes-25nikabasksbrn3phnlgk/25nikabasksbrn3phnlgk' },
+      { id: 'adidas-don-issue-7-men', name: 'Adidas D.O.N. Issue #7 - Men', price: '$110', cushion: 'Moderate', support: 'Low', bestFor: 'Guards, relentless attacking play, responsive court feel', img: 'https://dks.scene7.com/is/image/GolfGalaxy/JR7697_BlackYellow_INS?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/adidas-d-o-nissue-7-basketball-shoes-25adiadnss7clpsxxmns/25adiadnss7clpsxxmns' },
+      { id: 'under-armour-curry-series-7-men', name: 'Under Armour Curry Series 7 - Men', price: '$130', cushion: 'Moderate', support: 'Mid', bestFor: 'Shooters, lateral movement, explosive jump-stop mechanics', img: 'https://dks.scene7.com/is/image/GolfGalaxy/25UNDABASKCRRYSRS7DEA_Grey?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/under-armour-curry-series-7-basketball-shoes-25undabaskcrrysrs7dea/25undabaskcrrysrs7dea' },
+      { id: 'converse-shai-001-men', name: 'Converse Shai 001 Ares Grey - Men', price: '$120', cushion: 'Moderate', support: 'Mid', bestFor: 'Guards, fluid unconventional movement, React cushioning', img: 'https://dks.scene7.com/is/image/GolfGalaxy/25CONABASKSH001RSGAEQ_Origin_Story_Iron_Grey?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/converse-shai-001-ares-grey-basketball-shoes-25conabasksh001rsgaeq/25conabasksh001rsgaeq' },
+      { id: 'adidas-harden-volume-9-men', name: 'adidas Harden Volume 9 - Men', price: '$140', cushion: 'High', support: 'Low', bestFor: 'Scorers, pull-up situations, lateral-heavy footwork', img: 'https://dks.scene7.com/is/image/GolfGalaxy/25ADIABASKHRDNVLM9EEC_Black_Silver_Blue?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/adidas-harden-volume-9-basketball-shoes-25adiabaskhrdnvlm9eec/25adiabaskhrdnvlm9eec' },
+      { id: 'new-balance-p400-women', name: 'New Balance P400 - Women', price: '$120', cushion: 'Moderate', support: 'Low', bestFor: 'Guards and wings, responsive FUELCELL cushioning', img: 'https://dks.scene7.com/is/image/GolfGalaxy/26NEWABASKP400V4BLZNY_Black_Team_Red?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/New-Balance-P400-Basketball-Shoes-26NEWABASKP400V4BLZNY/26NEWABASKP400V4BLZNY' },
+      { id: 'reebok-angel-reese-1-men', name: 'Reebok Angel Reese 1', price: '$120', cushion: 'Moderate', support: 'Mid', bestFor: 'Interior players, responsive foam, mid-cut design', img: 'https://dks.scene7.com/is/image/GolfGalaxy/25REEABASKNGLRS1WHPYQ_White_Black_Red?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/reebok-angel-reese-1-basketball-shoes-25reeabasknglrs1whpyq/25reeabasknglrs1whpyq' },
+      { id: 'nike-kobe-9-women', name: 'Nike Kobe 9 Elite Low EM Protro - Women', price: '$180', cushion: 'Moderate', support: 'Low', bestFor: 'Technical guards, sock-like Flyknit fit, lightning-fast feel', img: 'https://dks.scene7.com/is/image/GolfGalaxy/25NIKABASKKBXMLWHYFIU_Hydrogen_Blue_White?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/nike-kobe-9-elite-low-em-protro-basketball-shoes-25nikabaskkbxmlwhyfiu/25nikabaskkbxmlwhyfiu' }
+    ]
+  },
+
+  soccer: {
+    name: 'Soccer',
+    systemRole: 'soccer coach and cleat expert',
+    systemFocus: 'position, playing surface, skill level, play style, gender and shoe size for recommendation',
+    starterCards: [
+      { q: "I just joined a soccer rec league.", img: 'images/soccer/image1.jpg' },
+      { q: "What cleat is best for firm ground grass?", img: 'images/soccer/image2.jpg' },
+      { q: "How do I choose the right cleat for my position?", img: 'images/soccer/image3.jpg' }
+    ],
+    scripts: {
+      "I just joined a soccer rec league.": [
+        { text: "Congrats — rec soccer is one of the best ways to stay active and competitive! The biggest adjustment for new players is positioning: stay in your shape and don't chase the ball everywhere. When everyone chases, the team falls apart. Play your role first, and the technical skills develop from there naturally. What position are you playing? And is this your first time in organized soccer, or are you coming back to it after some time off?", sources: [
+          { title: "Player Positions & Responsibilities", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/soccer/soccer-101-player-positions-responsibilities" },
+          { title: "Dynamic Stretching for Soccer", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/soccer/dynamic-stretching-for-soccer-games-practice" }
+        ]},
+        { text: "Good context! The most important technical skill for rec players to develop early is your first touch — receiving the ball comfortably and quickly redirecting it. Work on simple wall passes or passing with a partner where you receive and immediately move the ball. For fitness, interval runs translate really well to soccer's stop-start rhythm: sprint 30 seconds, walk 90 seconds, repeat. What surface will you mostly be playing on — natural grass, artificial turf, or indoor?", sources: [
+          { title: "Soccer Workouts for the Offseason", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/soccer/five-soccer-workouts-for-your-offseason" }
+        ]},
+        { text: "The surface is the single most important factor in choosing the right cleat — getting this wrong can cause injury and hurt your performance. To match you up: what shoe size do you wear, and are you shopping for men's or women's?", sources: [
+          { title: "Best Soccer Cleats Guide", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/soccer/best-soccer-cleats-bpa2020" }
+        ]}
+      ],
+      "What cleat is best for firm ground grass?": [
+        { text: "Firm ground (FG) is the standard for natural grass, and most cleats are designed around it. Two big factors: stud shape and upper material. Conical studs give better rotation and feel — good for quick direction changes. Bladed studs give more acceleration traction — better for straight-line speed. For the upper, engineered mesh gives a lighter, more breathable feel; leather-style gives better touch and durability. What position do you play? And is your game more about speed and first step, or control and precision passing?", sources: [
+          { title: "Best Soccer Cleats Guide", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/soccer/best-soccer-cleats-bpa2020" }
+        ]},
+        { text: "That shapes the recommendation a lot. For speed-focused players — wingers, forwards — the Nike Mercurial and adidas F50 families are built for that. Low-profile, thin upper, aggressive stud configuration. For technical players who want maximum touch — midfielders especially — the adidas Predator or Copa, or Nike Phantom gives you the grip on the ball for precise passing and shooting. How competitive is the level you're playing at, and do you have a rough budget in mind?", sources: [
+          { title: "Best Soccer Cleats Guide", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/soccer/best-soccer-cleats-bpa2020" }
+        ]},
+        { text: "I have everything I need to match you with the right boot. Last question: what shoe size do you wear, and are you shopping for men's or women's?", sources: [
+          { title: "Best Soccer Cleats Guide", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/soccer/best-soccer-cleats-bpa2020" }
+        ]}
+      ],
+      "How do I choose the right cleat for my position?": [
+        { text: "Position is one of the best guides for cleat selection. Forwards and wingers want speed boots — Nike Mercurial, adidas F50 — with a lightweight upper for finishing and first step. Midfielders want balance between touch and stability — adidas Predator or Copa, or Nike Phantom. Defenders want durability and a firm fit for physical challenges. Goalkeepers need a wide base and good grip. What position do you play? And what surface are you mostly on — natural grass, artificial turf, or indoor?", sources: [
+          { title: "Player Positions & Responsibilities", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/soccer/soccer-101-player-positions-responsibilities" },
+          { title: "Best Soccer Cleats Guide", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/soccer/best-soccer-cleats-bpa2020" }
+        ]},
+        { text: "Surface matters as much as position for cleat selection. FG (firm ground) studs for natural grass. AG or TF (turf) for artificial grass — important because FG studs can catch in turf and cause ankle injuries. IC (indoor) flat rubber sole for gym floors. Getting the surface wrong is one of the most common mistakes players make. Is the pitch you play on mostly firm and dry, or soft and wet? And are you playing recreationally or at a competitive level?", sources: [
+          { title: "Best Soccer Cleats Guide", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/soccer/best-soccer-cleats-bpa2020" }
+        ]},
+        { text: "You've given me exactly what I need. Last thing: what shoe size do you wear, and are you looking at men's or women's?", sources: [
+          { title: "Best Soccer Cleats Guide", url: "https://www.dickssportinggoods.com/protips/sports-and-activities/soccer/best-soccer-cleats-bpa2020" }
+        ]}
+      ]
+    },
+    followups: {
+      "I just joined a soccer rec league.": ["What should I focus on first in rec soccer?", "How do I improve my first touch?", "What fitness training helps for soccer?"],
+      "What cleat is best for firm ground grass?": ["What's the difference between FG and AG cleats?", "How do I break in new soccer cleats?", "What should I look for in a speed cleat?"],
+      "How do I choose the right cleat for my position?": ["What's the best cleat for a midfielder?", "Can I use FG cleats on turf?", "How should soccer cleats fit?"]
+    },
+    pickRec: function(h, path, userH) {
+      const g = userH || h;
+      const isW = g.includes("women") || g.includes("female") || g.includes("her ");
+      const isTurf = h.includes("turf") || h.includes("artificial") || h.includes("ag ") || h.includes("tf ");
+      const isIndoor = h.includes("indoor") || h.includes("gym") || h.includes("futsal") || h.includes("sala");
+      const isSpeed = h.includes("forward") || h.includes("winger") || h.includes("speed") || h.includes("pace") || h.includes("attacker") || h.includes("striker");
+      const isControl = h.includes("midfielder") || h.includes("midfield") || h.includes("control") || h.includes("touch") || h.includes("technical") || h.includes("passing") || h.includes("defender") || h.includes("defense");
+      if (isIndoor) return isW ? 'adidas-samba-messi-indoor-women' : 'adidas-predator-club-indoor-men';
+      if (isTurf) return isW ? 'nike-tiempo-maestro-club-turf-women' : 'adidas-predator-league-turf-men';
+      if (isW) {
+        if (isSpeed) return 'adidas-f50-sparkfusion-elite-women';
+        return 'adidas-copa-mundial-women';
+      }
+      if (isSpeed) return 'nike-mercurial-vapor-16-academy-men';
+      if (isControl) return 'adidas-predator-pro-ft-fg-men';
+      return 'adidas-predator-league-ft-fg-men';
+    },
+    shoes: [
+      { id: 'adidas-predator-pro-ft-fg-men', name: 'Adidas Predator Pro FT FG - Adult', price: '$200', surface: 'Firm Ground', style: 'Control', bestFor: 'Technical players, precise passing and powerful shooting', img: 'https://dks.scene7.com/is/image/GolfGalaxy/JS0950_RedWhite_INS?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/adidas-predator-pro-ft-fg-soccer-cleats-25adiasoccprdtrprfzye/25adiasoccprdtrprfzye' },
+      { id: 'adidas-predator-league-ft-fg-men', name: 'Adidas Predator League FT FG - Adult', price: '$100', surface: 'Firm Ground', style: 'Control', bestFor: 'Serious club players, 30 years of Predator control heritage', img: 'https://dks.scene7.com/is/image/GolfGalaxy/JI1111_WhiteBlack_INS?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/adidas-predator-league-ft-fg-soccer-cleats-25adiaprdtrlgftfgclta/25adiaprdtrlgftfgclta' },
+      { id: 'adidas-predator-club-fg-men', name: 'Adidas Predator Club FG - Adult', price: '$65', surface: 'Firm Ground', style: 'Control', bestFor: 'Recreational players, control feel at an entry price', img: 'https://dks.scene7.com/is/image/GolfGalaxy/JS0350_BlackRed_INS?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/adidas-predator-club-fg-soccer-cleats-25adiasoccprdtrclbcxk/25adiasoccprdtrclbcxk' },
+      { id: 'nike-mercurial-vapor-16-academy-men', name: 'Nike Mercurial Vapor 16 Academy FG/MG', price: '$80', surface: 'Firm/Multi Ground', style: 'Speed', bestFor: 'Forwards and wingers, maximum ankle mobility, first-step speed', img: 'https://dks.scene7.com/is/image/GolfGalaxy/FQ1458-446_BlueWhite_INS?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/nike-mercurial-vapor-16-academy-fg-mg-soccer-cleats-25nikasocczmvpr16cago/25nikasocczmvpr16cago' },
+      { id: 'nike-mercurial-superfly-10-academy-men', name: 'Nike Mercurial Superfly 10 Academy FG/MG', price: '$90', surface: 'Firm/Multi Ground', style: 'Speed', bestFor: 'Speed players, high-cut ankle lockdown, explosive cuts', img: 'https://dks.scene7.com/is/image/GolfGalaxy/FQ1456-446_BlueWhite_INS?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/nike-mercurial-superfly-10-academy-fg-mg-soccer-cleats-25nikasocczmsprflyyie/25nikasocczmsprflyyie' },
+      { id: 'nike-phantom-6-academy-high-men', name: 'Nike Phantom 6 Academy High FG/MG', price: '$85', surface: 'Firm/Multi Ground', style: 'Control', bestFor: 'Technical players, ankle support, multi-surface precision', img: 'https://dks.scene7.com/is/image/GolfGalaxy/HQ2278-400_ROYALRED_INS?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/nike-phantom-6-academy-high-fg-mg-soccer-cleats-25nikaphntm360dfcnthc/25nikaphntm360dfcnthc' },
+      { id: 'adidas-f50-pro-fg-men', name: 'Adidas F50 Pro FG - Adult', price: '$180', surface: 'Firm Ground', style: 'Speed', bestFor: 'Wingers and attackers, lightweight speed, explosive pace', img: 'https://dks.scene7.com/is/image/GolfGalaxy/JR8949_WhiteYellow_INS?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/adidas-f50-pro-fg-soccer-cleats-25adiasoccf50prfgwroa/25adiasoccf50prfgwroa' },
+      { id: 'adidas-predator-league-turf-men', name: 'adidas Predator League FT Turf - Men', price: '$80', surface: 'Turf', style: 'Control', bestFor: 'Turf players wanting Predator control on artificial surfaces', img: 'https://dks.scene7.com/is/image/GolfGalaxy/25ADIASOCCPRDTRLGFHNI_White_Blue?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/adidas-predator-league-ft-turf-soccer-cleats-25adiasoccprdtrlgfhni/25adiasoccprdtrlgfhni' },
+      { id: 'adidas-predator-club-indoor-men', name: 'adidas Predator Club Indoor Sala - Men', price: '$60', surface: 'Indoor', style: 'Control', bestFor: 'Indoor/futsal players, flat non-marking sole, Predator touch', img: 'https://dks.scene7.com/is/image/GolfGalaxy/25ADIAPRDTRCLBNSLCLTB_Black_White?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/adidas-predator-club-indoor-sala-soccer-shoes-25adiaprdtrclbnslcltb/25adiaprdtrclbnslcltb' },
+      { id: 'adidas-f50-sparkfusion-elite-women', name: 'adidas F50 Sparkfusion Elite Mid FG/AG - Women', price: '$200', surface: 'Firm/AG Ground', style: 'Speed', bestFor: 'Competitive women\'s players, elite speed, versatile surface', img: 'https://dks.scene7.com/is/image/GolfGalaxy/25ADIWSOCCF50SPRKFRKI_White_Blue?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/adidas-womens-f50-sparkfusion-elite-mid-fg-ag-soccer-cleats-25adiwsoccf50sprkfrki/25adiwsoccf50sprkfrki' },
+      { id: 'adidas-copa-mundial-women', name: 'adidas Copa Mundial - Women', price: '$160', surface: 'Firm Ground', style: 'Control', bestFor: 'Touch-first players, legendary kangaroo leather feel', img: 'https://dks.scene7.com/is/image/GolfGalaxy/15ADIMCPMNDLXXXXXNTH_Black_White?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/adidas-Copa-Mundial-Soccer-Cleat-15ADIMCPMNDLXXXXXNTH/15ADIMCPMNDLXXXXXNTH' },
+      { id: 'nike-tiempo-maestro-club-turf-women', name: 'Nike Tiempo Maestro Club Turf - Women', price: '$70', surface: 'Turf', style: 'Control', bestFor: 'Technical women\'s players on turf, soft touch upper', img: 'https://dks.scene7.com/is/image/GolfGalaxy/25NIKASOCCTMPMSTRCTLK_Black_Blue?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/nike-tiempo-maestro-club-turf-soccer-cleats-25nikasocctmpmstrctlk/25nikasocctmpmstrctlk' },
+      { id: 'adidas-samba-messi-indoor-women', name: 'adidas Samba Messi Indoor - Women', price: '$100', surface: 'Indoor', style: 'Control', bestFor: 'Indoor soccer, futsal, collector\'s Messi collaboration', img: 'https://dks.scene7.com/is/image/GolfGalaxy/24ADIASMBNTRMMBLKCLT_Black_Pink?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/adidas-samba-messi-indoor-soccer-shoes-24adiasmbntrmmblkclt/24adiasmbntrmmblkclt' },
+      { id: 'nike-zoom-mercurial-superfly-10-elite-men', name: 'Nike Zoom Mercurial Superfly 10 Elite FG', price: '$275', surface: 'Firm Ground', style: 'Speed', bestFor: 'Elite-level play, Air Zoom energy return, pro-level speed', img: 'https://dks.scene7.com/is/image/GolfGalaxy/25NIKAZMSPRFLY10LNTHE_Pink_Red?qlt=70&wid=600&hei=600&fmt=webp&fit=constrain', link: 'https://www.dickssportinggoods.com/p/nike-zoom-mercurial-superfly-10-elite-fg-soccer-cleats-25nikazmsprfly10lnthe/25nikazmsprfly10lnthe' }
+    ]
+  }
+};
+
+// ─── Apply sport config ──────────────────────────────────────────────────
+const SPORT = SPORT_CONFIGS[sportParam] || SPORT_CONFIGS.running;
+const SHOES = SPORT.shoes;
+const SCRIPTS = SPORT.scripts;
+const FOLLOWUP_SUGGESTIONS = SPORT.followups;
+
+const shoeList = SHOES.map(s => {
+  const extra = s.cushion ? `Cushion: ${s.cushion} | Drop: ${s.drop || 'N/A'} | Pronation: ${s.pronation || 'N/A'}` : `Type: ${s.type || ''} | Surface: ${s.surface || ''}`;
+  return `${s.name} | ${s.price} | ${extra} | Best for: ${s.bestFor}`;
+}).join('\n');
+
+const SYSTEM_PROMPT = `You are the DICK'S Sporting Goods Brand Concierge — a warm, knowledgeable ${SPORT.systemRole}. Have a friendly, focused conversation to understand the customer's needs and recommend the perfect shoe.
+
+Customer: ${firstName ? firstName + ' ' + lastName : 'the customer'}
+
+Approach:
+- Warm and expert tone — like a knowledgeable friend
+- Ask ONE focused follow-up question at a time
+- After 2-3 exchanges, make a confident recommendation
+- Keep responses concise (2-4 sentences for questions)
+- Focus on: ${SPORT.systemFocus}
+
+Available products:
+${shoeList}
+
+For your FINAL recommendation, end your message with exactly:
+RECOMMEND:shoe-id
+(use exact IDs: ${SHOES.map(s => s.id).join(', ')})
+
+Only recommend from this list. Be decisive.`;
+
+// ─── Build starter cards ─────────────────────────────────────────────────
+const ARROW_PATH = `<path d="M8.66406 9C9.2162 9.00018 9.66406 9.44782 9.66406 10V16.333C9.66406 16.8852 10.1119 17.3329 10.6641 17.333H21.9102L19.6172 15.04C19.227 14.6495 19.2269 14.0164 19.6172 13.626C20.0076 13.2358 20.6408 13.2359 21.0312 13.626L25.7461 18.3398L21.0312 23.0547C20.6407 23.4449 20.0076 23.4451 19.6172 23.0547C19.2268 22.6643 19.2269 22.0312 19.6172 21.6406L21.9238 19.333H10.6641C9.00731 19.3329 7.66406 17.9898 7.66406 16.333V10C7.66406 9.44779 8.11188 9.00012 8.66406 9Z"`;
+const starterCardsEl = document.getElementById('starter-cards');
+SPORT.starterCards.forEach((card, i) => {
+  const gid = `sg${i}`;
+  const div = document.createElement('div');
+  div.className = 'starter-card';
+  div.setAttribute('data-q', card.q);
+  div.innerHTML = `
+    <img class="starter-card-img" src="${card.img}" alt="">
+    <span class="starter-card-text">${card.q}</span>
+    <div class="starter-card-arrow">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        ${ARROW_PATH} fill="url(#${gid})"/>
+        <defs><linearGradient id="${gid}" x1="16.7051" y1="9" x2="16.7051" y2="23.3474" gradientUnits="userSpaceOnUse"><stop stop-color="#4DAF90"/><stop offset="1" stop-color="#005343"/></linearGradient></defs>
+      </svg>
+    </div>`;
+  starterCardsEl.appendChild(div);
+});
+
+// ─── State ────────────────────────────────────────────────────────────────
+const messagesEl = document.getElementById('messages');
+const welcomeEl = document.getElementById('welcome-state');
+const inputEl = document.getElementById('chat-input');
+const sendBtnEl = document.getElementById('send-btn');
+const voiceBtnsEl = document.getElementById('voice-btns');
+
+// Toggle mic/send based on input content
+inputEl.addEventListener('input', () => {
+  const hasText = inputEl.value.trim().length > 0;
+  sendBtnEl.style.display = hasText ? 'flex' : 'none';
+  voiceBtnsEl.style.display = hasText ? 'none' : 'flex';
+});
+
+let chatHistory = [];
+let inChat = false;
+let waiting = false;
+let recommendedShoe = null;
+let scriptedPath = null;
+let scriptedStep = 0;
+
+// ─── UI helpers ─────────────────────────────────────────────────────────
+function scrollToBottom() {
+  setTimeout(() => messagesEl.scrollTop = messagesEl.scrollHeight, 50);
+}
+
+const ARROW_SVG = `<svg width="14" height="14" viewBox="0 0 32 32" fill="none"><path d="M8.66406 9C9.2162 9.00018 9.66406 9.44782 9.66406 10V16.333C9.66406 16.8852 10.1119 17.3329 10.6641 17.333H21.9102L19.6172 15.04C19.227 14.6495 19.2269 14.0164 19.6172 13.626C20.0076 13.2358 20.6408 13.2359 21.0312 13.626L25.7461 18.3398L21.0312 23.0547C20.6407 23.4449 20.0076 23.4451 19.6172 23.0547C19.2268 22.6643 19.2269 22.0312 19.6172 21.6406L21.9238 19.333H10.6641C9.00731 19.3329 7.66406 17.9898 7.66406 16.333V10C7.66406 9.44779 8.11188 9.00012 8.66406 9Z" fill="#131313"/></svg>`;
+
+function showFeedback(sources) {
+  const row = document.createElement('div');
+  row.className = 'msg-feedback';
+  const hasLinks = sources && sources.length > 0;
+  row.innerHTML = `
+    <button class="sources-btn${hasLinks ? '' : ' no-sources'}">
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 4L5 7L8 4" stroke="#131313" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Sources
+    </button>
+    ${hasLinks ? `<div class="sources-panel" hidden>${sources.map(s => `<a href="${s.url}" target="_blank" rel="noopener">${s.title}</a>`).join('')}</div>` : ''}
+    <div class="feedback-btns">
+      <button class="feedback-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 22V11M2 13v7a1 1 0 001 1h14.29a1 1 0 00.995-.9l.71-7a1 1 0 00-.995-1.1H14V5a3 3 0 00-3-3 1 1 0 00-1 1v.5L7.5 9H3a1 1 0 00-1 1v1a1 1 0 001 1H7" stroke="#131313" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="feedback-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M17 2v11M22 11V4a1 1 0 00-1-1H6.71a1 1 0 00-.995.9l-.71 7a1 1 0 00.995 1.1H10v5a3 3 0 003 3 1 1 0 001-1v-.5l2.5-5.5H21a1 1 0 001-1v-1a1 1 0 00-1-1H17" stroke="#131313" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>`;
+  const btn = row.querySelector('.sources-btn');
+  if (hasLinks) {
+    btn.addEventListener('click', () => {
+      const panel = row.querySelector('.sources-panel');
+      panel.hidden = !panel.hidden;
+    });
+  }
+  messagesEl.appendChild(row);
+  scrollToBottom();
+}
+
+function addBubble(text, role, sources) {
+  const row = document.createElement('div');
+  row.className = `msg-row ${role}`;
+  if (role === 'assistant') {
+    const avatar = document.createElement('div');
+    avatar.className = 'dicks-avatar';
+    avatar.textContent = "DICK'S";
+    row.appendChild(avatar);
+  }
+  const bubble = document.createElement('div');
+  bubble.className = `bubble ${role}`;
+  bubble.textContent = text;
+  row.appendChild(bubble);
+  messagesEl.appendChild(row);
+  if (role === 'assistant') showFeedback(sources);
+  scrollToBottom();
+  return bubble;
+}
+
+function showLoading() {
+  const row = document.createElement('div');
+  row.className = 'msg-row assistant';
+  row.id = 'loading-row';
+  const avatar = document.createElement('div');
+  avatar.className = 'dicks-avatar';
+  avatar.textContent = "DICK'S";
+  row.appendChild(avatar);
+  const dots = document.createElement('div');
+  dots.className = 'loading-dots';
+  dots.innerHTML = '<span></span><span></span><span></span>';
+  row.appendChild(dots);
+  messagesEl.appendChild(row);
+  scrollToBottom();
+}
+
+function hideLoading() {
+  const el = document.getElementById('loading-row');
+  if (el) el.remove();
+}
+
+function showFollowUps(pathKey) {
+  const suggestions = FOLLOWUP_SUGGESTIONS[pathKey] || [
+    "What's the best way to track my running progress?",
+    "How do I choose between road and trail shoes?",
+    "What should I look for when buying running shoes?"
+  ];
+  const section = document.createElement('div');
+  section.className = 'followups-section';
+  const label = document.createElement('div');
+  label.className = 'followups-label';
+  label.textContent = 'Get more Pro Tips';
+  section.appendChild(label);
+  const pillsContainer = document.createElement('div');
+  pillsContainer.className = 'followup-pills';
+  suggestions.forEach(q => {
+    const pill = document.createElement('button');
+    pill.className = 'followup-pill';
+    pill.innerHTML = `${ARROW_SVG}<span>${q}</span>`;
+    pill.addEventListener('click', () => {
+      if (!waiting) {
+        section.remove();
+        addBubble(q, 'user');
+        chatHistory.push({ role: 'user', content: q });
+        getResponse();
+      }
+    });
+    pillsContainer.appendChild(pill);
+  });
+  section.appendChild(pillsContainer);
+  messagesEl.appendChild(section);
+  scrollToBottom();
+}
+
+function showShoeCard(shoe) {
+  const row = document.createElement('div');
+  row.className = 'msg-row assistant';
+  const avatar = document.createElement('div');
+  avatar.className = 'dicks-avatar';
+  avatar.textContent = "DICK'S";
+  row.appendChild(avatar);
+  const card = document.createElement('div');
+  card.className = 'shoe-rec-card';
+  const cardBtnHtml = (email && sendRec)
+    ? `<button class="shoe-rec-link"><span>Send it to Me</span></button>`
+    : `<a class="shoe-rec-link" href="${shoe.link}" target="_blank">Shop at DICK'S →</a>`;
+  card.innerHTML = `
+    <img src="${shoe.img}" alt="${shoe.name}" loading="lazy">
+    <div class="shoe-rec-card-body">
+      <div class="shoe-rec-name">${shoe.name}</div>
+      <div class="shoe-rec-price">${shoe.price} · ${shoe.cushion} cushion · ${shoe.drop} drop</div>
+      ${cardBtnHtml}
+    </div>
+  `;
+  if (email && sendRec) {
+    const btn = card.querySelector('.shoe-rec-link');
+    btn.onclick = () => sendEmail(shoe, btn, row);
+  }
+  row.appendChild(card);
+  messagesEl.appendChild(row);
+
+  recommendedShoe = shoe;
+  scrollToBottom();
+}
+
+async function sendEmail(shoe, btn, row) {
+  btn.disabled = true;
+  const span = btn.querySelector('span');
+  if (span) span.textContent = 'Sending…';
+  try {
+    const userH = chatHistory.filter(m => m.role === 'user').map(m => m.content.toLowerCase()).join(' ');
+    const allH = chatHistory.map(m => m.content.toLowerCase()).join(' ');
+    const isW = userH.includes('women') || userH.includes('female');
+    let level = 'beginner';
+    if (allH.includes('marathon') || allH.includes('miles per week') || allH.includes('training plan') || allH.includes('experienced')) level = 'intermediate';
+    if (allH.includes('pr ') || allH.includes('competitive') || allH.includes('race') || allH.includes('vaporfly')) level = 'advanced';
+
+    const aiSummary = chatHistory.map(m =>
+      `${m.role === 'user' ? 'User' : 'Assistant'}: ${m.content}`
+    ).join('\n\n');
+
+    const payload = {
+      email,
+      firstName,
+      lastName,
+      sport: SPORT.name,
+      level,
+      sendRecommendation: sendRec,
+      filters: [{ name: 'gender', value: isW ? "Women's" : "Men's" }],
+      imageUrl: shoe.img.replace('wid=600&hei=600', 'wid=1100&hei=1100'),
+      productName: shoe.name.toLowerCase(),
+      productUrl: shoe.link,
+      aiSummary
+    };
+
+    const res = await fetch('https://psv1q7yhxd.execute-api.us-west-2.amazonaws.com/prod/summitpay', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    const data = await res.json();
+    if (data.accepted) {
+      window.location.href = 'https://di1ae3iseog1g.cloudfront.net/dsg/completion.html';
+    } else {
+      throw new Error('not accepted');
+    }
+  } catch (e) {
+    btn.disabled = false;
+    if (span) span.textContent = 'Retry sending';
+  }
+}
+
+// ─── Chat ─────────────────────────────────────────────────────────────────
+function startChat(question) {
+  welcomeEl.style.display = 'none';
+  inChat = true;
+  addBubble(question, 'user');
+  chatHistory.push({ role: 'user', content: question });
+  scriptedPath = question;
+  scriptedStep = 0;
+  getResponse();
+}
+
+async function getResponse() {
+  waiting = true;
+  inputEl.disabled = true;
+  showLoading();
+  if (CLAUDE_API_KEY) {
+    await getClaudeResponse();
+  } else {
+    await getScriptedResponse();
+  }
+  waiting = false;
+  inputEl.disabled = false;
+  inputEl.focus();
+}
+
+async function getClaudeResponse() {
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'x-api-key': CLAUDE_API_KEY,
+        'anthropic-version': '2023-06-01',
+        'content-type': 'application/json',
+        'anthropic-dangerous-allow-browser': 'true'
+      },
+      body: JSON.stringify({
+        model: 'claude-haiku-4-5-20251001',
+        max_tokens: 512,
+        system: SYSTEM_PROMPT,
+        messages: chatHistory
+      })
+    });
+    const data = await res.json();
+    const text = data.content?.[0]?.text || '';
+    hideLoading();
+    const recMatch = text.match(/RECOMMEND:([a-z0-9-]+)/);
+    const displayText = text.replace(/\nRECOMMEND:[a-z0-9-]+/, '').trim();
+    chatHistory.push({ role: 'assistant', content: text });
+    addBubble(displayText, 'assistant');
+    if (recMatch) {
+      const shoe = SHOES.find(s => s.id === recMatch[1]);
+      if (shoe) setTimeout(() => showShoeCard(shoe), 400);
+    } else {
+      setTimeout(() => showFollowUps(scriptedPath), 300);
+    }
+  } catch (e) {
+    hideLoading();
+    await getScriptedResponse(true);
+  }
+}
+
+async function getScriptedResponse(fallback = false) {
+  await new Promise(r => setTimeout(r, 900 + Math.random() * 600));
+  hideLoading();
+  const path = SCRIPTS[scriptedPath];
+  if (path && scriptedStep < path.length) {
+    const entry = path[scriptedStep++];
+    if (entry === null) {
+      const shoe = SHOES.find(s => s.id === pickScriptedRec()) || SHOES[0];
+      const recText = `Based on everything you've shared, ${firstName ? firstName + ', ' : ''}here is my top pick for you:`;
+      chatHistory.push({ role: 'assistant', content: recText });
+      addBubble(recText, 'assistant', []);
+      setTimeout(() => showShoeCard(shoe), 400);
+    } else {
+      const text = typeof entry === 'string' ? entry : entry.text;
+      const sources = typeof entry === 'object' && entry.sources ? entry.sources : [];
+      chatHistory.push({ role: 'assistant', content: text });
+      addBubble(text, 'assistant', sources);
+      setTimeout(() => showFollowUps(scriptedPath), 300);
+    }
+  } else {
+    const shoe = SHOES.find(s => s.id === pickScriptedRec()) || SHOES[0];
+    const recText = `${firstName ? 'Great, ' + firstName + '! ' : 'Great! '}Based on what you've told me, here is my top pick:`;
+    chatHistory.push({ role: 'assistant', content: recText });
+    addBubble(recText, 'assistant', []);
+    setTimeout(() => showShoeCard(shoe), 400);
+  }
+}
+
+function pickScriptedRec() {
+  const h = chatHistory.map(m => m.content.toLowerCase()).join(' ');
+  const userH = chatHistory.filter(m => m.role === 'user').map(m => m.content.toLowerCase()).join(' ');
+  return SPORT.pickRec(h, scriptedPath, userH) || SHOES[0].id;
+}
+
+function handleSend() {
+  const text = inputEl.value.trim();
+  if (!text || waiting) return;
+  inputEl.value = '';
+  if (!inChat) { startChat(text); return; }
+  addBubble(text, 'user');
+  chatHistory.push({ role: 'user', content: text });
+  getResponse();
+}
+
+sendBtnEl.addEventListener('click', handleSend);
+inputEl.addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSend(); } });
+starterCardsEl.addEventListener('click', e => {
+  const card = e.target.closest('.starter-card');
+  if (card && !waiting) { const q = card.getAttribute('data-q'); if (q) startChat(q); }
+});
+</script>
 </body>
 </html>
